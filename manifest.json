@@ -8,16 +8,16 @@
       "license": "MIT",
       "platforms": {
         "linux-aarch64": {
-          "url": "https://github.com/superyngo/cate/releases/download/v0.1.1/cate-linux-aarch64.tar.gz",
-          "size": 316117
+          "url": "https://github.com/superyngo/cate/releases/download/v0.1.1/cate-linux-aarch64-musl.tar.gz",
+          "size": 350687
         },
         "linux-armv7": {
-          "url": "https://github.com/superyngo/cate/releases/download/v0.1.1/cate-linux-armv7.tar.gz",
-          "size": 324227
+          "url": "https://github.com/superyngo/cate/releases/download/v0.1.1/cate-linux-armv7-musl.tar.gz",
+          "size": 340833
         },
         "linux-x86_64": {
-          "url": "https://github.com/superyngo/cate/releases/download/v0.1.1/cate-linux-x86_64.tar.gz",
-          "size": 323523
+          "url": "https://github.com/superyngo/cate/releases/download/v0.1.1/cate-linux-x86_64-musl.tar.gz",
+          "size": 365125
         },
         "macos-aarch64": {
           "url": "https://github.com/superyngo/cate/releases/download/v0.1.1/cate-macos-aarch64.tar.gz",
@@ -26,6 +26,14 @@
         "darwin-x86_64": {
           "url": "https://github.com/superyngo/cate/releases/download/v0.1.1/cate-macos-x86_64.tar.gz",
           "size": 309480
+        },
+        "windows-i686": {
+          "url": "https://github.com/superyngo/cate/releases/download/v0.1.1/cate-windows-i686.exe",
+          "size": 459776
+        },
+        "windows-x86_64": {
+          "url": "https://github.com/superyngo/cate/releases/download/v0.1.1/cate-windows-x86_64.exe",
+          "size": 513536
         }
       }
     },
@@ -37,16 +45,16 @@
       "license": "MIT",
       "platforms": {
         "linux-aarch64": {
-          "url": "https://github.com/superyngo/wedi/releases/download/v0.1.18/wedi-linux-aarch64.tar.gz",
-          "size": 448919
+          "url": "https://github.com/superyngo/wedi/releases/download/v0.1.18/wedi-linux-aarch64-musl.tar.gz",
+          "size": 485276
         },
         "linux-armv7": {
-          "url": "https://github.com/superyngo/wedi/releases/download/v0.1.18/wedi-linux-armv7.tar.gz",
-          "size": 451733
+          "url": "https://github.com/superyngo/wedi/releases/download/v0.1.18/wedi-linux-armv7-musl.tar.gz",
+          "size": 471572
         },
         "linux-x86_64": {
-          "url": "https://github.com/superyngo/wedi/releases/download/v0.1.18/wedi-linux-x86_64.tar.gz",
-          "size": 457814
+          "url": "https://github.com/superyngo/wedi/releases/download/v0.1.18/wedi-linux-x86_64-musl.tar.gz",
+          "size": 503538
         },
         "macos-aarch64": {
           "url": "https://github.com/superyngo/wedi/releases/download/v0.1.18/wedi-macos-aarch64.tar.gz",
@@ -55,6 +63,14 @@
         "darwin-x86_64": {
           "url": "https://github.com/superyngo/wedi/releases/download/v0.1.18/wedi-macos-x86_64.tar.gz",
           "size": 429333
+        },
+        "windows-i686": {
+          "url": "https://github.com/superyngo/wedi/releases/download/v0.1.18/wedi-windows-i686.exe",
+          "size": 843264
+        },
+        "windows-x86_64": {
+          "url": "https://github.com/superyngo/wedi/releases/download/v0.1.18/wedi-windows-x86_64.exe",
+          "size": 946176
         }
       }
     },
@@ -74,8 +90,8 @@
           "size": 1810687
         },
         "linux-x86_64": {
-          "url": "https://github.com/BurntSushi/ripgrep/releases/download/15.1.0/ripgrep-15.1.0-x86_64-unknown-linux-musl.tar.gz",
-          "size": 2263077
+          "url": "https://github.com/BurntSushi/ripgrep/releases/download/15.1.0/ripgrep-15.1.0-armv7-unknown-linux-musleabi.tar.gz",
+          "size": 1831202
         },
         "darwin-x86_64": {
           "url": "https://github.com/BurntSushi/ripgrep/releases/download/15.1.0/ripgrep-15.1.0-x86_64-apple-darwin.tar.gz",
@@ -99,8 +115,8 @@
           "size": 1490905
         },
         "linux-x86_64": {
-          "url": "https://github.com/sharkdp/fd/releases/download/v10.3.0/fd-v10.3.0-x86_64-unknown-linux-musl.tar.gz",
-          "size": 1759301
+          "url": "https://github.com/sharkdp/fd/releases/download/v10.3.0/fd-v10.3.0-aarch64-unknown-linux-musl.tar.gz",
+          "size": 1608477
         },
         "darwin-x86_64": {
           "url": "https://github.com/sharkdp/fd/releases/download/v10.3.0/fd-v10.3.0-x86_64-apple-darwin.tar.gz",
@@ -124,8 +140,8 @@
           "size": 3607304
         },
         "linux-x86_64": {
-          "url": "https://github.com/sharkdp/bat/releases/download/v0.26.0/bat-v0.26.0-x86_64-unknown-linux-musl.tar.gz",
-          "size": 3579781
+          "url": "https://github.com/sharkdp/bat/releases/download/v0.26.0/bat-v0.26.0-aarch64-unknown-linux-musl.tar.gz",
+          "size": 3387869
         },
         "darwin-x86_64": {
           "url": "https://github.com/sharkdp/bat/releases/download/v0.26.0/bat-v0.26.0-x86_64-apple-darwin.tar.gz",
@@ -145,8 +161,8 @@
           "size": 434542
         },
         "linux-x86_64": {
-          "url": "https://github.com/sharkdp/hexyl/releases/download/v0.16.0/hexyl-v0.16.0-x86_64-unknown-linux-musl.tar.gz",
-          "size": 533131
+          "url": "https://github.com/sharkdp/hexyl/releases/download/v0.16.0/hexyl-v0.16.0-arm-unknown-linux-musleabihf.tar.gz",
+          "size": 529508
         },
         "windows-x86_64": {
           "url": "https://github.com/sharkdp/hexyl/releases/download/v0.16.0/hexyl-v0.16.0-x86_64-pc-windows-msvc.zip",
@@ -170,8 +186,8 @@
           "size": 582508
         },
         "linux-x86_64": {
-          "url": "https://github.com/sharkdp/hyperfine/releases/download/v1.20.0/hyperfine-v1.20.0-x86_64-unknown-linux-musl.tar.gz",
-          "size": 710161
+          "url": "https://github.com/sharkdp/hyperfine/releases/download/v1.20.0/hyperfine-v1.20.0-arm-unknown-linux-musleabihf.tar.gz",
+          "size": 670324
         },
         "windows-x86_64": {
           "url": "https://github.com/sharkdp/hyperfine/releases/download/v1.20.0/hyperfine-v1.20.0-x86_64-pc-windows-msvc.zip",
@@ -224,8 +240,8 @@
           "size": 547884
         },
         "linux-x86_64": {
-          "url": "https://github.com/ajeetdsouza/zoxide/releases/download/v0.9.8/zoxide-0.9.8-x86_64-unknown-linux-musl.tar.gz",
-          "size": 586553
+          "url": "https://github.com/ajeetdsouza/zoxide/releases/download/v0.9.8/zoxide-0.9.8-aarch64-unknown-linux-musl.tar.gz",
+          "size": 550032
         },
         "darwin-x86_64": {
           "url": "https://github.com/ajeetdsouza/zoxide/releases/download/v0.9.8/zoxide-0.9.8-x86_64-apple-darwin.tar.gz",
@@ -249,8 +265,8 @@
           "size": 1855095
         },
         "linux-x86_64": {
-          "url": "https://github.com/ClementTsang/bottom/releases/download/0.11.4/bottom_x86_64-unknown-linux-musl.tar.gz",
-          "size": 2165774
+          "url": "https://github.com/ClementTsang/bottom/releases/download/0.11.4/bottom_aarch64-unknown-linux-musl.tar.gz",
+          "size": 1934148
         },
         "darwin-x86_64": {
           "url": "https://github.com/ClementTsang/bottom/releases/download/0.11.4/bottom_x86_64-apple-darwin.tar.gz",
@@ -274,8 +290,8 @@
           "size": 4482280
         },
         "linux-x86_64": {
-          "url": "https://github.com/starship/starship/releases/download/v1.24.1/starship-x86_64-unknown-linux-musl.tar.gz",
-          "size": 5025658
+          "url": "https://github.com/starship/starship/releases/download/v1.24.1/starship-aarch64-unknown-linux-musl.tar.gz",
+          "size": 4608359
         },
         "darwin-x86_64": {
           "url": "https://github.com/starship/starship/releases/download/v1.24.1/starship-x86_64-apple-darwin.tar.gz",
@@ -284,5 +300,5 @@
       }
     }
   ],
-  "last_updated": "2025-11-20T03:54:20Z"
+  "last_updated": "2025-11-20T06:45:19Z"
 }
