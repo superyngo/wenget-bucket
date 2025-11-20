@@ -13,8 +13,8 @@ from typing import Dict, List, Any
 class ManifestValidator:
     """Validate manifest.json structure and content"""
 
-    REQUIRED_PACKAGE_FIELDS = ['name', 'description', 'repo', 'platforms']
-    REQUIRED_PLATFORM_FIELDS = ['url', 'size']
+    REQUIRED_PACKAGE_FIELDS = ["name", "description", "repo", "platforms"]
+    REQUIRED_PLATFORM_FIELDS = ["url", "size"]
 
     def __init__(self, manifest_file: str):
         self.manifest_file = manifest_file
@@ -47,11 +47,34 @@ class ManifestValidator:
         return len(self.errors) == 0
 
     def _load_manifest(self) -> bool:
-        """Load and parse manifest file"""
+        """Load and parse manifest file (support object with packages/last_updated)"""
         try:
-            with open(self.manifest_file, 'r', encoding='utf-8') as f:
-                self.packages = json.load(f)
+            with open(self.manifest_file, "r", encoding="utf-8") as f:
+                manifest_obj = json.load(f)
             print(f"✓ Loaded {self.manifest_file}")
+            if isinstance(manifest_obj, dict):
+                if "packages" in manifest_obj:
+                    self.packages = manifest_obj["packages"]
+                    # Optional: check last_updated
+                    last_updated = manifest_obj.get("last_updated")
+                    if not last_updated:
+                        self.warnings.append("Missing 'last_updated' field in manifest")
+                    elif not isinstance(last_updated, str):
+                        self.warnings.append("'last_updated' field should be a string")
+                else:
+                    self.errors.append("Manifest object missing 'packages' field")
+                    return False
+            elif isinstance(manifest_obj, list):
+                # Legacy format
+                self.packages = manifest_obj
+                self.warnings.append(
+                    "Manifest is array, not object. Consider updating format."
+                )
+            else:
+                self.errors.append(
+                    "Manifest must be an object with 'packages' array or a package array"
+                )
+                return False
             return True
         except FileNotFoundError:
             self.errors.append(f"File not found: {self.manifest_file}")
@@ -66,15 +89,14 @@ class ManifestValidator:
     def _validate_structure(self):
         """Validate overall manifest structure"""
         if not isinstance(self.packages, list):
-            self.errors.append("Manifest must be an array of packages")
+            self.errors.append("'packages' must be an array")
             return
-
         if len(self.packages) == 0:
-            self.warnings.append("Manifest is empty")
+            self.warnings.append("Manifest 'packages' array is empty")
 
     def _validate_package(self, package: Dict[str, Any], index: int):
         """Validate individual package"""
-        pkg_id = package.get('name', f'package[{index}]')
+        pkg_id = package.get("name", f"package[{index}]")
 
         # Check required fields
         for field in self.REQUIRED_PACKAGE_FIELDS:
@@ -82,36 +104,36 @@ class ManifestValidator:
                 self.errors.append(f"{pkg_id}: Missing required field '{field}'")
 
         # Validate name
-        if 'name' in package:
-            if not isinstance(package['name'], str) or not package['name']:
+        if "name" in package:
+            if not isinstance(package["name"], str) or not package["name"]:
                 self.errors.append(f"{pkg_id}: Invalid name")
 
         # Validate description
-        if 'description' in package:
-            if not isinstance(package['description'], str):
+        if "description" in package:
+            if not isinstance(package["description"], str):
                 self.errors.append(f"{pkg_id}: Invalid description")
 
         # Validate repo URL
-        if 'repo' in package:
-            repo = package['repo']
+        if "repo" in package:
+            repo = package["repo"]
             if not isinstance(repo, str):
                 self.errors.append(f"{pkg_id}: Invalid repo URL")
-            elif not repo.startswith('https://github.com/'):
+            elif not repo.startswith("https://github.com/"):
                 self.warnings.append(f"{pkg_id}: Repo URL not from GitHub")
 
         # Validate homepage (optional)
-        if 'homepage' in package and package['homepage']:
-            if not isinstance(package['homepage'], str):
+        if "homepage" in package and package["homepage"]:
+            if not isinstance(package["homepage"], str):
                 self.errors.append(f"{pkg_id}: Invalid homepage")
 
         # Validate license (optional)
-        if 'license' in package and package['license']:
-            if not isinstance(package['license'], str):
+        if "license" in package and package["license"]:
+            if not isinstance(package["license"], str):
                 self.warnings.append(f"{pkg_id}: Invalid license format")
 
         # Validate platforms
-        if 'platforms' in package:
-            self._validate_platforms(package['platforms'], pkg_id)
+        if "platforms" in package:
+            self._validate_platforms(package["platforms"], pkg_id)
         else:
             self.errors.append(f"{pkg_id}: Missing platforms")
 
@@ -129,10 +151,14 @@ class ManifestValidator:
         for platform_id, platform_data in platforms.items():
             self._validate_platform(platform_data, pkg_id, platform_id)
 
-    def _validate_platform(self, platform: Dict[str, Any], pkg_id: str, platform_id: str):
+    def _validate_platform(
+        self, platform: Dict[str, Any], pkg_id: str, platform_id: str
+    ):
         """Validate individual platform"""
         if not isinstance(platform, dict):
-            self.errors.append(f"{pkg_id}/{platform_id}: Platform data must be an object")
+            self.errors.append(
+                f"{pkg_id}/{platform_id}: Platform data must be an object"
+            )
             return
 
         # Check required fields
@@ -141,28 +167,28 @@ class ManifestValidator:
                 self.errors.append(f"{pkg_id}/{platform_id}: Missing '{field}'")
 
         # Validate URL
-        if 'url' in platform:
-            url = platform['url']
+        if "url" in platform:
+            url = platform["url"]
             if not isinstance(url, str):
                 self.errors.append(f"{pkg_id}/{platform_id}: Invalid URL")
-            elif not url.startswith('https://'):
+            elif not url.startswith("https://"):
                 self.warnings.append(f"{pkg_id}/{platform_id}: URL not using HTTPS")
 
         # Validate size
-        if 'size' in platform:
-            size = platform['size']
+        if "size" in platform:
+            size = platform["size"]
             if not isinstance(size, int) or size <= 0:
                 self.errors.append(f"{pkg_id}/{platform_id}: Invalid size")
 
         # Validate checksum (optional)
-        if 'checksum' in platform:
-            checksum = platform['checksum']
+        if "checksum" in platform:
+            checksum = platform["checksum"]
             if not isinstance(checksum, str):
                 self.warnings.append(f"{pkg_id}/{platform_id}: Invalid checksum format")
 
     def _check_duplicates(self):
         """Check for duplicate package names"""
-        names = [pkg.get('name') for pkg in self.packages if 'name' in pkg]
+        names = [pkg.get("name") for pkg in self.packages if "name" in pkg]
         duplicates = set([name for name in names if names.count(name) > 1])
 
         for dup in duplicates:
@@ -187,7 +213,9 @@ class ManifestValidator:
             print(f"   • {len(self.packages)} package(s)")
 
             # Count total platforms
-            total_platforms = sum(len(pkg.get('platforms', {})) for pkg in self.packages)
+            total_platforms = sum(
+                len(pkg.get("platforms", {})) for pkg in self.packages
+            )
             print(f"   • {total_platforms} platform binaries")
 
         print()
@@ -197,14 +225,12 @@ def main():
     """Main entry point"""
     import argparse
 
-    parser = argparse.ArgumentParser(
-        description='Validate WenPM bucket manifest'
-    )
+    parser = argparse.ArgumentParser(description="Validate WenPM bucket manifest")
     parser.add_argument(
-        'manifest',
-        nargs='?',
-        default='manifest.json',
-        help='Manifest file to validate (default: manifest.json)'
+        "manifest",
+        nargs="?",
+        default="manifest.json",
+        help="Manifest file to validate (default: manifest.json)",
     )
 
     args = parser.parse_args()
@@ -215,5 +241,5 @@ def main():
     sys.exit(0 if success else 1)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
