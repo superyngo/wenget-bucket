@@ -6,6 +6,10 @@
 #
 # Format: https://github.com/OWNER/REPO
 
+# === wen's tools ===
+https://github.com/superyngo/cate
+https://github.com/superyngo/wedi
+
 # === Search & Find ===
 https://github.com/BurntSushi/ripgrep
 https://github.com/sharkdp/fd
