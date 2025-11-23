@@ -15,6 +15,12 @@ from urllib.request import Request, urlopen
 from urllib.error import HTTPError, URLError
 from typing import Dict, List, Optional, Any
 
+# Fix Windows console encoding
+if sys.platform == "win32":
+    import io
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+    sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8')
+
 # Configuration
 GITHUB_API_BASE = "https://api.github.com"
 RATE_LIMIT_DELAY = 1  # seconds between requests
@@ -115,6 +121,19 @@ class PlatformDetector:
         ],
         "linux-armv7": [
             r"linux.*armv7|armv7.*linux|linux.*arm7",
+        ],
+        "linux-armv6": [
+            r"linux.*armv6|armv6.*linux|linux.*arm6",
+            r"arm.*unknown-linux-gnueabihf",
+        ],
+        "linux-i686": [
+            r"linux.*i686|i686.*linux",
+            r"i686.*unknown-linux-gnu",
+            r"i686.*unknown-linux-musl",
+        ],
+        "freebsd-x86_64": [
+            r"freebsd.*x86_64|x86_64.*freebsd|freebsd.*amd64",
+            r"x86_64.*unknown-freebsd",
         ],
         "darwin-x86_64": [
             r"darwin.*x86_64|x86_64.*darwin|macos.*x86_64|osx.*x86_64",
