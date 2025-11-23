@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Test script for WenPM bucket development tools
+# Test script for Wenget bucket development tools
 # Tests all scripts and validates the workflow
 #
 
@@ -9,7 +9,7 @@ set -e  # Exit on error
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
 
-echo "🧪 WenPM Bucket Development Tools - Test Suite"
+echo "🧪 Wenget Bucket Development Tools - Test Suite"
 echo "=" | tr '=' '\n' | head -50 | tr '\n' '='
 echo ""
 

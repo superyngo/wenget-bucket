@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-WenPM Bucket Manifest Validator
+Wenget Bucket Manifest Validator
 
 Validates manifest.json format and content
 """
@@ -24,7 +24,7 @@ class ManifestValidator:
 
     def validate(self) -> bool:
         """Validate manifest file"""
-        print("🔍 WenPM Bucket Manifest Validator")
+        print("🔍 Wenget Bucket Manifest Validator")
         print("=" * 50)
 
         # Load manifest
@@ -225,7 +225,7 @@ def main():
     """Main entry point"""
     import argparse
 
-    parser = argparse.ArgumentParser(description="Validate WenPM bucket manifest")
+    parser = argparse.ArgumentParser(description="Validate Wenget bucket manifest")
     parser.add_argument(
         "manifest",
         nargs="?",

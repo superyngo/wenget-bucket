@@ -1,23 +1,23 @@
-# WenPM Bucket
+# Wenget Bucket
 
-A curated collection of CLI tools for [WenPM](https://github.com/superyngo/WenPM).
+A curated collection of CLI tools for [Wenget](https://github.com/superyngo/Wenget).
 
 ## 📦 Usage
 
-Add this bucket to WenPM:
+Add this bucket to Wenget:
 
 ```bash
-wenpm bucket add superyngo https://raw.githubusercontent.com/superyngo/wenpm-bucket/main/manifest.json
+wenget bucket add superyngo https://raw.githubusercontent.com/superyngo/wenget-bucket/main/manifest.json
 ```
 
 ## 🔍 Search and Install Packages
 
 ```bash
 # Search for packages
-wenpm search ripgrep
+wenget search ripgrep
 
 # Install packages
-wenpm add ripgrep fd bat
+wenget add ripgrep fd bat
 ```
 
 ## 📊 Statistics
@@ -71,5 +71,5 @@ Individual packages have their own licenses - check each package's repository.
 
 ## 🔗 Links
 
-- **WenPM**: https://github.com/superyngo/WenPM
-- **Issues**: https://github.com/superyngo/wenpm-bucket/issues
+- **Wenget**: https://github.com/superyngo/Wenget
+- **Issues**: https://github.com/superyngo/wenget-bucket/issues

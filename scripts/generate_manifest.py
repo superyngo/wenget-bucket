@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """
-WenPM Bucket Manifest Generator
+Wenget Bucket Manifest Generator
 
 Lightweight script to generate manifest.json from sources.txt
-Fetches package information from GitHub API without installing WenPM
+Fetches package information from GitHub API without installing Wenget
 """
 
 import os
@@ -34,7 +34,7 @@ class GitHubAPI:
         """Make HTTP request to GitHub API"""
         headers = {
             "Accept": "application/vnd.github.v3+json",
-            "User-Agent": "WenPM-Bucket-Generator/1.0",
+            "User-Agent": "Wenget-Bucket-Generator/1.0",
         }
 
         if self.token:
@@ -271,7 +271,7 @@ class ManifestGenerator:
 
     def generate(self, sources_file: str, output_file: str):
         """Generate manifest.json from sources.txt"""
-        print("🚀 WenPM Bucket Manifest Generator")
+        print("🚀 Wenget Bucket Manifest Generator")
         print("=" * 50)
 
         # Load sources
@@ -329,7 +329,7 @@ def main():
     import argparse
 
     parser = argparse.ArgumentParser(
-        description="Generate WenPM bucket manifest from sources"
+        description="Generate Wenget bucket manifest from sources"
     )
     parser.add_argument(
         "sources",
