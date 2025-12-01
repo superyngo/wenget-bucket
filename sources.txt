@@ -9,6 +9,7 @@
 # === wen's tools ===
 https://github.com/superyngo/cate
 https://github.com/superyngo/wedi
+https://github.com/superyngo/Weni
 
 # === Search & Find ===
 https://github.com/BurntSushi/ripgrep
