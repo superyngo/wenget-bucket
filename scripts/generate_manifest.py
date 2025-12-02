@@ -113,17 +113,22 @@ class PlatformDetector:
         ],
         "linux-x86_64": [
             r"linux.*x86_64|x86_64.*linux|linux.*amd64",
-            r"unknown-linux-gnu",
-            r"unknown-linux-musl",
+            r"x86_64.*unknown-linux-gnu",
+            r"x86_64.*unknown-linux-musl",
         ],
         "linux-aarch64": [
             r"linux.*aarch64|aarch64.*linux|linux.*arm64",
+            r"aarch64.*unknown-linux-musl",
+            r"aarch64.*unknown-linux-gnu",
         ],
         "linux-armv7": [
             r"linux.*armv7|armv7.*linux|linux.*arm7",
+            r"armv7.*unknown-linux-musleabihf",
+            r"armv7.*unknown-linux-gnueabihf",
         ],
         "linux-armv6": [
             r"linux.*armv6|armv6.*linux|linux.*arm6",
+            r"arm.*unknown-linux-musleabihf",
             r"arm.*unknown-linux-gnueabihf",
         ],
         "linux-i686": [
