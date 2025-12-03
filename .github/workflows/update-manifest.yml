@@ -8,10 +8,11 @@ on:
   # Allow manual trigger
   workflow_dispatch:
 
-  # Trigger when sources.txt changes
+  # Trigger when source files change
   push:
     paths:
-      - 'sources.txt'
+      - 'sources_repos.txt'
+      - 'sources_scripts.txt'
       - 'scripts/**'
 
 jobs:
@@ -31,7 +32,7 @@ jobs:
 
       - name: Generate manifest
         run: |
-          python scripts/generate_manifest.py sources.txt -o manifest.json
+          python scripts/generate_manifest.py sources_repos.txt -s sources_scripts.txt -o manifest.json
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -59,13 +60,13 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          # Count packages
-          PACKAGE_COUNT=$(python -c "import json; print(len(json.load(open('manifest.json'))))")
+          # Count packages and scripts
+          COUNTS=$(python -c "import json; data=json.load(open('manifest.json')); print(f\"{len(data.get('packages', []))} packages, {len(data.get('scripts', []))} scripts\")")
 
           git add manifest.json
           git commit -m "chore: Update manifest - $(date -u +%Y-%m-%d)
 
-          - Total packages: $PACKAGE_COUNT
+          - Total: $COUNTS
           - Trigger: ${{ github.event_name }}
           - Updated by: GitHub Actions
 
@@ -75,11 +76,13 @@ jobs:
       - name: Create summary
         if: always()
         run: |
-          PACKAGE_COUNT=$(python -c "import json; print(len(json.load(open('manifest.json'))))" 2>/dev/null || echo "N/A")
+          PACKAGE_COUNT=$(python -c "import json; data=json.load(open('manifest.json')); print(len(data.get('packages', [])))" 2>/dev/null || echo "N/A")
+          SCRIPT_COUNT=$(python -c "import json; data=json.load(open('manifest.json')); print(len(data.get('scripts', [])))" 2>/dev/null || echo "N/A")
 
           echo "## 📦 Manifest Update Summary" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "- **Packages**: $PACKAGE_COUNT" >> $GITHUB_STEP_SUMMARY
+          echo "- **Scripts**: $SCRIPT_COUNT" >> $GITHUB_STEP_SUMMARY
           echo "- **Changes**: ${{ steps.changes.outputs.changed }}" >> $GITHUB_STEP_SUMMARY
           echo "- **Trigger**: ${{ github.event_name }}" >> $GITHUB_STEP_SUMMARY
           echo "- **Date**: $(date -u +%Y-%m-%d\ %H:%M:%S\ UTC)" >> $GITHUB_STEP_SUMMARY
