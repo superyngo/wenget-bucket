@@ -453,5 +453,28 @@
       }
     }
   ],
-  "last_updated": "2025-12-03T03:17:27Z"
+  "last_updated": "2025-12-03T03:28:34Z",
+  "scripts": [
+    {
+      "name": "mini-nano",
+      "description": "Shell and PowerShell utility scripts",
+      "url": "https://gist.githubusercontent.com/superyngo/c77bbbf67759cc4213aac12ebe980225/raw/88dcfe240a85f1520b02df278e16f52222df285e/mini-nano.ps1",
+      "script_type": "powershell",
+      "repo": "https://gist.github.com/superyngo/c77bbbf67759cc4213aac12ebe980225"
+    },
+    {
+      "name": "rclonemm",
+      "description": "Shell and PowerShell utility scripts",
+      "url": "https://gist.githubusercontent.com/superyngo/c77bbbf67759cc4213aac12ebe980225/raw/2a15c6b1e07424300146ba49b25d3cffa9cfe25b/rclonemm.sh",
+      "script_type": "bash",
+      "repo": "https://gist.github.com/superyngo/c77bbbf67759cc4213aac12ebe980225"
+    },
+    {
+      "name": "reformat_ventoy",
+      "description": "Shell and PowerShell utility scripts",
+      "url": "https://gist.githubusercontent.com/superyngo/c77bbbf67759cc4213aac12ebe980225/raw/5b190af8efdc378a813350c59f586d4ec7d83b97/reformat_ventoy.sh",
+      "script_type": "bash",
+      "repo": "https://gist.github.com/superyngo/c77bbbf67759cc4213aac12ebe980225"
+    }
+  ]
 }
