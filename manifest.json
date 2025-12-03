@@ -150,13 +150,13 @@
           "url": "https://github.com/BurntSushi/ripgrep/releases/download/15.1.0/ripgrep-15.1.0-i686-unknown-linux-gnu.tar.gz",
           "size": 1950407
         },
-        "darwin-x86_64": {
-          "url": "https://github.com/BurntSushi/ripgrep/releases/download/15.1.0/ripgrep-15.1.0-x86_64-apple-darwin.tar.gz",
-          "size": 1894127
-        },
         "linux-x86_64": {
           "url": "https://github.com/BurntSushi/ripgrep/releases/download/15.1.0/ripgrep-15.1.0-x86_64-unknown-linux-musl.tar.gz",
           "size": 2263077
+        },
+        "darwin-x86_64": {
+          "url": "https://github.com/BurntSushi/ripgrep/releases/download/15.1.0/ripgrep-15.1.0-x86_64-apple-darwin.tar.gz",
+          "size": 1894127
         }
       }
     },
@@ -319,13 +319,25 @@
           "url": "https://github.com/gitui-org/gitui/releases/download/v0.27.0/gitui-linux-aarch64.tar.gz",
           "size": 5916903
         },
+        "linux-x86_64": {
+          "url": "https://github.com/gitui-org/gitui/releases/download/v0.27.0/gitui-linux-arm.tar.gz",
+          "size": 5108968
+        },
         "linux-armv7": {
           "url": "https://github.com/gitui-org/gitui/releases/download/v0.27.0/gitui-linux-armv7.tar.gz",
           "size": 5078574
         },
-        "linux-x86_64": {
-          "url": "https://github.com/gitui-org/gitui/releases/download/v0.27.0/gitui-linux-x86_64.tar.gz",
-          "size": 5784977
+        "darwin-x86_64": {
+          "url": "https://github.com/gitui-org/gitui/releases/download/v0.27.0/gitui-mac-x86.tar.gz",
+          "size": 4770264
+        },
+        "darwin-aarch64": {
+          "url": "https://github.com/gitui-org/gitui/releases/download/v0.27.0/gitui-mac.tar.gz",
+          "size": 4999134
+        },
+        "windows-x86_64": {
+          "url": "https://github.com/gitui-org/gitui/releases/download/v0.27.0/gitui-win.tar.gz",
+          "size": 3674248
         }
       }
     },
@@ -397,6 +409,10 @@
           "url": "https://github.com/ClementTsang/bottom/releases/download/0.11.4/bottom_i686-unknown-linux-musl.tar.gz",
           "size": 2108588
         },
+        "linux-x86_64": {
+          "url": "https://github.com/ClementTsang/bottom/releases/download/0.11.4/bottom_x86_64-unknown-linux-musl.tar.gz",
+          "size": 2165774
+        },
         "darwin-x86_64": {
           "url": "https://github.com/ClementTsang/bottom/releases/download/0.11.4/bottom_x86_64-apple-darwin.tar.gz",
           "size": 1933486
@@ -404,10 +420,6 @@
         "freebsd-x86_64": {
           "url": "https://github.com/ClementTsang/bottom/releases/download/0.11.4/bottom_x86_64-unknown-freebsd-15.0.tar.gz",
           "size": 2066600
-        },
-        "linux-x86_64": {
-          "url": "https://github.com/ClementTsang/bottom/releases/download/0.11.4/bottom_x86_64-unknown-linux-musl.tar.gz",
-          "size": 2165774
         }
       }
     },
@@ -453,7 +465,7 @@
       }
     }
   ],
-  "last_updated": "2025-12-03T03:28:34Z",
+  "last_updated": "2025-12-03T07:00:56Z",
   "scripts": [
     {
       "name": "mini-nano",
