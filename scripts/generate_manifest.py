@@ -61,9 +61,20 @@ class GitHubAPI:
                     return data
 
             except HTTPError as e:
-                if e.code == 403:  # Rate limit
-                    print(f"⚠️  Rate limit hit. Waiting {RETRY_DELAY}s...")
-                    time.sleep(RETRY_DELAY)
+                if e.code == 403:
+                    # Check if it's actually rate limit or permission issue
+                    error_body = e.read().decode('utf-8') if hasattr(e, 'read') else ''
+                    if 'rate limit' in error_body.lower() or self.rate_limit_remaining == '0':
+                        print(f"⚠️  Rate limit exceeded. Remaining: {self.rate_limit_remaining}")
+                        print(f"   Waiting {RETRY_DELAY}s before retry...")
+                    else:
+                        print(f"⚠️  Permission denied (403): {url}")
+                        print(f"   This might be a private resource or authentication issue")
+
+                    if attempt < MAX_RETRIES - 1:
+                        time.sleep(RETRY_DELAY)
+                    else:
+                        raise
                 elif e.code == 404:
                     raise ValueError(f"Repository not found: {url}")
                 else:
@@ -376,7 +387,32 @@ class ManifestGenerator:
         print("🚀 Wenget Bucket Manifest Generator")
         print("=" * 50)
 
-        # Load package sources
+        # Load script sources FIRST (to avoid rate limit issues)
+        print(f"\n📖 Loading script sources from {sources_scripts_file}...")
+        gist_urls = self.load_sources(sources_scripts_file)
+        print(f"✓ Found {len(gist_urls)} gists")
+
+        # Fetch script info FIRST
+        if gist_urls:
+            print(f"\n📜 Fetching script information...")
+            for i, url in enumerate(gist_urls, 1):
+                print(f"\n[{i}/{len(gist_urls)}] {url}")
+
+                scripts = self.fetch_gist_scripts(url)
+                if scripts:
+                    self.scripts.extend(scripts)
+                    for script in scripts:
+                        print(f"   ✓ {script['name']} ({script['script_type']})")
+
+                # Rate limiting
+                if i < len(gist_urls):
+                    time.sleep(RATE_LIMIT_DELAY)
+
+                # Show rate limit status periodically
+                if i % 10 == 0:
+                    self.api.check_rate_limit()
+
+        # Load package sources AFTER scripts
         print(f"\n📖 Loading package sources from {sources_file}...")
         urls = self.load_sources(sources_file)
         print(f"✓ Found {len(urls)} repositories")
@@ -398,31 +434,6 @@ class ManifestGenerator:
             # Show rate limit status periodically
             if i % 10 == 0:
                 self.api.check_rate_limit()
-
-        # Load script sources
-        print(f"\n📖 Loading script sources from {sources_scripts_file}...")
-        gist_urls = self.load_sources(sources_scripts_file)
-        print(f"✓ Found {len(gist_urls)} gists")
-
-        # Fetch script info
-        if gist_urls:
-            print(f"\n📜 Fetching script information...")
-            for i, url in enumerate(gist_urls, 1):
-                print(f"\n[{i}/{len(gist_urls)}] {url}")
-
-                scripts = self.fetch_gist_scripts(url)
-                if scripts:
-                    self.scripts.extend(scripts)
-                    for script in scripts:
-                        print(f"   ✓ {script['name']} ({script['script_type']})")
-
-                # Rate limiting
-                if i < len(gist_urls):
-                    time.sleep(RATE_LIMIT_DELAY)
-
-                # Show rate limit status periodically
-                if i % 10 == 0:
-                    self.api.check_rate_limit()
 
         # Save manifest
         print(f"\n💾 Saving manifest to {output_file}...")
