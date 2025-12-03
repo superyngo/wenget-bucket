@@ -172,7 +172,7 @@ class PlatformDetector:
     # These patterns only match OS without specific architecture info
     FALLBACK_PATTERNS = {
         "windows-x86_64": [
-            r"(?:^|[_-])win(?:dows)?(?:[_.-]|\.tar|\.zip|\.msi|\.exe)",  # win.tar.gz, -win.zip, win.msi
+            r"(?:^|[_-])win(?:dows)?(?:[_.-]|\.tar|\.zip|\.exe)",  # win.tar.gz, -win.zip
         ],
         "linux-x86_64": [
             r"(?:^|[_-])linux(?:[_.-]|\.tar|\.zip)",  # linux.tar.gz, -linux.zip
@@ -183,7 +183,7 @@ class PlatformDetector:
     }
 
     # Archive extensions (including standalone executables)
-    ARCHIVE_EXTENSIONS = [".tar.gz", ".tgz", ".zip", ".tar.xz", ".tar.bz2", ".exe", ".msi"]
+    ARCHIVE_EXTENSIONS = [".tar.gz", ".tgz", ".zip", ".tar.xz", ".tar.bz2", ".exe"]
 
     @classmethod
     def get_linux_variant_priority(cls, filename: str) -> int:
