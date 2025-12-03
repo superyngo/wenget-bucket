@@ -197,6 +197,7 @@ class ManifestGenerator:
     def __init__(self, github_token: Optional[str] = None):
         self.api = GitHubAPI(github_token)
         self.packages = []
+        self.scripts = []
 
     def parse_github_url(self, url: str) -> Optional[tuple]:
         """Parse GitHub URL to extract owner and repo"""
@@ -211,6 +212,80 @@ class ManifestGenerator:
                 return match.group(1), match.group(2)
 
         return None
+
+    def parse_gist_url(self, url: str) -> Optional[str]:
+        """Parse Gist URL to extract gist ID"""
+        patterns = [
+            r"gist\.github\.com/[^/]+/([a-f0-9]+)",
+            r"gist\.githubusercontent\.com/[^/]+/([a-f0-9]+)",
+        ]
+
+        for pattern in patterns:
+            match = re.search(pattern, url)
+            if match:
+                return match.group(1)
+
+        return None
+
+    def detect_script_type(self, filename: str) -> Optional[str]:
+        """Detect script type from filename extension"""
+        ext_map = {
+            ".ps1": "powershell",
+            ".sh": "bash",
+            ".bat": "batch",
+            ".cmd": "batch",
+            ".py": "python",
+        }
+
+        for ext, script_type in ext_map.items():
+            if filename.lower().endswith(ext):
+                return script_type
+
+        return None
+
+    def fetch_gist_scripts(self, url: str) -> List[Dict[str, Any]]:
+        """Fetch script information from GitHub Gist"""
+        gist_id = self.parse_gist_url(url)
+        if not gist_id:
+            print(f"⚠️  Invalid Gist URL: {url}")
+            return []
+
+        try:
+            # Get gist info
+            gist_url = f"{GITHUB_API_BASE}/gists/{gist_id}"
+            gist_data = self.api._make_request(gist_url)
+
+            scripts = []
+            files = gist_data.get("files", {})
+
+            for filename, file_info in files.items():
+                script_type = self.detect_script_type(filename)
+                if not script_type:
+                    print(f"   ⚠️  Skipping non-script file: {filename}")
+                    continue
+
+                # Remove extension from script name
+                name = filename
+                for ext in [".ps1", ".sh", ".bat", ".cmd", ".py"]:
+                    if name.endswith(ext):
+                        name = name[:-len(ext)]
+                        break
+
+                script = {
+                    "name": name,
+                    "description": gist_data.get("description") or f"{filename} from gist",
+                    "url": file_info["raw_url"],
+                    "script_type": script_type,
+                    "repo": gist_data["html_url"],
+                }
+
+                scripts.append(script)
+
+            return scripts
+
+        except Exception as e:
+            print(f"❌ Error fetching gist {gist_id}: {e}")
+            return []
 
     def fetch_package_info(self, url: str) -> Optional[Dict[str, Any]]:
         """Fetch package information from GitHub"""
@@ -281,8 +356,11 @@ class ManifestGenerator:
             return None
 
     def load_sources(self, sources_file: str) -> List[str]:
-        """Load GitHub URLs from sources.txt"""
+        """Load GitHub URLs from sources file"""
         urls = []
+
+        if not sources_file or not os.path.exists(sources_file):
+            return urls
 
         with open(sources_file, "r", encoding="utf-8") as f:
             for line in f:
@@ -293,13 +371,13 @@ class ManifestGenerator:
 
         return urls
 
-    def generate(self, sources_file: str, output_file: str):
-        """Generate manifest.json from sources.txt"""
+    def generate(self, sources_file: str, sources_scripts_file: str, output_file: str):
+        """Generate manifest.json from sources files"""
         print("🚀 Wenget Bucket Manifest Generator")
         print("=" * 50)
 
-        # Load sources
-        print(f"\n📖 Loading sources from {sources_file}...")
+        # Load package sources
+        print(f"\n📖 Loading package sources from {sources_file}...")
         urls = self.load_sources(sources_file)
         print(f"✓ Found {len(urls)} repositories")
 
@@ -321,12 +399,42 @@ class ManifestGenerator:
             if i % 10 == 0:
                 self.api.check_rate_limit()
 
+        # Load script sources
+        print(f"\n📖 Loading script sources from {sources_scripts_file}...")
+        gist_urls = self.load_sources(sources_scripts_file)
+        print(f"✓ Found {len(gist_urls)} gists")
+
+        # Fetch script info
+        if gist_urls:
+            print(f"\n📜 Fetching script information...")
+            for i, url in enumerate(gist_urls, 1):
+                print(f"\n[{i}/{len(gist_urls)}] {url}")
+
+                scripts = self.fetch_gist_scripts(url)
+                if scripts:
+                    self.scripts.extend(scripts)
+                    for script in scripts:
+                        print(f"   ✓ {script['name']} ({script['script_type']})")
+
+                # Rate limiting
+                if i < len(gist_urls):
+                    time.sleep(RATE_LIMIT_DELAY)
+
+                # Show rate limit status periodically
+                if i % 10 == 0:
+                    self.api.check_rate_limit()
+
         # Save manifest
         print(f"\n💾 Saving manifest to {output_file}...")
         manifest_obj = {
             "packages": self.packages,
             "last_updated": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
         }
+
+        # Add scripts if any
+        if self.scripts:
+            manifest_obj["scripts"] = self.scripts
+
         with open(output_file, "w", encoding="utf-8") as f:
             json.dump(manifest_obj, f, indent=2, ensure_ascii=False)
 
@@ -334,6 +442,7 @@ class ManifestGenerator:
         print("\n" + "=" * 50)
         print("✅ Generation complete!")
         print(f"   Total packages: {len(self.packages)}/{len(urls)}")
+        print(f"   Total scripts: {len(self.scripts)}")
         print(f"   Output file: {output_file}")
 
         # Platform statistics
@@ -347,6 +456,17 @@ class ManifestGenerator:
             for platform, count in sorted(platform_stats.items()):
                 print(f"   {platform}: {count} packages")
 
+        # Script type statistics
+        if self.scripts:
+            script_type_stats = {}
+            for script in self.scripts:
+                script_type = script["script_type"]
+                script_type_stats[script_type] = script_type_stats.get(script_type, 0) + 1
+
+            print("\n📜 Script types:")
+            for script_type, count in sorted(script_type_stats.items()):
+                print(f"   {script_type}: {count} scripts")
+
 
 def main():
     """Main entry point"""
@@ -358,8 +478,14 @@ def main():
     parser.add_argument(
         "sources",
         nargs="?",
-        default="sources.txt",
-        help="Source file containing GitHub URLs (default: sources.txt)",
+        default="sources_repos.txt",
+        help="Source file containing GitHub repository URLs (default: sources_repos.txt)",
+    )
+    parser.add_argument(
+        "-s",
+        "--scripts",
+        default="sources_scripts.txt",
+        help="Source file containing Gist URLs for scripts (default: sources_scripts.txt)",
     )
     parser.add_argument(
         "-o",
@@ -383,7 +509,7 @@ def main():
     # Generate manifest
     try:
         generator = ManifestGenerator(args.token)
-        generator.generate(args.sources, args.output)
+        generator.generate(args.sources, args.scripts, args.output)
     except KeyboardInterrupt:
         print("\n\n⚠️  Generation interrupted by user")
         sys.exit(1)

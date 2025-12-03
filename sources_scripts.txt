@@ -1,0 +1,12 @@
+# Wenget Bucket - Script Sources
+#
+# List GitHub Gist URLs (one per line)
+# Comments start with #
+# Empty lines are ignored
+#
+# Format: https://gist.github.com/USERNAME/GIST_ID
+#
+# Scripts will be automatically extracted from each gist
+
+# === Utility Scripts ===
+https://gist.github.com/superyngo/c77bbbf67759cc4213aac12ebe980225
