@@ -23,7 +23,7 @@
           "url": "https://github.com/superyngo/cate/releases/download/v0.4.2/cate-linux-x86_64-musl.tar.gz",
           "size": 1510482
         },
-        "macos-aarch64": {
+        "darwin-aarch64": {
           "url": "https://github.com/superyngo/cate/releases/download/v0.4.2/cate-macos-aarch64.tar.gz",
           "size": 1434018
         },
@@ -64,7 +64,7 @@
           "url": "https://github.com/superyngo/wedi/releases/download/v0.4.0/wedi-linux-x86_64-musl.tar.gz",
           "size": 1644353
         },
-        "macos-aarch64": {
+        "darwin-aarch64": {
           "url": "https://github.com/superyngo/wedi/releases/download/v0.4.0/wedi-macos-aarch64.tar.gz",
           "size": 1547390
         },
@@ -105,7 +105,7 @@
           "url": "https://github.com/superyngo/weni/releases/download/v0.2.0/weni-linux-x86_64-musl.tar.gz",
           "size": 574831
         },
-        "macos-aarch64": {
+        "darwin-aarch64": {
           "url": "https://github.com/superyngo/weni/releases/download/v0.2.0/weni-macos-aarch64.tar.gz",
           "size": 476718
         },
@@ -134,9 +134,9 @@
           "url": "https://github.com/BurntSushi/ripgrep/releases/download/15.1.0/ripgrep-15.1.0-aarch64-apple-darwin.tar.gz",
           "size": 1777930
         },
-        "windows-x86_64": {
-          "url": "https://github.com/BurntSushi/ripgrep/releases/download/15.1.0/ripgrep-15.1.0-x86_64-pc-windows-msvc.zip",
-          "size": 1810687
+        "windows-aarch64": {
+          "url": "https://github.com/BurntSushi/ripgrep/releases/download/15.1.0/ripgrep-15.1.0-aarch64-pc-windows-msvc.zip",
+          "size": 1675460
         },
         "linux-aarch64": {
           "url": "https://github.com/BurntSushi/ripgrep/releases/download/15.1.0/ripgrep-15.1.0-aarch64-unknown-linux-gnu.tar.gz",
@@ -146,17 +146,25 @@
           "url": "https://github.com/BurntSushi/ripgrep/releases/download/15.1.0/ripgrep-15.1.0-armv7-unknown-linux-musleabi.tar.gz",
           "size": 1831202
         },
+        "windows-i686": {
+          "url": "https://github.com/BurntSushi/ripgrep/releases/download/15.1.0/ripgrep-15.1.0-i686-pc-windows-msvc.zip",
+          "size": 1665725
+        },
         "linux-i686": {
           "url": "https://github.com/BurntSushi/ripgrep/releases/download/15.1.0/ripgrep-15.1.0-i686-unknown-linux-gnu.tar.gz",
           "size": 1950407
         },
-        "linux-x86_64": {
-          "url": "https://github.com/BurntSushi/ripgrep/releases/download/15.1.0/ripgrep-15.1.0-x86_64-unknown-linux-musl.tar.gz",
-          "size": 2263077
-        },
         "darwin-x86_64": {
           "url": "https://github.com/BurntSushi/ripgrep/releases/download/15.1.0/ripgrep-15.1.0-x86_64-apple-darwin.tar.gz",
           "size": 1894127
+        },
+        "windows-x86_64": {
+          "url": "https://github.com/BurntSushi/ripgrep/releases/download/15.1.0/ripgrep-15.1.0-x86_64-pc-windows-msvc.zip",
+          "size": 1810687
+        },
+        "linux-x86_64": {
+          "url": "https://github.com/BurntSushi/ripgrep/releases/download/15.1.0/ripgrep-15.1.0-x86_64-unknown-linux-musl.tar.gz",
+          "size": 2263077
         }
       }
     },
@@ -171,9 +179,9 @@
           "url": "https://github.com/sharkdp/fd/releases/download/v10.3.0/fd-v10.3.0-aarch64-apple-darwin.tar.gz",
           "size": 1337349
         },
-        "windows-x86_64": {
-          "url": "https://github.com/sharkdp/fd/releases/download/v10.3.0/fd-v10.3.0-x86_64-pc-windows-msvc.zip",
-          "size": 1490905
+        "windows-aarch64": {
+          "url": "https://github.com/sharkdp/fd/releases/download/v10.3.0/fd-v10.3.0-aarch64-pc-windows-msvc.zip",
+          "size": 1416342
         },
         "linux-aarch64": {
           "url": "https://github.com/sharkdp/fd/releases/download/v10.3.0/fd-v10.3.0-aarch64-unknown-linux-musl.tar.gz",
@@ -183,6 +191,10 @@
           "url": "https://github.com/sharkdp/fd/releases/download/v10.3.0/fd-v10.3.0-arm-unknown-linux-musleabihf.tar.gz",
           "size": 1466796
         },
+        "windows-i686": {
+          "url": "https://github.com/sharkdp/fd/releases/download/v10.3.0/fd-v10.3.0-i686-pc-windows-msvc.zip",
+          "size": 1381022
+        },
         "linux-i686": {
           "url": "https://github.com/sharkdp/fd/releases/download/v10.3.0/fd-v10.3.0-i686-unknown-linux-musl.tar.gz",
           "size": 1524821
@@ -190,6 +202,10 @@
         "darwin-x86_64": {
           "url": "https://github.com/sharkdp/fd/releases/download/v10.3.0/fd-v10.3.0-x86_64-apple-darwin.tar.gz",
           "size": 1430203
+        },
+        "windows-x86_64": {
+          "url": "https://github.com/sharkdp/fd/releases/download/v10.3.0/fd-v10.3.0-x86_64-pc-windows-msvc.zip",
+          "size": 1490905
         },
         "linux-x86_64": {
           "url": "https://github.com/sharkdp/fd/releases/download/v10.3.0/fd-v10.3.0-x86_64-unknown-linux-musl.tar.gz",
@@ -208,9 +224,9 @@
           "url": "https://github.com/sharkdp/bat/releases/download/v0.26.1/bat-v0.26.1-aarch64-apple-darwin.tar.gz",
           "size": 3216703
         },
-        "windows-x86_64": {
-          "url": "https://github.com/sharkdp/bat/releases/download/v0.26.1/bat-v0.26.1-x86_64-pc-windows-msvc.zip",
-          "size": 3613318
+        "windows-aarch64": {
+          "url": "https://github.com/sharkdp/bat/releases/download/v0.26.1/bat-v0.26.1-aarch64-pc-windows-msvc.zip",
+          "size": 3434291
         },
         "linux-aarch64": {
           "url": "https://github.com/sharkdp/bat/releases/download/v0.26.1/bat-v0.26.1-aarch64-unknown-linux-musl.tar.gz",
@@ -220,6 +236,10 @@
           "url": "https://github.com/sharkdp/bat/releases/download/v0.26.1/bat-v0.26.1-arm-unknown-linux-musleabihf.tar.gz",
           "size": 3407734
         },
+        "windows-i686": {
+          "url": "https://github.com/sharkdp/bat/releases/download/v0.26.1/bat-v0.26.1-i686-pc-windows-msvc.zip",
+          "size": 3367862
+        },
         "linux-i686": {
           "url": "https://github.com/sharkdp/bat/releases/download/v0.26.1/bat-v0.26.1-i686-unknown-linux-musl.tar.gz",
           "size": 3545941
@@ -227,6 +247,10 @@
         "darwin-x86_64": {
           "url": "https://github.com/sharkdp/bat/releases/download/v0.26.1/bat-v0.26.1-x86_64-apple-darwin.tar.gz",
           "size": 3367309
+        },
+        "windows-x86_64": {
+          "url": "https://github.com/sharkdp/bat/releases/download/v0.26.1/bat-v0.26.1-x86_64-pc-windows-msvc.zip",
+          "size": 3613318
         },
         "linux-x86_64": {
           "url": "https://github.com/sharkdp/bat/releases/download/v0.26.1/bat-v0.26.1-x86_64-unknown-linux-musl.tar.gz",
@@ -253,9 +277,9 @@
           "url": "https://github.com/sharkdp/hexyl/releases/download/v0.16.0/hexyl-v0.16.0-arm-unknown-linux-musleabihf.tar.gz",
           "size": 529508
         },
-        "windows-x86_64": {
-          "url": "https://github.com/sharkdp/hexyl/releases/download/v0.16.0/hexyl-v0.16.0-x86_64-pc-windows-msvc.zip",
-          "size": 361368
+        "windows-i686": {
+          "url": "https://github.com/sharkdp/hexyl/releases/download/v0.16.0/hexyl-v0.16.0-i686-pc-windows-msvc.zip",
+          "size": 338637
         },
         "linux-i686": {
           "url": "https://github.com/sharkdp/hexyl/releases/download/v0.16.0/hexyl-v0.16.0-i686-unknown-linux-musl.tar.gz",
@@ -264,6 +288,10 @@
         "darwin-x86_64": {
           "url": "https://github.com/sharkdp/hexyl/releases/download/v0.16.0/hexyl-v0.16.0-x86_64-apple-darwin.tar.gz",
           "size": 456236
+        },
+        "windows-x86_64": {
+          "url": "https://github.com/sharkdp/hexyl/releases/download/v0.16.0/hexyl-v0.16.0-x86_64-pc-windows-msvc.zip",
+          "size": 361368
         },
         "linux-x86_64": {
           "url": "https://github.com/sharkdp/hexyl/releases/download/v0.16.0/hexyl-v0.16.0-x86_64-unknown-linux-musl.tar.gz",
@@ -290,9 +318,9 @@
           "url": "https://github.com/sharkdp/hyperfine/releases/download/v1.20.0/hyperfine-v1.20.0-arm-unknown-linux-musleabihf.tar.gz",
           "size": 670324
         },
-        "windows-x86_64": {
-          "url": "https://github.com/sharkdp/hyperfine/releases/download/v1.20.0/hyperfine-v1.20.0-x86_64-pc-windows-msvc.zip",
-          "size": 589310
+        "windows-i686": {
+          "url": "https://github.com/sharkdp/hyperfine/releases/download/v1.20.0/hyperfine-v1.20.0-i686-pc-windows-msvc.zip",
+          "size": 551328
         },
         "linux-i686": {
           "url": "https://github.com/sharkdp/hyperfine/releases/download/v1.20.0/hyperfine-v1.20.0-i686-unknown-linux-musl.tar.gz",
@@ -301,6 +329,10 @@
         "darwin-x86_64": {
           "url": "https://github.com/sharkdp/hyperfine/releases/download/v1.20.0/hyperfine-v1.20.0-x86_64-apple-darwin.tar.gz",
           "size": 621721
+        },
+        "windows-x86_64": {
+          "url": "https://github.com/sharkdp/hyperfine/releases/download/v1.20.0/hyperfine-v1.20.0-x86_64-pc-windows-msvc.zip",
+          "size": 589310
         },
         "linux-x86_64": {
           "url": "https://github.com/sharkdp/hyperfine/releases/download/v1.20.0/hyperfine-v1.20.0-x86_64-unknown-linux-musl.tar.gz",
@@ -319,7 +351,7 @@
           "url": "https://github.com/gitui-org/gitui/releases/download/v0.27.0/gitui-linux-aarch64.tar.gz",
           "size": 5916903
         },
-        "linux-x86_64": {
+        "linux-armv6": {
           "url": "https://github.com/gitui-org/gitui/releases/download/v0.27.0/gitui-linux-arm.tar.gz",
           "size": 5108968
         },
@@ -327,11 +359,15 @@
           "url": "https://github.com/gitui-org/gitui/releases/download/v0.27.0/gitui-linux-armv7.tar.gz",
           "size": 5078574
         },
+        "linux-x86_64": {
+          "url": "https://github.com/gitui-org/gitui/releases/download/v0.27.0/gitui-linux-x86_64.tar.gz",
+          "size": 5784977
+        },
         "darwin-x86_64": {
           "url": "https://github.com/gitui-org/gitui/releases/download/v0.27.0/gitui-mac-x86.tar.gz",
           "size": 4770264
         },
-        "darwin-aarch64": {
+        "darwin": {
           "url": "https://github.com/gitui-org/gitui/releases/download/v0.27.0/gitui-mac.tar.gz",
           "size": 4999134
         },
@@ -356,9 +392,9 @@
           "url": "https://github.com/ajeetdsouza/zoxide/releases/download/v0.9.8/zoxide-0.9.8-aarch64-unknown-linux-musl.tar.gz",
           "size": 550032
         },
-        "windows-x86_64": {
-          "url": "https://github.com/ajeetdsouza/zoxide/releases/download/v0.9.8/zoxide-0.9.8-x86_64-pc-windows-msvc.zip",
-          "size": 547884
+        "windows-aarch64": {
+          "url": "https://github.com/ajeetdsouza/zoxide/releases/download/v0.9.8/zoxide-0.9.8-aarch64-pc-windows-msvc.zip",
+          "size": 517253
         },
         "linux-armv6": {
           "url": "https://github.com/ajeetdsouza/zoxide/releases/download/v0.9.8/zoxide-0.9.8-arm-unknown-linux-musleabihf.tar.gz",
@@ -375,6 +411,10 @@
         "darwin-x86_64": {
           "url": "https://github.com/ajeetdsouza/zoxide/releases/download/v0.9.8/zoxide-0.9.8-x86_64-apple-darwin.tar.gz",
           "size": 506541
+        },
+        "windows-x86_64": {
+          "url": "https://github.com/ajeetdsouza/zoxide/releases/download/v0.9.8/zoxide-0.9.8-x86_64-pc-windows-msvc.zip",
+          "size": 547884
         },
         "linux-x86_64": {
           "url": "https://github.com/ajeetdsouza/zoxide/releases/download/v0.9.8/zoxide-0.9.8-x86_64-unknown-linux-musl.tar.gz",
@@ -393,9 +433,9 @@
           "url": "https://github.com/ClementTsang/bottom/releases/download/0.11.4/bottom_aarch64-apple-darwin.tar.gz",
           "size": 1775774
         },
-        "windows-x86_64": {
-          "url": "https://github.com/ClementTsang/bottom/releases/download/0.11.4/bottom_x86_64-pc-windows-msvc.zip",
-          "size": 1855095
+        "windows-aarch64": {
+          "url": "https://github.com/ClementTsang/bottom/releases/download/0.11.4/bottom_aarch64-pc-windows-msvc.tar.gz",
+          "size": 1703025
         },
         "linux-aarch64": {
           "url": "https://github.com/ClementTsang/bottom/releases/download/0.11.4/bottom_aarch64-unknown-linux-musl.tar.gz",
@@ -404,6 +444,10 @@
         "linux-armv7": {
           "url": "https://github.com/ClementTsang/bottom/releases/download/0.11.4/bottom_armv7-unknown-linux-musleabihf.tar.gz",
           "size": 2032506
+        },
+        "windows-i686": {
+          "url": "https://github.com/ClementTsang/bottom/releases/download/0.11.4/bottom_i686-pc-windows-msvc.zip",
+          "size": 1713166
         },
         "linux-i686": {
           "url": "https://github.com/ClementTsang/bottom/releases/download/0.11.4/bottom_i686-unknown-linux-musl.tar.gz",
@@ -417,9 +461,13 @@
           "url": "https://github.com/ClementTsang/bottom/releases/download/0.11.4/bottom_x86_64-apple-darwin.tar.gz",
           "size": 1933486
         },
+        "windows-x86_64": {
+          "url": "https://github.com/ClementTsang/bottom/releases/download/0.11.4/bottom_x86_64-pc-windows-msvc.zip",
+          "size": 1855095
+        },
         "freebsd-x86_64": {
-          "url": "https://github.com/ClementTsang/bottom/releases/download/0.11.4/bottom_x86_64-unknown-freebsd-15.0.tar.gz",
-          "size": 2066600
+          "url": "https://github.com/ClementTsang/bottom/releases/download/0.11.4/bottom_x86_64-unknown-freebsd-13.5.tar.gz",
+          "size": 2066843
         }
       }
     },
@@ -434,9 +482,9 @@
           "url": "https://github.com/starship/starship/releases/download/v1.24.1/starship-aarch64-apple-darwin.tar.gz",
           "size": 3865881
         },
-        "windows-x86_64": {
-          "url": "https://github.com/starship/starship/releases/download/v1.24.1/starship-x86_64-pc-windows-msvc.zip",
-          "size": 4482280
+        "windows-aarch64": {
+          "url": "https://github.com/starship/starship/releases/download/v1.24.1/starship-aarch64-pc-windows-msvc.zip",
+          "size": 4146383
         },
         "linux-aarch64": {
           "url": "https://github.com/starship/starship/releases/download/v1.24.1/starship-aarch64-unknown-linux-musl.tar.gz",
@@ -446,6 +494,10 @@
           "url": "https://github.com/starship/starship/releases/download/v1.24.1/starship-arm-unknown-linux-musleabihf.tar.gz",
           "size": 4789745
         },
+        "windows-i686": {
+          "url": "https://github.com/starship/starship/releases/download/v1.24.1/starship-i686-pc-windows-msvc.zip",
+          "size": 4087254
+        },
         "linux-i686": {
           "url": "https://github.com/starship/starship/releases/download/v1.24.1/starship-i686-unknown-linux-musl.tar.gz",
           "size": 4896551
@@ -453,6 +505,10 @@
         "darwin-x86_64": {
           "url": "https://github.com/starship/starship/releases/download/v1.24.1/starship-x86_64-apple-darwin.tar.gz",
           "size": 4192161
+        },
+        "windows-x86_64": {
+          "url": "https://github.com/starship/starship/releases/download/v1.24.1/starship-x86_64-pc-windows-msvc.zip",
+          "size": 4482280
         },
         "freebsd-x86_64": {
           "url": "https://github.com/starship/starship/releases/download/v1.24.1/starship-x86_64-unknown-freebsd.tar.gz",
@@ -465,7 +521,7 @@
       }
     }
   ],
-  "last_updated": "2025-12-07T00:21:05Z",
+  "last_updated": "2025-12-07T12:48:51Z",
   "scripts": [
     {
       "name": "mini-nano",
