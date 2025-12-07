@@ -110,118 +110,261 @@ class GitHubAPI:
 
 
 class PlatformDetector:
-    """Detect platform from release asset filename"""
+    """
+    Detect platform from release asset filename using 4-component keyword matching:
+    1. Extension (required) - archive/executable file types
+    2. Platform (required) - OS identification
+    3. Architecture (optional) - CPU architecture with smart defaults
+    4. Compiler/Toolchain (optional) - for priority selection
+    """
 
-    # Platform patterns (os-arch)
-    PATTERNS = {
-        "windows-x86_64": [
-            r"windows.*x86_64|x86_64.*windows|win64|windows.*amd64|x64.*windows",
-            r"pc-windows-msvc",
-        ],
-        "windows-i686": [
-            r"windows.*i686|i686.*windows|win32",
-            r"pc-windows-msvc.*i686",
-        ],
-        "linux-x86_64": [
-            r"linux.*x86_64|x86_64.*linux|linux.*amd64",
-            r"x86_64.*unknown-linux-gnu",
-            r"x86_64.*unknown-linux-musl",
-        ],
-        "linux-aarch64": [
-            r"linux.*aarch64|aarch64.*linux|linux.*arm64",
-            r"aarch64.*unknown-linux-musl",
-            r"aarch64.*unknown-linux-gnu",
-        ],
-        "linux-armv7": [
-            r"linux.*armv7|armv7.*linux|linux.*arm7",
-            r"armv7.*unknown-linux-musleabihf",
-            r"armv7.*unknown-linux-gnueabihf",
-        ],
-        "linux-armv6": [
-            r"linux.*armv6|armv6.*linux|linux.*arm6",
-            r"arm.*unknown-linux-musleabihf",
-            r"arm.*unknown-linux-gnueabihf",
-        ],
-        "linux-i686": [
-            r"linux.*i686|i686.*linux",
-            r"i686.*unknown-linux-gnu",
-            r"i686.*unknown-linux-musl",
-        ],
-        "freebsd-x86_64": [
-            r"freebsd.*x86_64|x86_64.*freebsd|freebsd.*amd64",
-            r"x86_64.*unknown-freebsd",
-        ],
-        "darwin-x86_64": [
-            r"darwin.*x86_64|x86_64.*darwin|macos.*x86_64|osx.*x86_64",
-            r"apple-darwin.*x86_64",
-            r"(?:mac|osx)-x86(?:[_.-]|\.tar|\.zip)",  # mac-x86, osx-x86 (assume x86_64)
-        ],
-        "darwin-aarch64": [
-            r"darwin.*aarch64|aarch64.*darwin|darwin.*arm64|macos.*arm64|osx.*arm64",
-            r"apple-darwin.*aarch64",
-        ],
-        "macos-x86_64": [
-            r"macos.*x86_64|osx.*x86_64",
-        ],
-        "macos-aarch64": [
-            r"macos.*aarch64|macos.*arm64|osx.*arm64",
-        ],
+    # === KEYWORD MAPPING DICTIONARIES ===
+
+    # Valid archive/executable extensions (portable only, no installers)
+    EXTENSIONS: set = {
+        ".exe",
+        ".zip", ".7z", ".rar",
+        ".tar.gz", ".tgz",
+        ".tar.xz", ".txz",
+        ".tar.bz2", ".tbz2",
     }
 
-    # Fallback patterns for ambiguous filenames (assume most common architecture)
-    # These patterns only match OS without specific architecture info
-    FALLBACK_PATTERNS = {
-        "windows-x86_64": [
-            r"(?:^|[_-])win(?:dows)?(?:[_.-]|\.tar|\.zip|\.exe)",  # win.tar.gz, -win.zip
-        ],
-        "linux-x86_64": [
-            r"(?:^|[_-])linux(?:[_.-]|\.tar|\.zip)",  # linux.tar.gz, -linux.zip
-        ],
-        "darwin-aarch64": [
-            r"(?:^|[_-])(?:mac|macos|osx|darwin)(?:[_.-]|\.tar|\.zip)",  # mac.tar.gz, -macos.zip (assume Apple Silicon)
-        ],
+    # Platform keyword -> normalized platform name
+    PLATFORM_KEYWORDS: Dict[str, str] = {
+        # Windows variants
+        "win": "windows",
+        "windows": "windows",
+        "pc-windows": "windows",
+        # Linux variants
+        "linux": "linux",
+        "unknown-linux": "linux",
+        # macOS/Darwin variants (all normalize to "darwin")
+        "darwin": "darwin",
+        "macos": "darwin",
+        "mac": "darwin",
+        "osx": "darwin",
+        "apple": "darwin",
+        "apple-darwin": "darwin",
+        # FreeBSD
+        "freebsd": "freebsd",
     }
 
-    # Archive extensions (including standalone executables)
-    ARCHIVE_EXTENSIONS = [".tar.gz", ".tgz", ".zip", ".tar.xz", ".tar.bz2", ".exe"]
+    # Architecture keyword -> normalized architecture
+    ARCH_KEYWORDS: Dict[str, str] = {
+        # 64-bit x86 (longer matches first when sorted)
+        "x86_64": "x86_64",
+        "x86-64": "x86_64",
+        "amd64": "x86_64",
+        "x64": "x86_64",
+        "win64": "x86_64",
+        # 32-bit x86
+        "i686": "i686",
+        "i386": "i686",
+        "win32": "i686",
+        # ARM 64-bit
+        "aarch64": "aarch64",
+        "arm64": "aarch64",
+        # ARM 32-bit v7
+        "armv7": "armv7",
+        "armhf": "armv7",
+        "armv7l": "armv7",
+        # ARM 32-bit v6
+        "armv6": "armv6",
+        # Generic ARM (assume v6)
+        "arm": "armv6",
+        # Note: "x86" alone is ambiguous, handle in _extract_architecture
+    }
+
+    # Architectures to skip (uncommon platforms we don't support)
+    SKIP_ARCH_PATTERNS: set = {
+        "s390x",  # IBM mainframe
+        "ppc64",  # PowerPC 64-bit
+        "ppc64le",  # PowerPC 64-bit LE
+        "riscv64",  # RISC-V 64-bit
+        "mips",  # MIPS
+        "mipsel",  # MIPS little-endian
+    }
+
+    # Known compiler/toolchain keywords
+    COMPILER_KEYWORDS: set = {
+        "gnu",
+        "musl",
+        "msvc",
+        "gnueabihf",
+        "musleabihf",
+        "musleabi",
+    }
+
+    # Compiler priority per platform (higher = preferred)
+    COMPILER_PRIORITY: Dict[str, Dict[str, int]] = {
+        "linux": {
+            "musl": 3,
+            "musleabihf": 3,
+            "musleabi": 3,
+            "gnu": 2,
+            "gnueabihf": 2,
+            "": 1,  # No compiler specified
+        },
+        "windows": {
+            "msvc": 3,
+            "gnu": 2,
+            "musl": 1,
+            "": 1,
+        },
+        "darwin": {"": 1},
+        "freebsd": {"": 1},
+    }
+
+    # Default architecture when not specified in filename
+    ARCH_DEFAULTS: Dict[str, Optional[str]] = {
+        "windows": "x86_64",
+        "linux": "x86_64",
+        "darwin": None,  # Don't assume for Darwin - use whatever is available
+        "freebsd": "x86_64",
+    }
+
+    # === EXTRACTION METHODS ===
 
     @classmethod
-    def get_linux_variant_priority(cls, filename: str) -> int:
+    def _extract_extension(cls, filename: str) -> Optional[str]:
+        """Extract archive/executable extension from filename."""
+        filename_lower = filename.lower()
+        # Check compound extensions first (longer ones take priority)
+        for ext in sorted(cls.EXTENSIONS, key=len, reverse=True):
+            if filename_lower.endswith(ext):
+                return ext
+        return None
+
+    @classmethod
+    def _extract_platform(cls, filename: str, extension: str) -> Optional[str]:
         """
-        Get priority for Linux variants (higher number = higher priority)
-        Priority: musl (3) > gnu (2) > no keyword (1)
+        Extract and normalize platform from filename.
+        Returns: normalized platform name or None if not detected
         """
         filename_lower = filename.lower()
-        if "musl" in filename_lower:
-            return 3
-        elif "gnu" in filename_lower:
-            return 2
-        else:
-            return 1
+
+        # Special case: .exe implies Windows
+        if extension == ".exe":
+            # Still check for explicit platform markers first
+            for keyword in sorted(cls.PLATFORM_KEYWORDS.keys(), key=len, reverse=True):
+                if keyword in filename_lower:
+                    return cls.PLATFORM_KEYWORDS[keyword]
+            return "windows"  # Default for .exe
+
+        # Check platform keywords (longer matches first for specificity)
+        for keyword in sorted(cls.PLATFORM_KEYWORDS.keys(), key=len, reverse=True):
+            if keyword in filename_lower:
+                return cls.PLATFORM_KEYWORDS[keyword]
+
+        # No platform found - skip this file
+        return None
+
+    @classmethod
+    def _extract_architecture(cls, filename: str, platform: Optional[str] = None) -> Optional[str]:
+        """
+        Extract and normalize architecture from filename.
+
+        Args:
+            filename: The asset filename
+            platform: The detected platform (used for context-aware decisions)
+
+        Returns:
+            - Normalized architecture string
+            - "SKIP" if the architecture should be skipped
+            - None if no architecture detected
+        """
+        filename_lower = filename.lower()
+
+        # Check for architectures we want to skip
+        for skip_arch in cls.SKIP_ARCH_PATTERNS:
+            if skip_arch in filename_lower:
+                return "SKIP"
+
+        # Check architecture keywords (longer matches first)
+        for keyword in sorted(cls.ARCH_KEYWORDS.keys(), key=len, reverse=True):
+            if keyword in filename_lower:
+                return cls.ARCH_KEYWORDS[keyword]
+
+        # Special handling for ambiguous "x86" (could be 32 or 64-bit)
+        # If "x86" appears but not "x86_64" or "x86-64"
+        if "x86" in filename_lower and "x86_64" not in filename_lower and "x86-64" not in filename_lower:
+            # For Darwin, "x86" means x86_64 (32-bit Mac hasn't been supported since 10.15)
+            if platform == "darwin":
+                return "x86_64"
+            # For other platforms, "x86" typically means 32-bit
+            return "i686"
+
+        return None
+
+    @classmethod
+    def _extract_compiler(cls, filename: str) -> str:
+        """Extract compiler/toolchain from filename."""
+        filename_lower = filename.lower()
+        for compiler in cls.COMPILER_KEYWORDS:
+            if compiler in filename_lower:
+                return compiler
+        return ""
+
+    # === MAIN DETECTION METHODS ===
 
     @classmethod
     def detect_platform(cls, filename: str) -> Optional[str]:
-        """Detect platform from filename with fallback support"""
-        filename_lower = filename.lower()
+        """
+        Detect platform from filename using 4-component keyword matching.
 
-        # Check if it's an archive
-        if not any(filename_lower.endswith(ext) for ext in cls.ARCHIVE_EXTENSIONS):
+        Returns:
+            - "{platform}-{arch}" normalized platform key
+            - "{platform}" if arch cannot be determined (e.g., darwin without arch)
+            - None if not a valid archive/executable or should be skipped
+        """
+        # Step 1: Check extension (required)
+        extension = cls._extract_extension(filename)
+        if extension is None:
             return None
 
-        # Priority 1: Try exact platform patterns (with architecture info)
-        for platform, patterns in cls.PATTERNS.items():
-            for pattern in patterns:
-                if re.search(pattern, filename_lower):
-                    return platform
+        # Step 2: Extract platform
+        platform = cls._extract_platform(filename, extension)
 
-        # Priority 2: Try fallback patterns (assume common architecture)
-        for platform, patterns in cls.FALLBACK_PATTERNS.items():
-            for pattern in patterns:
-                if re.search(pattern, filename_lower):
-                    print(f"   ⚠️  Fallback assumption: {filename} -> {platform}")
-                    return platform
+        # Step 3: Skip if no platform detected
+        if platform is None:
+            return None
 
-        return None
+        # Step 4: Extract architecture (pass platform for context-aware decisions)
+        arch = cls._extract_architecture(filename, platform)
+
+        # Step 4.5: Skip unsupported architectures
+        if arch == "SKIP":
+            return None
+
+        # Step 5: Apply defaults if no arch found
+        if arch is None:
+            arch = cls.ARCH_DEFAULTS.get(platform)
+
+        # Step 6: Build platform key
+        if arch:
+            return f"{platform}-{arch}"
+        else:
+            # Edge case: platform without arch (e.g., darwin without explicit arch)
+            print(f"   ⚠️  No architecture detected: {filename} -> {platform}")
+            return platform
+
+    @classmethod
+    def get_asset_priority(cls, filename: str, platform_key: str) -> int:
+        """
+        Get priority for asset selection when multiple assets exist
+        for the same platform-arch combination.
+
+        Higher priority = preferred.
+        Used for: Linux (musl > gnu), Windows (msvc > gnu > musl)
+        """
+        compiler = cls._extract_compiler(filename)
+
+        # Extract base platform from platform_key
+        platform = platform_key.split("-")[0] if "-" in platform_key else platform_key
+
+        # Get priority from configuration
+        platform_priorities = cls.COMPILER_PRIORITY.get(platform, {"": 1})
+        return platform_priorities.get(compiler, 1)
 
 
 class ManifestGenerator:
@@ -351,7 +494,7 @@ class ManifestGenerator:
                 return None
 
             # Extract platform binaries from assets
-            # Track platform info with priority for Linux variants
+            # Track platform info with priority for compiler variants
             platforms = {}
             platform_priorities = {}  # Track priority of selected assets
 
@@ -363,18 +506,15 @@ class ManifestGenerator:
                         "size": asset["size"],
                     }
 
-                    # For Linux platforms, check priority
-                    if platform.startswith("linux-"):
-                        current_priority = PlatformDetector.get_linux_variant_priority(asset["name"])
-                        existing_priority = platform_priorities.get(platform, 0)
+                    # Get priority for this asset (supports all platforms)
+                    # Linux: musl > gnu, Windows: msvc > gnu > musl
+                    current_priority = PlatformDetector.get_asset_priority(asset["name"], platform)
+                    existing_priority = platform_priorities.get(platform, 0)
 
-                        # Only update if current asset has higher priority
-                        if current_priority > existing_priority:
-                            platforms[platform] = asset_info
-                            platform_priorities[platform] = current_priority
-                    else:
-                        # For non-Linux platforms, just use the asset
+                    # Only update if current asset has higher priority
+                    if current_priority > existing_priority:
                         platforms[platform] = asset_info
+                        platform_priorities[platform] = current_priority
 
             if not platforms:
                 print(f"⚠️  No binary assets found for {owner}/{repo}")
