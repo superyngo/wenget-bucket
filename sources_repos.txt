@@ -10,6 +10,7 @@
 https://github.com/superyngo/cate
 https://github.com/superyngo/wedi
 https://github.com/superyngo/weni
+https://github.com/superyngo/wemux
 
 # === Search & Find ===
 https://github.com/BurntSushi/ripgrep
