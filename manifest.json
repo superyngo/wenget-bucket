@@ -124,6 +124,23 @@
       }
     },
     {
+      "name": "wemux",
+      "description": "Play sound through every HDMI screen at once—simple, seamless multi-output audio on Windows.",
+      "repo": "https://github.com/superyngo/wemux",
+      "homepage": null,
+      "license": "MIT",
+      "platforms": {
+        "windows-i686": {
+          "url": "https://github.com/superyngo/wemux/releases/download/v0.1.1/wemux-windows-i686.exe",
+          "size": 1681920
+        },
+        "windows-x86_64": {
+          "url": "https://github.com/superyngo/wemux/releases/download/v0.1.1/wemux-windows-x86_64.exe",
+          "size": 2069504
+        }
+      }
+    },
+    {
       "name": "ripgrep",
       "description": "ripgrep recursively searches directories for a regex pattern while respecting your gitignore",
       "repo": "https://github.com/BurntSushi/ripgrep",
@@ -521,7 +538,7 @@
       }
     }
   ],
-  "last_updated": "2025-12-08T00:19:50Z",
+  "last_updated": "2025-12-08T07:23:28Z",
   "scripts": [
     {
       "name": "mini-nano",
