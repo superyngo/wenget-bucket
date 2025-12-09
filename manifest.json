@@ -538,7 +538,7 @@
       }
     }
   ],
-  "last_updated": "2025-12-08T07:23:28Z",
+  "last_updated": "2025-12-09T00:19:06Z",
   "scripts": [
     {
       "name": "mini-nano",
@@ -559,6 +559,13 @@
       "description": "Shell and PowerShell utility scripts",
       "url": "https://gist.githubusercontent.com/superyngo/c77bbbf67759cc4213aac12ebe980225/raw/5b190af8efdc378a813350c59f586d4ec7d83b97/reformat_ventoy.sh",
       "script_type": "bash",
+      "repo": "https://gist.github.com/superyngo/c77bbbf67759cc4213aac12ebe980225"
+    },
+    {
+      "name": "ssh-copy-id",
+      "description": "Shell and PowerShell utility scripts",
+      "url": "https://gist.githubusercontent.com/superyngo/c77bbbf67759cc4213aac12ebe980225/raw/6a1387adce4afc9f4b162ebbb2d98855e4569df5/ssh-copy-id.ps1",
+      "script_type": "powershell",
       "repo": "https://gist.github.com/superyngo/c77bbbf67759cc4213aac12ebe980225"
     },
     {
