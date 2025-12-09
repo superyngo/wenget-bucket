@@ -1,0 +1,633 @@
+
+╭─── Claude Code v2.0.57 ──────────────────────────────────────────────────────╮
+│                                                │ Tips for getting started    │
+│              Welcome back Wenyang!             │ Run /init to create a CLAU… │
+│                                                │ ─────────────────────────── │
+│                     ▐▛███▜▌                    │ Recent activity             │
+│                    ▝▜█████▛▘                   │ No recent activity          │
+│                      ▘▘ ▝▝                     │                             │
+│                                                │                             │
+│            Sonnet 4.5 · Claude Pro             │                             │
+│   D:\Users\user\Documents\rust\wenget-bucket   │                             │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+> /usage 
+  ⎿  Status dialog dismissed
+
+> 針對像是https://github.com/altsem/gitu repo提供windows平台的gitui-win.tar.
+gz檔名，檔名中缺乏具體的平台資訊，只有win關鍵字以及壓縮檔附檔名，導致目前無
+法正確偵測並輸入mainfest.json中，請評估智慧納入可行辦法 
+
+● 我来帮你评估如何智能地处理这类缺乏具体平台信息的文件名。让我先了解当前的代
+  码库结构和平台检测逻辑。
+
+● Explore(Explore platform detection logic)
+  ⎿  Done (24 tool uses · 43.8k tokens · 4m 8s)                            
+
+● Read(scripts\generate_manifest.py)
+  ⎿  Read 100 lines
+
+● Bash(gh api repos/altsem/gitu/releases/latest --jq '.assets[] | select(.name |
+       test("win|tar|zip")) | {name: .name, size: .size, download_url:
+      .browser_download_url}…)
+  ⎿ {                                                                      
+      "download_url": "https://github.com/altsem/gitu/releases/download/v0.
+    39.0/gitu-v0.39.0-aarch64-apple-darwin.zip",
+    … +21 lines (ctrl+o to expand)
+
+
+● 根据我的分析，我发现 altsem/gitu 
+  最新版本（v0.39.0）实际上已经使用了标准命名（如
+  gitu-v0.39.0-x86_64-pc-windows-msvc.zip），可以被正确检测。但你提到的核心
+  问题仍然重要：如何处理缺乏架构信息的文件名。
+
+  当前问题分析
+
+  scripts/generate_manifest.py:116-202 的检测逻辑要求：
+  1. 文件名必须同时包含操作系统和架构关键字
+  2. 像 gitui-win.tar.gz 这样只有 "win" 的文件会被拒绝
+  3. 没有任何回退机制或默认假设
+
+  智能纳入方案（推荐优先级排序）
+
+  方案 1：模式回退 + 默认架构假设 ⭐ 推荐
+
+  为模糊文件名添加回退模式，假设最常见的架构：
+
+  # 在 PlatformDetector 类中添加
+  FALLBACK_PATTERNS = {
+      # 缺乏架构信息时，假设 x86_64（最常见）
+      "windows-x86_64": [
+          r"(?:^|[_-])win(?:dows)?(?:[_-]|\.tar|\.zip|\.exe)",  # 
+  win.tar.gz, -win.zip
+      ],
+      "linux-x86_64": [
+          r"(?:^|[_-])linux(?:[_-]|\.tar|\.zip)",  # linux.tar.gz, 
+  -linux.zip
+      ],
+      "darwin-x86_64": [
+          r"(?:^|[_-])(?:macos|osx|darwin)(?:[_-]|\.tar|\.zip)",
+      ],
+  }
+
+  @classmethod
+  def detect_platform(cls, filename: str) -> Optional[str]:
+      """Detect platform from filename with fallback"""
+      filename_lower = filename.lower()
+
+      if not any(filename_lower.endswith(ext) for ext in
+  cls.ARCHIVE_EXTENSIONS):
+          return None
+
+      # 1. 尝试精确匹配（原有逻辑）
+      for platform, patterns in cls.PATTERNS.items():
+          for pattern in patterns:
+              if re.search(pattern, filename_lower):
+                  return platform
+
+      # 2. 尝试回退模式（新增）
+      for platform, patterns in cls.FALLBACK_PATTERNS.items():
+          for pattern in patterns:
+              if re.search(pattern, filename_lower):
+                  print(f"⚠️  Assuming {platform} for ambiguous filename: 
+  {filename}")
+                  return platform
+
+      return None
+
+  优点：
+  - 自动处理，无需手动维护
+  - 假设合理（x86_64 是主流架构）
+  - 向后兼容
+  - 有警告提示用户
+
+  缺点：
+  - 可能误判（如 win.tar.gz 实际是 arm64）
+
+  ---
+  方案 2：特殊案例映射文件
+
+  创建 scripts/platform_overrides.json：
+
+  {
+    "filename_overrides": {
+      "gitui-win.tar.gz": "windows-x86_64",
+      "gitui-win32.tar.gz": "windows-i686",
+      "tool-macos.zip": "darwin-x86_64"
+    },
+    "repo_defaults": {
+      "altsem/gitu": {
+        "win": "windows-x86_64",
+        "linux": "linux-x86_64"
+      }
+    }
+  }
+
+  修改检测逻辑：
+
+  class PlatformDetector:
+      def __init__(self, overrides_path: str = 
+  "scripts/platform_overrides.json"):
+          self.overrides = self._load_overrides(overrides_path)
+
+      def _load_overrides(self, path):
+          if os.path.exists(path):
+              with open(path) as f:
+                  return json.load(f)
+          return {"filename_overrides": {}, "repo_defaults": {}}
+
+      def detect_platform(self, filename: str, repo: str = None) -> 
+  Optional[str]:
+          filename_lower = filename.lower()
+
+          # 1. 检查文件名直接覆盖
+          if filename in self.overrides["filename_overrides"]:
+              return self.overrides["filename_overrides"][filename]
+
+          # 2. 原有模式匹配
+          # ... (保持原有逻辑)
+
+          # 3. 检查仓库级别默认值
+          if repo and repo in self.overrides["repo_defaults"]:
+              defaults = self.overrides["repo_defaults"][repo]
+              for keyword, platform in defaults.items():
+                  if keyword in filename_lower:
+                      print(f"ℹ️  Using repo override: {filename} -> 
+  {platform}")
+                      return platform
+
+          return None
+
+  优点：
+  - 精确控制特殊情况
+  - 灵活，易于维护
+  - 可按仓库设置规则
+
+  缺点：
+  - 需要手动维护映射文件
+  - 扩展性较差
+
+  ---
+  方案 3：智能分析 + 用户确认
+
+  在生成 manifest 时，对模糊文件进行交互式询问：
+
+  def detect_platform_interactive(self, filename: str, repo: str) -> 
+  Optional[str]:
+      # 先尝试自动检测
+      platform = self.detect_platform(filename)
+      if platform:
+          return platform
+
+      # 检测到模糊文件名
+      if self._is_ambiguous(filename):
+          print(f"\n⚠️  Ambiguous filename detected: {filename}")
+          print(f"   Repository: {repo}")
+          print("   Please select platform:")
+          print("   1. windows-x86_64")
+          print("   2. windows-i686")
+          print("   3. linux-x86_64")
+          print("   4. Skip this file")
+
+          choice = input("   Enter choice (1-4): ")
+          platform_map = {
+              "1": "windows-x86_64",
+              "2": "windows-i686",
+              "3": "linux-x86_64"
+          }
+          return platform_map.get(choice)
+
+      return None
+
+  优点：
+  - 准确性最高
+  - 学习实际案例
+
+  缺点：
+  - 需要人工介入
+  - 不适合自动化流程
+
+  ---
+  方案 4：混合策略（最佳实践） ⭐⭐ 强烈推荐
+
+  结合方案 1 和方案 2 的优点：
+
+  class PlatformDetector:
+      FALLBACK_PATTERNS = {
+          "windows-x86_64":
+  [r"(?:^|[_-])win(?:dows)?(?:[_-]|\.tar|\.zip|\.exe)"],
+          "linux-x86_64": [r"(?:^|[_-])linux(?:[_-]|\.tar|\.zip)"],
+          "darwin-x86_64":
+  [r"(?:^|[_-])(?:macos|osx|darwin)(?:[_-]|\.tar|\.zip)"],
+      }
+
+      def __init__(self, overrides_path: str = None):
+          self.overrides = {}
+          if overrides_path and os.path.exists(overrides_path):
+              with open(overrides_path) as f:
+                  self.overrides = json.load(f)
+
+      def detect_platform(self, filename: str, repo: str = None) -> 
+  Optional[str]:
+          filename_lower = filename.lower()
+
+          if not any(filename_lower.endswith(ext) for ext in
+  self.ARCHIVE_EXTENSIONS):
+              return None
+
+          # 优先级 1：特殊案例覆盖
+          if filename in self.overrides.get("filename_overrides", {}):
+              return self.overrides["filename_overrides"][filename]
+
+          # 优先级 2：精确模式匹配（原有逻辑）
+          for platform, patterns in self.PATTERNS.items():
+              for pattern in patterns:
+                  if re.search(pattern, filename_lower):
+                      return platform
+
+          # 优先级 3：仓库级别默认值
+          if repo and repo in self.overrides.get("repo_defaults", {}):
+              defaults = self.overrides["repo_defaults"][repo]
+              for keyword, platform in defaults.items():
+                  if keyword in filename_lower:
+                      return platform
+
+          # 优先级 4：回退模式（假设常见架构）
+          for platform, patterns in self.FALLBACK_PATTERNS.items():
+              for pattern in patterns:
+                  if re.search(pattern, filename_lower):
+                      print(f"⚠️  Fallback assumption: {filename} -> 
+  {platform}")
+                      return platform
+
+          return None
+
+  检测流程：
+  1. 特殊覆盖：完全匹配 → 直接返回
+  2. 精确匹配：包含 OS + 架构 → 高置信度
+  3. 仓库规则：按仓库特定规则 → 中等置信度
+  4. 回退假设：仅包含 OS → 假设 x86_64（低置信度 + 警告）
+
+  ---
+  实现建议
+
+● 我的推荐：采用方案 4（混合策略）
+
+  理由：
+  1. 渐进式降级：从最准确到合理猜测
+  2. 灵活性：可处理特殊情况 + 自动化处理常见情况
+  3. 可维护性：大部分情况自动处理，少数特殊情况手动配置
+  4. 透明度：通过警告提示用户使用了回退逻辑
+
+  具体实现步骤
+
+  1. 创建覆盖配置文件（可选）
+
+  # scripts/platform_overrides.json
+  {
+    "filename_overrides": {},
+    "repo_defaults": {}
+  }
+
+  2. 修改 PlatformDetector 类
+
+  在 scripts/generate_manifest.py:112 添加：
+  - FALLBACK_PATTERNS 字典（回退模式）
+  - __init__ 方法加载覆盖配置
+  - 修改 detect_platform 方法为 4 层检测
+
+  3. 更新调用代码
+
+  在 scripts/generate_manifest.py:337 传递 repo 参数：
+
+  platform = PlatformDetector.detect_platform(
+      asset["name"],
+      repo=f"{owner}/{repo}"
+  )
+
+  4. 添加验证和日志
+
+  - 为回退匹配添加警告日志
+  - 在 manifest 生成报告中标注使用了回退的包
+
+  ---
+  针对 gitu 仓库的补充说明
+
+  查询 altsem/gitu 最新发布后，发现其已经使用标准命名：
+  - ✅ gitu-v0.39.0-x86_64-pc-windows-msvc.zip（可正确检测为
+  windows-x86_64）
+  - ✅ gitu-v0.39.0-x86_64-unknown-linux-gnu.zip（可正确检测为
+  linux-x86_64）
+  - ✅ gitu-v0.39.0-aarch64-apple-darwin.zip（可正确检测为 darwin-aarch64）
+
+  如果你看到的是旧版本的 gitui-win.tar.gz，建议：
+  1. 优先使用最新版本（已有正确命名）
+  2. 如需支持旧版本，使用方案 4 的覆盖配置
+
+  ---
+  总结
+
+  | 方案        | 自动化  | 准确性   | 维护成本 | 推荐指数  |
+  |-----------|------|-------|------|-------|
+  | 方案 1：回退模式 | ⭐⭐⭐⭐ | ⭐⭐⭐   | ⭐⭐⭐⭐ | ⭐⭐⭐⭐  |
+  | 方案 2：映射文件 | ⭐⭐   | ⭐⭐⭐⭐⭐ | ⭐⭐   | ⭐⭐⭐   |
+  | 方案 3：交互式  | ⭐    | ⭐⭐⭐⭐⭐ | ⭐⭐⭐  | ⭐⭐    |
+  | 方案 4：混合策略 | ⭐⭐⭐⭐ | ⭐⭐⭐⭐  | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
+
+  建议采用方案 4，它能够：
+  - 自动处理 90% 的模糊情况（假设 x86_64）
+  - 为特殊情况提供手动覆盖机制
+  - 通过警告保持透明度
+  - 保持向后兼容性
+
+  需要我帮你实现这个方案吗？
+
+> 好，例外請提供gitu 0.39.0的頁面url 
+
+● Bash(gh api repos/altsem/gitu/releases/latest --jq '.html_url')
+  ⎿  https://github.com/altsem/gitu/releases/tag/v0.39.0
+
+● gitu v0.39.0 的发布页面：
+
+  https://github.com/altsem/gitu/releases/tag/v0.39.0
+
+  这个版本提供的所有文件都使用了标准的 Rust target triple 命名格式：
+  - gitu-v0.39.0-x86_64-pc-windows-msvc.zip (Windows x64)
+  - gitu-v0.39.0-x86_64-unknown-linux-gnu.zip (Linux x64)
+  - gitu-v0.39.0-aarch64-apple-darwin.zip (macOS ARM64)
+  - gitu-v0.39.0-x86_64-apple-darwin.zip (macOS x64)
+
+  这些文件名都可以被当前的 PlatformDetector 正确识别，无需使用回退机制。
+
+> 抱歉，有此問題的應該是https://github.com/gitui-org/gitui 
+
+● Bash(gh api repos/gitui-org/gitui/releases/latest --jq '{tag: .tag_name, url:
+      .html_url, assets: [.assets[] | {name: .name, size: .size}]}')
+  ⎿  {                             
+       "assets": [
+         {
+     … +35 lines (ctrl+o to expand)
+
+● 没问题！确实是 gitui-org/gitui 有这个问题。让我检查一下它的发布文件：
+
+● Read(manifest.json)
+  ⎿  Read 50 lines
+
+● Search(pattern: "gitui", path: "manifest.json", output_mode: "content")
+  ⎿  Found 26 lines (ctrl+o to expand)
+
+● 完全正确！我找到了问题。gitui-org/gitui v0.27.0 的发布页面：
+
+  https://github.com/gitui-org/gitui/releases/tag/v0.27.0
+
+  问题确认
+
+  当前 manifest.json:312-330 中，gitui 只有 Linux 平台：
+  - ✅ gitui-linux-aarch64.tar.gz
+  - ✅ gitui-linux-armv7.tar.gz
+  - ✅ gitui-linux-x86_64.tar.gz
+
+  被排除的文件（因为缺乏架构信息）：
+  - ❌ gitui-win.tar.gz - 只有 "win"，没有 x86_64/i686
+  - ❌ gitui-win.msi - 同样只有 "win"
+  - ❌ gitui-mac.tar.gz - 只有 "mac"，没有架构
+  - ❌ gitui-mac-x86.tar.gz - 有 "x86" 但不是标准格式（缺少 _64）
+  - ❌ gitui-linux-arm.tar.gz - "arm" 太模糊（armv6/v7?）
+
+  这正是需要我之前提出的**方案 4（混合策略）**的典型案例。
+
+  快速解决方案
+
+  对于 gitui 这种情况，我建议：
+
+  选项 1：使用回退假设（最快）
+  - gitui-win.tar.gz → 假设为 windows-x86_64
+  - gitui-mac.tar.gz → 假设为 darwin-aarch64（Apple Silicon 是主流）
+  - gitui-mac-x86.tar.gz → 检测为 darwin-x86_64
+
+  选项 2：手动添加覆盖规则（最准确）
+  {
+    "repo_defaults": {
+      "gitui-org/gitui": {
+        "gitui-win.tar.gz": "windows-x86_64",
+        "gitui-mac.tar.gz": "darwin-aarch64",
+        "gitui-mac-x86.tar.gz": "darwin-x86_64"
+      }
+    }
+  }
+
+  你希望我现在实现方案 4 来解决这个问题吗？这样就能将 Windows 和 macOS
+  版本的 gitui 也纳入 manifest 了。
+
+> 使用回退假设 
+
+● 好的！我来实现回退假设方案。让我开始修改代码。
+
+● Read(scripts\generate_manifest.py)
+  ⎿  Read 547 lines
+
+● Update(scripts\generate_manifest.py)
+  ⎿  Error editing file
+
+● Read(scripts\generate_manifest.py)
+  ⎿  Read 20 lines
+
+● Update(scripts\generate_manifest.py)
+  ⎿  Updated scripts\generate_manifest.py with 16 additions and 1 removal
+       154            "darwin-x86_64": [
+       155                
+             r"darwin.*x86_64|x86_64.*darwin|macos.*x86_64|osx.*x86_64",
+       156                r"apple-darwin.*x86_64",
+       157 +              r"(?:mac|osx)-x86(?:[_.-]|\.tar|\.zip)",  # 
+           + mac-x86, osx-x86 (assume x86_64)
+       158            ],
+       159            "darwin-aarch64": [
+       160                r"darwin.*aarch64|aarch64.*darwin|darwin.*arm64
+             |macos.*arm64|osx.*arm64",
+     ...
+       167            ],
+       168        }
+       169    
+       170 +      # Fallback patterns for ambiguous filenames (assume 
+           + most common architecture)
+       171 +      # These patterns only match OS without specific 
+           + architecture info
+       172 +      FALLBACK_PATTERNS = {
+       173 +          "windows-x86_64": [
+       174 +              
+           + r"(?:^|[_-])win(?:dows)?(?:[_.-]|\.tar|\.zip|\.msi|\.exe)", 
+           +  # win.tar.gz, -win.zip, win.msi
+       175 +          ],
+       176 +          "linux-x86_64": [
+       177 +              r"(?:^|[_-])linux(?:[_.-]|\.tar|\.zip)",  # 
+           + linux.tar.gz, -linux.zip
+       178 +          ],
+       179 +          "darwin-aarch64": [
+       180 +              
+           + r"(?:^|[_-])(?:mac|macos|osx|darwin)(?:[_.-]|\.tar|\.zip)", 
+           +  # mac.tar.gz, -macos.zip (assume Apple Silicon)
+       181 +          ],
+       182 +      }
+       183 +  
+       184        # Archive extensions (including standalone executables)
+       185 -      ARCHIVE_EXTENSIONS = [".tar.gz", ".tgz", ".zip", 
+           -  ".tar.xz", ".tar.bz2", ".exe"]
+       185 +      ARCHIVE_EXTENSIONS = [".tar.gz", ".tgz", ".zip", 
+           +  ".tar.xz", ".tar.bz2", ".exe", ".msi"]
+       186    
+       187        @classmethod
+       188        def get_linux_variant_priority(cls, filename: str) -> 
+             int:
+
+● Update(scripts\generate_manifest.py)
+  ⎿  Updated scripts\generate_manifest.py with 9 additions and 2 removals
+       201    
+       202        @classmethod
+       203        def detect_platform(cls, filename: str) -> 
+             Optional[str]:
+       204 -          """Detect platform from filename"""
+       204 +          """Detect platform from filename
+           +   with fallback support"""
+       205            filename_lower = filename.lower()
+       206    
+       207            # Check if it's an archive
+       208            if not any(filename_lower.endswith(ext) for ext in 
+             cls.ARCHIVE_EXTENSIONS):
+       209                return None
+       210    
+       211 -          # Try each platform pattern
+       211 +          # Priority 1: Try exact platform patterns (with 
+           + architecture info)
+       212            for platform, patterns in cls.PATTERNS.items():
+       213                for pattern in patterns:
+       214                    if re.search(pattern, filename_lower):
+       215                        return platform
+       216    
+       217 +          # Priority 2: Try fallback patterns (assume common 
+           + architecture)
+       218 +          for platform, patterns in 
+           + cls.FALLBACK_PATTERNS.items():
+       219 +              for pattern in patterns:
+       220 +                  if re.search(pattern, filename_lower):
+       221 +                      print(f"   ⚠️  Fallback assumption: 
+           + {filename} -> {platform}")
+       222 +                      return platform
+       223 +  
+       224            return None
+       225    
+       226    
+
+● 完成！现在让我测试这个改进的平台检测功能。
+
+● Bash(python -c "
+      import sys…)
+  ⎿  Error: Exit code 49
+
+● Write(test_platform_detection.py)
+  ⎿  Wrote 1 lines to test_platform_detection.py   
+     #!/usr/bin/env python3
+     """Test platform detection for gitui files"""
+     import sys
+     sys.path.insert(0, 'scripts')
+     from generate_manifest import PlatformDetector
+     # Test gitui filenames
+     test_files = [
+         'gitui-linux-x86_64.tar.gz',
+
+● Bash(py test_platform_detection.py)
+  ⎿  Testing platform detection:                                 
+     ============================================================
+     ✓ gitui-linux-x86_64.tar.gz      -> linux-x86_64
+     … +11 lines (ctrl+o to expand)
+
+● 完美！测试结果显示：
+
+  ✅ 精确检测（有架构信息）：
+  - gitui-linux-x86_64.tar.gz → linux-x86_64
+  - gitui-linux-aarch64.tar.gz → linux-aarch64
+  - gitui-linux-armv7.tar.gz → linux-armv7
+  - gitui-mac-x86.tar.gz → darwin-x86_64
+
+  ✅ 回退检测（缺少架构，使用假设）：
+  - gitui-win.tar.gz → windows-x86_64 ⚠️
+  - gitui-win.msi → windows-x86_64 ⚠️
+  - gitui-mac.tar.gz → darwin-aarch64 ⚠️
+
+  现在让我重新生成 manifest.json 来包含 gitui 的 Windows 和 macOS 平台：
+
+● Bash(py scripts/generate_manifest.py) timeout: 5m 0s
+  ⎿  Interrupted · What should Claude do instead?
+
+> 不用本地重新生成，讓線上workflow執行 
+
+● 好的！我们直接提交代码改动，让 GitHub Actions workflow 自动生成 manifest。
+
+● Bash(rm test_platform_detection.py)
+  ⎿  (No content)
+
+● Bash(git status && git diff scripts/generate_manifest.py)
+  ⎿ On branch main                                                         
+    Your branch is behind 'origin/main' by 1 commit, and can be fast-forwar
+    ded.
+    … +90 lines (ctrl+o to expand)
+
+
+● Bash(git pull && git add scripts/generate_manifest.py && git commit -m "feat:
+      Add fallback platform detection for ambiguous filenames…)
+  ⎿  Updating 9431ab2..923ceb7                    
+     Fast-forward
+      manifest.json | 25 ++++++++++++++++++++++++-
+     … +4 lines (ctrl+o to expand)
+
+● Bash(git push)
+  ⎿  remote: This repository moved. Please use the new location:
+     remote:   https://github.com/superyngo/wenget-bucket.git
+     To https://github.com/superyngo/wenpm-bucket.git
+        923ceb7..f02b610  main -> main
+
+● Bash(gh run list --limit 3)
+  ⎿  in_progress		feat: Add fallback platform detection for ambiguous file
+     mes	Update Bucket Manifest	main	push	19885281649	13s	2025-12-03T07:00:3
+     3Z
+     … +4 lines (ctrl+o to expand)
+
+● 完成！✅ 代码已成功推送，GitHub Actions workflow 正在运行中。
+
+  实现总结
+
+  📝 已完成的改动
+
+  scripts/generate_manifest.py：
+
+  1. 新增 FALLBACK_PATTERNS（第 171-183 行）
+    - windows-x86_64：匹配 win、windows 开头的文件
+    - linux-x86_64：匹配 linux 开头的文件
+    - darwin-aarch64：匹配 mac、macos、osx 开头的文件（假设 Apple Silicon）
+  2. 增强精确模式（第 157 行）
+    - 为 darwin-x86_64 添加 mac-x86、osx-x86 模式
+  3. 支持 .msi 扩展名（第 186 行）
+    - 将 .msi 加入支持的归档扩展名列表
+  4. 两层检测逻辑（第 202-224 行）
+    - 优先级 1：精确匹配（有架构信息）
+    - 优先级 2：回退匹配（假设常见架构，带 ⚠️ 警告）
+
+  🎯 效果验证
+
+  测试 gitui 文件名检测：
+  - ✅ gitui-win.tar.gz → windows-x86_64（回退）
+  - ✅ gitui-win.msi → windows-x86_64（回退）
+  - ✅ gitui-mac.tar.gz → darwin-aarch64（回退）
+  - ✅ gitui-mac-x86.tar.gz → darwin-x86_64（精确）
+
+  🚀 GitHub Actions
+
+  Workflow 正在运行：Update Bucket Manifest (in_progress)
+  - Commit: f02b610 - feat: Add fallback platform detection for ambiguous
+  filenames
+  - 运行状态：https://github.com/superyngo/wenget-bucket/actions
+
+  Workflow 完成后，manifest.json 将自动更新，gitui 的 Windows 和 macOS
+  平台会被纳入！
+
+
+

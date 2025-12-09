@@ -27,13 +27,15 @@ bash scripts/test_scripts.sh
 
 ### Source Files
 - `sources_repos.txt` - GitHub repository URLs for binary packages (one per line, `#` for comments)
-- `sources_scripts.txt` - GitHub Gist URLs for scripts (auto-extracts all scripts from each gist)
+- `sources_scripts.txt` - Script source URLs (supports both Gist URLs and raw script URLs)
+  - Gist URLs: Auto-extracts all scripts from each gist
+  - Raw URLs: Direct links to script files (e.g., `https://raw.githubusercontent.com/user/repo/main/script`)
 
 ### Generated Output
 - `manifest.json` - Contains `packages` array (binary releases from GitHub repos) and `scripts` array (from Gists), plus `last_updated` timestamp
 
 ### Scripts
-- `scripts/generate_manifest.py` - Fetches GitHub API to build manifest from source files. Uses `GITHUB_TOKEN` env var for API rate limits. Detects platforms using 4-component keyword matching (extension, platform, architecture, compiler). See [Platform Detection Logic](docs/platform-detection.md) for details.
+- `scripts/generate_manifest.py` - Fetches GitHub API to build manifest from source files. Uses `GITHUB_TOKEN` env var for API rate limits. Detects platforms using 4-component keyword matching (extension, platform, architecture, compiler). For scripts without extensions, detects type by checking shebang line. See [Platform Detection Logic](docs/platform-detection.md) for details.
 - `scripts/validate_manifest.py` - Validates manifest structure and required fields
 - `scripts/test_scripts.sh` - Test suite for the generation scripts
 
@@ -47,4 +49,6 @@ bash scripts/test_scripts.sh
 
 **Binary package**: Add GitHub repo URL to `sources_repos.txt` (requires binary releases with platform-specific assets)
 
-**Script**: Add Gist URL to `sources_scripts.txt` (supports .ps1, .sh, .bat, .cmd, .py extensions)
+**Script**: Add URL to `sources_scripts.txt`
+- Gist URL: `https://gist.github.com/username/gist_id` (auto-extracts all .ps1, .sh, .bat, .cmd, .py scripts)
+- Raw script URL: `https://raw.githubusercontent.com/user/repo/branch/path/script` (detects type from extension or shebang)

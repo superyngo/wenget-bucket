@@ -403,6 +403,12 @@ class ManifestGenerator:
 
         return None
 
+    def is_raw_script_url(self, url: str) -> bool:
+        """Check if URL is a raw script URL (e.g., raw.githubusercontent.com)"""
+        url_lower = url.lower()
+        # Support raw.githubusercontent.com and other direct raw URLs
+        return "raw.githubusercontent.com" in url_lower or url_lower.startswith("https://raw.")
+
     def detect_script_type(self, filename: str) -> Optional[str]:
         """Detect script type from filename extension"""
         ext_map = {
@@ -418,6 +424,89 @@ class ManifestGenerator:
                 return script_type
 
         return None
+
+    def detect_script_type_from_shebang(self, content: str) -> Optional[str]:
+        """Detect script type from shebang line"""
+        if not content:
+            return None
+
+        # Get first line
+        first_line = content.split('\n')[0].strip()
+
+        if not first_line.startswith('#!'):
+            return None
+
+        # Map shebang to script type
+        shebang_lower = first_line.lower()
+        if 'bash' in shebang_lower or 'sh' in shebang_lower:
+            return 'bash'
+        elif 'python' in shebang_lower:
+            return 'python'
+        elif 'pwsh' in shebang_lower or 'powershell' in shebang_lower:
+            return 'powershell'
+
+        return None
+
+    def fetch_raw_script(self, url: str) -> List[Dict[str, Any]]:
+        """Fetch script information from a raw script URL"""
+        try:
+            # Extract filename from URL
+            filename = url.rstrip("/").split("/")[-1]
+
+            # Detect script type from filename first
+            script_type = self.detect_script_type(filename)
+
+            # If no extension, try to fetch content and check shebang
+            if not script_type:
+                print(f"   ℹ️  No extension detected, checking shebang for: {filename}")
+                try:
+                    headers = {
+                        "User-Agent": "Wenget-Bucket-Generator/1.0",
+                    }
+                    req = Request(url, headers=headers)
+                    with urlopen(req, timeout=30) as response:
+                        # Only read first 1KB to check shebang
+                        content = response.read(1024).decode('utf-8', errors='ignore')
+                        script_type = self.detect_script_type_from_shebang(content)
+
+                    if script_type:
+                        print(f"   ✓ Detected {script_type} from shebang")
+                    else:
+                        print(f"   ⚠️  Cannot detect script type from shebang")
+                        return []
+                except Exception as e:
+                    print(f"   ⚠️  Failed to fetch content for shebang detection: {e}")
+                    return []
+
+            # Remove extension from script name
+            name = filename
+            for ext in [".ps1", ".sh", ".bat", ".cmd", ".py"]:
+                if name.endswith(ext):
+                    name = name[:-len(ext)]
+                    break
+
+            # Try to extract repo URL from raw URL
+            # Example: https://raw.githubusercontent.com/owner/repo/refs/heads/main/file
+            # -> https://github.com/owner/repo
+            repo_url = None
+            github_match = re.search(r"raw\.githubusercontent\.com/([^/]+)/([^/]+)", url)
+            if github_match:
+                owner, repo = github_match.groups()
+                repo_url = f"https://github.com/{owner}/{repo}"
+
+            script = {
+                "name": name,
+                "description": f"{filename} from {repo_url or url}",
+                "url": url,
+                "script_type": script_type,
+                "repo": repo_url or url,
+            }
+
+            return [script]
+
+        except Exception as e:
+            print(f"❌ Error processing raw script {url}: {e}")
+            return []
 
     def fetch_gist_scripts(self, url: str) -> List[Dict[str, Any]]:
         """Fetch script information from GitHub Gist"""
@@ -472,6 +561,15 @@ class ManifestGenerator:
         except Exception as e:
             print(f"❌ Error fetching gist {gist_id}: {e}")
             return []
+
+    def fetch_scripts_from_url(self, url: str) -> List[Dict[str, Any]]:
+        """Fetch scripts from URL - supports both Gist and raw script URLs"""
+        # Check if this is a raw script URL
+        if self.is_raw_script_url(url):
+            return self.fetch_raw_script(url)
+        # Otherwise treat as Gist URL
+        else:
+            return self.fetch_gist_scripts(url)
 
     def fetch_package_info(self, url: str) -> Optional[Dict[str, Any]]:
         """Fetch package information from GitHub"""
@@ -570,7 +668,7 @@ class ManifestGenerator:
             for i, url in enumerate(gist_urls, 1):
                 print(f"\n[{i}/{len(gist_urls)}] {url}")
 
-                scripts = self.fetch_gist_scripts(url)
+                scripts = self.fetch_scripts_from_url(url)
                 if scripts:
                     self.scripts.extend(scripts)
                     for script in scripts:

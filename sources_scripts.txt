@@ -1,12 +1,15 @@
 # Wenget Bucket - Script Sources
 #
-# List GitHub Gist URLs (one per line)
+# Supports both Gist URLs and raw script URLs (one per line)
 # Comments start with #
 # Empty lines are ignored
 #
-# Format: https://gist.github.com/USERNAME/GIST_ID
+# Formats:
+# - Gist: https://gist.github.com/USERNAME/GIST_ID
+#   (auto-extracts all .ps1, .sh, .bat, .cmd, .py scripts from the gist)
 #
-# Scripts will be automatically extracted from each gist
+# - Raw script: https://raw.githubusercontent.com/USER/REPO/BRANCH/PATH/SCRIPT
+#   (detects script type from file extension or shebang line)
 
 # === Utility Scripts ===
 https://gist.github.com/superyngo/c77bbbf67759cc4213aac12ebe980225
