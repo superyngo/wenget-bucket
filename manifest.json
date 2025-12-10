@@ -131,12 +131,12 @@
       "license": "MIT",
       "platforms": {
         "windows-i686": {
-          "url": "https://github.com/superyngo/wemux/releases/download/v0.1.1/wemux-windows-i686.exe",
-          "size": 1681920
+          "url": "https://github.com/superyngo/wemux/releases/download/v0.2.0/wemux-service-windows-i686.exe",
+          "size": 1572352
         },
         "windows-x86_64": {
-          "url": "https://github.com/superyngo/wemux/releases/download/v0.1.1/wemux-windows-x86_64.exe",
-          "size": 2069504
+          "url": "https://github.com/superyngo/wemux/releases/download/v0.2.0/wemux-service-windows-x86_64.exe",
+          "size": 1888768
         }
       }
     },
@@ -538,7 +538,7 @@
       }
     }
   ],
-  "last_updated": "2025-12-09T06:23:26Z",
+  "last_updated": "2025-12-10T00:19:44Z",
   "scripts": [
     {
       "name": "mini-nano",
