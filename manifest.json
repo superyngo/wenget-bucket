@@ -538,7 +538,7 @@
       }
     }
   ],
-  "last_updated": "2025-12-10T00:19:44Z",
+  "last_updated": "2025-12-10T03:55:06Z",
   "scripts": [
     {
       "name": "mini-nano",
@@ -564,7 +564,7 @@
     {
       "name": "ssh-copy-id",
       "description": "Shell and PowerShell utility scripts",
-      "url": "https://gist.githubusercontent.com/superyngo/c77bbbf67759cc4213aac12ebe980225/raw/6a1387adce4afc9f4b162ebbb2d98855e4569df5/ssh-copy-id.ps1",
+      "url": "https://gist.githubusercontent.com/superyngo/c77bbbf67759cc4213aac12ebe980225/raw/4aa3500311ea3243b3e9a6721d0ce509756f7ee4/ssh-copy-id.ps1",
       "script_type": "powershell",
       "repo": "https://gist.github.com/superyngo/c77bbbf67759cc4213aac12ebe980225"
     },
