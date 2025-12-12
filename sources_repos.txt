@@ -32,6 +32,7 @@ https://github.com/ajeetdsouza/zoxide
 
 # === System Monitoring ===
 https://github.com/ClementTsang/bottom
+https://github.com/itefixnet/wincdu
 
 # === Shell Enhancement ===
 https://github.com/starship/starship
