@@ -489,6 +489,19 @@
       }
     },
     {
+      "name": "wincdu",
+      "description": "wincdu is a portable Windows packaging of Ncdu, bundled with Cygwin and the Mintty terminal for a ready-to-use disk usage analyzer. It offers fast directory scanning, an interactive text-based interface, and built-in file cleanup.",
+      "repo": "https://github.com/itefixnet/wincdu",
+      "homepage": "https://itefix.net",
+      "license": "BSD-2-Clause",
+      "platforms": {
+        "windows-x86_64": {
+          "url": "https://github.com/itefixnet/wincdu/releases/download/v1.0.2/wincdu_1.0.2_x64_free.zip",
+          "size": 7131033
+        }
+      }
+    },
+    {
       "name": "starship",
       "description": "☄🌌️  The minimal, blazing-fast, and infinitely customizable prompt for any shell!",
       "repo": "https://github.com/starship/starship",
@@ -538,7 +551,7 @@
       }
     }
   ],
-  "last_updated": "2025-12-12T00:19:25Z",
+  "last_updated": "2025-12-12T14:01:43Z",
   "scripts": [
     {
       "name": "mini-nano",
