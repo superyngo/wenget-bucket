@@ -36,3 +36,6 @@ https://github.com/itefixnet/wincdu
 
 # === Shell Enhancement ===
 https://github.com/starship/starship
+
+# === File Management ===
+https://github.com/rn7s2/rsync-win
