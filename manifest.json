@@ -358,6 +358,35 @@
       }
     },
     {
+      "name": "copilot-cli",
+      "description": "GitHub Copilot CLI brings the power of Copilot coding agent directly to your terminal. ",
+      "repo": "https://github.com/github/copilot-cli",
+      "homepage": "",
+      "license": null,
+      "platforms": {
+        "darwin-aarch64": {
+          "url": "https://github.com/github/copilot-cli/releases/download/v0.0.369/copilot-darwin-arm64.tar.gz",
+          "size": 53956104
+        },
+        "darwin-x86_64": {
+          "url": "https://github.com/github/copilot-cli/releases/download/v0.0.369/copilot-darwin-x64.tar.gz",
+          "size": 57198765
+        },
+        "linux-aarch64": {
+          "url": "https://github.com/github/copilot-cli/releases/download/v0.0.369/copilot-linux-arm64.tar.gz",
+          "size": 60110654
+        },
+        "linux-x86_64": {
+          "url": "https://github.com/github/copilot-cli/releases/download/v0.0.369/copilot-linux-x64.tar.gz",
+          "size": 58284066
+        },
+        "windows-i686": {
+          "url": "https://github.com/github/copilot-cli/releases/download/v0.0.369/copilot-win32-arm64.zip",
+          "size": 54255511
+        }
+      }
+    },
+    {
       "name": "gitui",
       "description": "Blazing 💥 fast terminal-ui for git written in rust 🦀",
       "repo": "https://github.com/gitui-org/gitui",
@@ -564,7 +593,7 @@
       }
     }
   ],
-  "last_updated": "2025-12-15T00:21:21Z",
+  "last_updated": "2025-12-15T04:04:40Z",
   "scripts": [
     {
       "name": "mini-nano",
