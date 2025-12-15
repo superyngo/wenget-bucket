@@ -365,32 +365,32 @@
       "license": "MIT",
       "platforms": {
         "linux-aarch64": {
-          "url": "https://github.com/gitui-org/gitui/releases/download/v0.27.0/gitui-linux-aarch64.tar.gz",
-          "size": 5916903
+          "url": "https://github.com/gitui-org/gitui/releases/download/v0.28.0/gitui-linux-aarch64.tar.gz",
+          "size": 7012487
         },
         "linux-armv6": {
-          "url": "https://github.com/gitui-org/gitui/releases/download/v0.27.0/gitui-linux-arm.tar.gz",
-          "size": 5108968
+          "url": "https://github.com/gitui-org/gitui/releases/download/v0.28.0/gitui-linux-arm.tar.gz",
+          "size": 6168268
         },
         "linux-armv7": {
-          "url": "https://github.com/gitui-org/gitui/releases/download/v0.27.0/gitui-linux-armv7.tar.gz",
-          "size": 5078574
+          "url": "https://github.com/gitui-org/gitui/releases/download/v0.28.0/gitui-linux-armv7.tar.gz",
+          "size": 6122014
         },
         "linux-x86_64": {
-          "url": "https://github.com/gitui-org/gitui/releases/download/v0.27.0/gitui-linux-x86_64.tar.gz",
-          "size": 5784977
+          "url": "https://github.com/gitui-org/gitui/releases/download/v0.28.0/gitui-linux-x86_64.tar.gz",
+          "size": 6850974
         },
         "darwin-x86_64": {
-          "url": "https://github.com/gitui-org/gitui/releases/download/v0.27.0/gitui-mac-x86.tar.gz",
-          "size": 4770264
+          "url": "https://github.com/gitui-org/gitui/releases/download/v0.28.0/gitui-mac-x86.tar.gz",
+          "size": 5836709
         },
         "darwin": {
-          "url": "https://github.com/gitui-org/gitui/releases/download/v0.27.0/gitui-mac.tar.gz",
-          "size": 4999134
+          "url": "https://github.com/gitui-org/gitui/releases/download/v0.28.0/gitui-mac.tar.gz",
+          "size": 6028244
         },
         "windows-x86_64": {
-          "url": "https://github.com/gitui-org/gitui/releases/download/v0.27.0/gitui-win.tar.gz",
-          "size": 3674248
+          "url": "https://github.com/gitui-org/gitui/releases/download/v0.28.0/gitui-win.tar.gz",
+          "size": 4764543
         }
       }
     },
@@ -564,7 +564,7 @@
       }
     }
   ],
-  "last_updated": "2025-12-14T00:21:13Z",
+  "last_updated": "2025-12-15T00:21:21Z",
   "scripts": [
     {
       "name": "mini-nano",
