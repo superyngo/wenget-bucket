@@ -23,6 +23,7 @@ https://github.com/sharkdp/hexyl
 # === Development Tools ===
 https://github.com/sharkdp/hyperfine
 https://github.com/XAMPPRocky/tokei
+https://github.com/github/copilot-cli
 
 # === Git Tools ===
 https://github.com/extrawurst/gitui
