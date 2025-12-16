@@ -29,3 +29,5 @@ test_sources.txt
 # Temporary files
 *.tmp
 *.bak
+
+nul

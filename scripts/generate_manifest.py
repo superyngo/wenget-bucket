@@ -133,6 +133,7 @@ class PlatformDetector:
     PLATFORM_KEYWORDS: Dict[str, str] = {
         # Windows variants
         "win": "windows",
+        "win32": "windows",
         "windows": "windows",
         "pc-windows": "windows",
         # Linux variants
@@ -160,7 +161,6 @@ class PlatformDetector:
         # 32-bit x86
         "i686": "i686",
         "i386": "i686",
-        "win32": "i686",
         # ARM 64-bit
         "aarch64": "aarch64",
         "arm64": "aarch64",
