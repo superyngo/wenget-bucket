@@ -380,9 +380,13 @@
           "url": "https://github.com/github/copilot-cli/releases/download/v0.0.369/copilot-linux-x64.tar.gz",
           "size": 58284066
         },
-        "windows-i686": {
+        "windows-aarch64": {
           "url": "https://github.com/github/copilot-cli/releases/download/v0.0.369/copilot-win32-arm64.zip",
           "size": 54255511
+        },
+        "windows-x86_64": {
+          "url": "https://github.com/github/copilot-cli/releases/download/v0.0.369/copilot-win32-x64.zip",
+          "size": 56664397
         }
       }
     },
@@ -593,7 +597,7 @@
       }
     }
   ],
-  "last_updated": "2025-12-16T00:19:54Z",
+  "last_updated": "2025-12-16T12:31:26Z",
   "scripts": [
     {
       "name": "mini-nano",
