@@ -365,28 +365,28 @@
       "license": null,
       "platforms": {
         "darwin-aarch64": {
-          "url": "https://github.com/github/copilot-cli/releases/download/v0.0.369/copilot-darwin-arm64.tar.gz",
-          "size": 53956104
+          "url": "https://github.com/github/copilot-cli/releases/download/v0.0.372/copilot-darwin-arm64.tar.gz",
+          "size": 54108811
         },
         "darwin-x86_64": {
-          "url": "https://github.com/github/copilot-cli/releases/download/v0.0.369/copilot-darwin-x64.tar.gz",
-          "size": 57198765
+          "url": "https://github.com/github/copilot-cli/releases/download/v0.0.372/copilot-darwin-x64.tar.gz",
+          "size": 57340677
         },
         "linux-aarch64": {
-          "url": "https://github.com/github/copilot-cli/releases/download/v0.0.369/copilot-linux-arm64.tar.gz",
-          "size": 60110654
+          "url": "https://github.com/github/copilot-cli/releases/download/v0.0.372/copilot-linux-arm64.tar.gz",
+          "size": 60255115
         },
         "linux-x86_64": {
-          "url": "https://github.com/github/copilot-cli/releases/download/v0.0.369/copilot-linux-x64.tar.gz",
-          "size": 58284066
+          "url": "https://github.com/github/copilot-cli/releases/download/v0.0.372/copilot-linux-x64.tar.gz",
+          "size": 58434776
         },
         "windows-aarch64": {
-          "url": "https://github.com/github/copilot-cli/releases/download/v0.0.369/copilot-win32-arm64.zip",
-          "size": 54255511
+          "url": "https://github.com/github/copilot-cli/releases/download/v0.0.372/copilot-win32-arm64.zip",
+          "size": 54404554
         },
         "windows-x86_64": {
-          "url": "https://github.com/github/copilot-cli/releases/download/v0.0.369/copilot-win32-x64.zip",
-          "size": 56664397
+          "url": "https://github.com/github/copilot-cli/releases/download/v0.0.372/copilot-win32-x64.zip",
+          "size": 56805465
         }
       }
     },
@@ -597,7 +597,7 @@
       }
     }
   ],
-  "last_updated": "2025-12-16T12:31:26Z",
+  "last_updated": "2025-12-21T05:01:10Z",
   "scripts": [
     {
       "name": "mini-nano",
@@ -609,7 +609,7 @@
     {
       "name": "rclonemm",
       "description": "Shell and PowerShell utility scripts",
-      "url": "https://gist.githubusercontent.com/superyngo/c77bbbf67759cc4213aac12ebe980225/raw/2a15c6b1e07424300146ba49b25d3cffa9cfe25b/rclonemm.sh",
+      "url": "https://gist.githubusercontent.com/superyngo/c77bbbf67759cc4213aac12ebe980225/raw/b9c1fbe54812aee10626e867993e0aeac1dc2358/rclonemm.sh",
       "script_type": "bash",
       "repo": "https://gist.github.com/superyngo/c77bbbf67759cc4213aac12ebe980225"
     },
