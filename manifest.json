@@ -597,7 +597,7 @@
       }
     }
   ],
-  "last_updated": "2025-12-22T00:02:13Z",
+  "last_updated": "2025-12-23T07:55:17Z",
   "scripts": [
     {
       "name": "mini-nano",
@@ -633,6 +633,20 @@
       "url": "https://gist.githubusercontent.com/superyngo/c77bbbf67759cc4213aac12ebe980225/raw/b0bf96b4898582b1a78d9e87247d6ef9fac455f4/sync_ssh_to_rclone.sh",
       "script_type": "bash",
       "repo": "https://gist.github.com/superyngo/c77bbbf67759cc4213aac12ebe980225"
+    },
+    {
+      "name": "wrtman",
+      "description": "Manage logrotate configurations",
+      "url": "https://gist.githubusercontent.com/superyngo/7ff78b1ccc213ff6a6cb3b1b2dbd77d0/raw/b1299d2366cb7a8e2070a2d10d7b3246499b3ba2/wrtman.sh",
+      "script_type": "bash",
+      "repo": "https://gist.github.com/superyngo/7ff78b1ccc213ff6a6cb3b1b2dbd77d0"
+    },
+    {
+      "name": "wappman",
+      "description": "Application process manager with monitoring capabilities",
+      "url": "https://gist.githubusercontent.com/superyngo/a9543b560d59ceeb2d5fcb9eab87c560/raw/c9cf3b7233b5dc776d43b88c5e37c374f65325eb/wappman.sh",
+      "script_type": "bash",
+      "repo": "https://gist.github.com/superyngo/a9543b560d59ceeb2d5fcb9eab87c560"
     },
     {
       "name": "better-rm",
