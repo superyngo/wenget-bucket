@@ -40,3 +40,5 @@ https://github.com/starship/starship
 
 # === File Management ===
 https://github.com/rn7s2/rsync-win
+
+https://github.com/sinelaw/fresh
