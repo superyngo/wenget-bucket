@@ -49,36 +49,36 @@
       "license": "MIT",
       "platforms": {
         "linux-aarch64": {
-          "url": "https://github.com/superyngo/wedi/releases/download/v0.5.1/wedi-linux-aarch64-musl.tar.gz",
-          "size": 1612382
+          "url": "https://github.com/superyngo/wedi/releases/download/v0.5.2/wedi-linux-aarch64-musl.tar.gz",
+          "size": 1613071
         },
         "linux-armv7": {
-          "url": "https://github.com/superyngo/wedi/releases/download/v0.5.1/wedi-linux-armv7-musl.tar.gz",
-          "size": 1584316
+          "url": "https://github.com/superyngo/wedi/releases/download/v0.5.2/wedi-linux-armv7-musl.tar.gz",
+          "size": 1586024
         },
         "linux-i686": {
-          "url": "https://github.com/superyngo/wedi/releases/download/v0.5.1/wedi-linux-i686-musl.tar.gz",
-          "size": 1649732
+          "url": "https://github.com/superyngo/wedi/releases/download/v0.5.2/wedi-linux-i686-musl.tar.gz",
+          "size": 1651105
         },
         "linux-x86_64": {
-          "url": "https://github.com/superyngo/wedi/releases/download/v0.5.1/wedi-linux-x86_64-musl.tar.gz",
-          "size": 1643117
+          "url": "https://github.com/superyngo/wedi/releases/download/v0.5.2/wedi-linux-x86_64-musl.tar.gz",
+          "size": 1644495
         },
         "darwin-aarch64": {
-          "url": "https://github.com/superyngo/wedi/releases/download/v0.5.1/wedi-macos-aarch64.tar.gz",
-          "size": 1546344
+          "url": "https://github.com/superyngo/wedi/releases/download/v0.5.2/wedi-macos-aarch64.tar.gz",
+          "size": 1548011
         },
         "darwin-x86_64": {
-          "url": "https://github.com/superyngo/wedi/releases/download/v0.5.1/wedi-macos-x86_64.tar.gz",
-          "size": 1558120
+          "url": "https://github.com/superyngo/wedi/releases/download/v0.5.2/wedi-macos-x86_64.tar.gz",
+          "size": 1559319
         },
         "windows-i686": {
-          "url": "https://github.com/superyngo/wedi/releases/download/v0.5.1/wedi-windows-i686.exe",
-          "size": 2619904
+          "url": "https://github.com/superyngo/wedi/releases/download/v0.5.2/wedi-windows-i686.exe",
+          "size": 2624000
         },
         "windows-x86_64": {
-          "url": "https://github.com/superyngo/wedi/releases/download/v0.5.1/wedi-windows-x86_64.exe",
-          "size": 2828800
+          "url": "https://github.com/superyngo/wedi/releases/download/v0.5.2/wedi-windows-x86_64.exe",
+          "size": 2833920
         }
       }
     },
@@ -391,6 +391,55 @@
       }
     },
     {
+      "name": "uv",
+      "description": "An extremely fast Python package and project manager, written in Rust.",
+      "repo": "https://github.com/astral-sh/uv",
+      "homepage": "https://docs.astral.sh/uv",
+      "license": "Apache-2.0",
+      "platforms": {
+        "darwin-aarch64": {
+          "url": "https://github.com/astral-sh/uv/releases/download/0.9.18/uv-aarch64-apple-darwin.tar.gz",
+          "size": 18986443
+        },
+        "windows-aarch64": {
+          "url": "https://github.com/astral-sh/uv/releases/download/0.9.18/uv-aarch64-pc-windows-msvc.zip",
+          "size": 20080048
+        },
+        "linux-aarch64": {
+          "url": "https://github.com/astral-sh/uv/releases/download/0.9.18/uv-aarch64-unknown-linux-musl.tar.gz",
+          "size": 20821418
+        },
+        "linux-armv6": {
+          "url": "https://github.com/astral-sh/uv/releases/download/0.9.18/uv-arm-unknown-linux-musleabihf.tar.gz",
+          "size": 21367574
+        },
+        "linux-armv7": {
+          "url": "https://github.com/astral-sh/uv/releases/download/0.9.18/uv-armv7-unknown-linux-musleabihf.tar.gz",
+          "size": 20953885
+        },
+        "windows-i686": {
+          "url": "https://github.com/astral-sh/uv/releases/download/0.9.18/uv-i686-pc-windows-msvc.zip",
+          "size": 19484609
+        },
+        "linux-i686": {
+          "url": "https://github.com/astral-sh/uv/releases/download/0.9.18/uv-i686-unknown-linux-musl.tar.gz",
+          "size": 21370248
+        },
+        "linux-x86_64": {
+          "url": "https://github.com/astral-sh/uv/releases/download/0.9.18/uv-x86_64-unknown-linux-musl.tar.gz",
+          "size": 22485912
+        },
+        "darwin-x86_64": {
+          "url": "https://github.com/astral-sh/uv/releases/download/0.9.18/uv-x86_64-apple-darwin.tar.gz",
+          "size": 20444475
+        },
+        "windows-x86_64": {
+          "url": "https://github.com/astral-sh/uv/releases/download/0.9.18/uv-x86_64-pc-windows-msvc.zip",
+          "size": 21509695
+        }
+      }
+    },
+    {
       "name": "gitui",
       "description": "Blazing 💥 fast terminal-ui for git written in rust 🦀",
       "repo": "https://github.com/gitui-org/gitui",
@@ -480,44 +529,44 @@
       "license": "MIT",
       "platforms": {
         "darwin-aarch64": {
-          "url": "https://github.com/ClementTsang/bottom/releases/download/0.12.1/bottom_aarch64-apple-darwin.tar.gz",
-          "size": 1777918
+          "url": "https://github.com/ClementTsang/bottom/releases/download/0.12.2/bottom_aarch64-apple-darwin.tar.gz",
+          "size": 1775748
         },
         "linux-aarch64": {
-          "url": "https://github.com/ClementTsang/bottom/releases/download/0.12.1/bottom_aarch64-unknown-linux-musl.tar.gz",
-          "size": 1933479
+          "url": "https://github.com/ClementTsang/bottom/releases/download/0.12.2/bottom_aarch64-unknown-linux-musl.tar.gz",
+          "size": 1932965
         },
         "windows-aarch64": {
-          "url": "https://github.com/ClementTsang/bottom/releases/download/0.12.1/bottom_aarch64-pc-windows-msvc.tar.gz",
-          "size": 1708104
+          "url": "https://github.com/ClementTsang/bottom/releases/download/0.12.2/bottom_aarch64-pc-windows-msvc.tar.gz",
+          "size": 1706376
         },
         "linux-armv7": {
-          "url": "https://github.com/ClementTsang/bottom/releases/download/0.12.1/bottom_armv7-unknown-linux-musleabihf.tar.gz",
-          "size": 2008879
+          "url": "https://github.com/ClementTsang/bottom/releases/download/0.12.2/bottom_armv7-unknown-linux-musleabihf.tar.gz",
+          "size": 2009372
         },
         "windows-i686": {
-          "url": "https://github.com/ClementTsang/bottom/releases/download/0.12.1/bottom_i686-pc-windows-msvc.zip",
-          "size": 1709983
+          "url": "https://github.com/ClementTsang/bottom/releases/download/0.12.2/bottom_i686-pc-windows-msvc.zip",
+          "size": 1706974
         },
         "linux-i686": {
-          "url": "https://github.com/ClementTsang/bottom/releases/download/0.12.1/bottom_i686-unknown-linux-musl.tar.gz",
-          "size": 2100784
+          "url": "https://github.com/ClementTsang/bottom/releases/download/0.12.2/bottom_i686-unknown-linux-musl.tar.gz",
+          "size": 2096622
         },
         "linux-x86_64": {
-          "url": "https://github.com/ClementTsang/bottom/releases/download/0.12.1/bottom_x86_64-unknown-linux-musl.tar.gz",
-          "size": 2166271
+          "url": "https://github.com/ClementTsang/bottom/releases/download/0.12.2/bottom_x86_64-unknown-linux-musl.tar.gz",
+          "size": 2166656
         },
         "darwin-x86_64": {
-          "url": "https://github.com/ClementTsang/bottom/releases/download/0.12.1/bottom_x86_64-apple-darwin.tar.gz",
-          "size": 1931853
+          "url": "https://github.com/ClementTsang/bottom/releases/download/0.12.2/bottom_x86_64-apple-darwin.tar.gz",
+          "size": 1931251
         },
         "windows-x86_64": {
-          "url": "https://github.com/ClementTsang/bottom/releases/download/0.12.1/bottom_x86_64-pc-windows-msvc.zip",
-          "size": 1858712
+          "url": "https://github.com/ClementTsang/bottom/releases/download/0.12.2/bottom_x86_64-pc-windows-msvc.zip",
+          "size": 1857690
         },
         "freebsd-x86_64": {
-          "url": "https://github.com/ClementTsang/bottom/releases/download/0.12.1/bottom_x86_64-unknown-freebsd-13.5.tar.gz",
-          "size": 2065588
+          "url": "https://github.com/ClementTsang/bottom/releases/download/0.12.2/bottom_x86_64-unknown-freebsd-13.5.tar.gz",
+          "size": 2066719
         }
       }
     },
@@ -604,29 +653,29 @@
       "license": "GPL-2.0",
       "platforms": {
         "darwin-aarch64": {
-          "url": "https://github.com/sinelaw/fresh/releases/download/v0.1.64/fresh-editor-aarch64-apple-darwin.tar.xz",
-          "size": 16146544
+          "url": "https://github.com/sinelaw/fresh/releases/download/v0.1.65/fresh-editor-aarch64-apple-darwin.tar.xz",
+          "size": 16169488
         },
         "linux-aarch64": {
-          "url": "https://github.com/sinelaw/fresh/releases/download/v0.1.64/fresh-editor-no-plugins-aarch64-unknown-linux-musl.tar.gz",
-          "size": 17350456
+          "url": "https://github.com/sinelaw/fresh/releases/download/v0.1.65/fresh-editor-no-plugins-aarch64-unknown-linux-musl.tar.gz",
+          "size": 17405806
         },
         "linux-x86_64": {
-          "url": "https://github.com/sinelaw/fresh/releases/download/v0.1.64/fresh-editor-no-plugins-x86_64-unknown-linux-musl.tar.gz",
-          "size": 17854338
+          "url": "https://github.com/sinelaw/fresh/releases/download/v0.1.65/fresh-editor-no-plugins-x86_64-unknown-linux-musl.tar.gz",
+          "size": 17905210
         },
         "darwin-x86_64": {
-          "url": "https://github.com/sinelaw/fresh/releases/download/v0.1.64/fresh-editor-x86_64-apple-darwin.tar.xz",
-          "size": 17789856
+          "url": "https://github.com/sinelaw/fresh/releases/download/v0.1.65/fresh-editor-x86_64-apple-darwin.tar.xz",
+          "size": 17787284
         },
         "windows-x86_64": {
-          "url": "https://github.com/sinelaw/fresh/releases/download/v0.1.64/fresh-editor-x86_64-pc-windows-msvc.zip",
-          "size": 23685262
+          "url": "https://github.com/sinelaw/fresh/releases/download/v0.1.65/fresh-editor-x86_64-pc-windows-msvc.zip",
+          "size": 23722850
         }
       }
     }
   ],
-  "last_updated": "2025-12-26T23:51:42Z",
+  "last_updated": "2025-12-28T12:17:33Z",
   "scripts": [
     {
       "name": "mini-nano",
