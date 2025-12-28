@@ -646,6 +646,51 @@
       }
     },
     {
+      "name": "rclone",
+      "description": "\"rsync for cloud storage\" - Google Drive, S3, Dropbox, Backblaze B2, One Drive, Swift, Hubic, Wasabi, Google Cloud Storage, Azure Blob, Azure Files, Yandex Files",
+      "repo": "https://github.com/rclone/rclone",
+      "homepage": "https://rclone.org",
+      "license": "MIT",
+      "platforms": {
+        "freebsd-x86_64": {
+          "url": "https://github.com/rclone/rclone/releases/download/v1.72.1/rclone-v1.72.1-freebsd-386.zip",
+          "size": 25129731
+        },
+        "freebsd-armv6": {
+          "url": "https://github.com/rclone/rclone/releases/download/v1.72.1/rclone-v1.72.1-freebsd-arm-v6.zip",
+          "size": 24966921
+        },
+        "linux-x86_64": {
+          "url": "https://github.com/rclone/rclone/releases/download/v1.72.1/rclone-v1.72.1-linux-386.zip",
+          "size": 25502043
+        },
+        "linux-armv6": {
+          "url": "https://github.com/rclone/rclone/releases/download/v1.72.1/rclone-v1.72.1-linux-arm-v6.zip",
+          "size": 25299658
+        },
+        "linux-aarch64": {
+          "url": "https://github.com/rclone/rclone/releases/download/v1.72.1/rclone-v1.72.1-linux-arm64.zip",
+          "size": 24622949
+        },
+        "darwin-x86_64": {
+          "url": "https://github.com/rclone/rclone/releases/download/v1.72.1/rclone-v1.72.1-osx-amd64.zip",
+          "size": 30253309
+        },
+        "darwin-aarch64": {
+          "url": "https://github.com/rclone/rclone/releases/download/v1.72.1/rclone-v1.72.1-osx-arm64.zip",
+          "size": 28143461
+        },
+        "windows-x86_64": {
+          "url": "https://github.com/rclone/rclone/releases/download/v1.72.1/rclone-v1.72.1-windows-386.zip",
+          "size": 25144797
+        },
+        "windows-aarch64": {
+          "url": "https://github.com/rclone/rclone/releases/download/v1.72.1/rclone-v1.72.1-windows-arm64.zip",
+          "size": 24394002
+        }
+      }
+    },
+    {
       "name": "fresh",
       "description": "Text editor for your terminal: easy, powerful and fast",
       "repo": "https://github.com/sinelaw/fresh",
@@ -675,7 +720,7 @@
       }
     }
   ],
-  "last_updated": "2025-12-28T12:17:33Z",
+  "last_updated": "2025-12-28T13:33:47Z",
   "scripts": [
     {
       "name": "mini-nano",
