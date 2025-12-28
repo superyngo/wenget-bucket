@@ -25,8 +25,6 @@ https://github.com/sharkdp/hyperfine
 https://github.com/XAMPPRocky/tokei
 https://github.com/github/copilot-cli
 https://github.com/astral-sh/uv
-
-# === Git Tools ===
 https://github.com/extrawurst/gitui
 
 # === Navigation ===
@@ -41,6 +39,8 @@ https://github.com/starship/starship
 
 # === File Management ===
 https://github.com/rn7s2/rsync-win
+https://github.com/rclone/rclone
 
 # === Editor ===
 https://github.com/sinelaw/fresh
+
