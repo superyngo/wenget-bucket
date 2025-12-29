@@ -40,7 +40,6 @@ https://github.com/pranshuparmar/witr
 # === File Management ===
 https://github.com/rn7s2/rsync-win
 https://github.com/rclone/rclone
-https://github.com/ip7z/7zip
 
 # === Editor ===
 https://github.com/sinelaw/fresh
