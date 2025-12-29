@@ -231,6 +231,59 @@
       }
     },
     {
+      "name": "fzf",
+      "description": ":cherry_blossom: A command-line fuzzy finder",
+      "repo": "https://github.com/junegunn/fzf",
+      "homepage": "https://junegunn.github.io/fzf/",
+      "license": "MIT",
+      "platforms": {
+        "darwin-x86_64": {
+          "url": "https://github.com/junegunn/fzf/releases/download/v0.67.0/fzf-0.67.0-darwin_amd64.tar.gz",
+          "size": 1868514
+        },
+        "darwin-aarch64": {
+          "url": "https://github.com/junegunn/fzf/releases/download/v0.67.0/fzf-0.67.0-darwin_arm64.tar.gz",
+          "size": 1750013
+        },
+        "freebsd-x86_64": {
+          "url": "https://github.com/junegunn/fzf/releases/download/v0.67.0/fzf-0.67.0-freebsd_amd64.tar.gz",
+          "size": 1787036
+        },
+        "linux-x86_64": {
+          "url": "https://github.com/junegunn/fzf/releases/download/v0.67.0/fzf-0.67.0-linux_amd64.tar.gz",
+          "size": 1801722
+        },
+        "linux-aarch64": {
+          "url": "https://github.com/junegunn/fzf/releases/download/v0.67.0/fzf-0.67.0-linux_arm64.tar.gz",
+          "size": 1682134
+        },
+        "linux-armv6": {
+          "url": "https://github.com/junegunn/fzf/releases/download/v0.67.0/fzf-0.67.0-linux_armv5.tar.gz",
+          "size": 1718572
+        },
+        "linux-armv7": {
+          "url": "https://github.com/junegunn/fzf/releases/download/v0.67.0/fzf-0.67.0-linux_armv7.tar.gz",
+          "size": 1705072
+        },
+        "windows-x86_64": {
+          "url": "https://github.com/junegunn/fzf/releases/download/v0.67.0/fzf-0.67.0-windows_amd64.zip",
+          "size": 1981150
+        },
+        "windows-aarch64": {
+          "url": "https://github.com/junegunn/fzf/releases/download/v0.67.0/fzf-0.67.0-windows_arm64.zip",
+          "size": 1831994
+        },
+        "windows-armv6": {
+          "url": "https://github.com/junegunn/fzf/releases/download/v0.67.0/fzf-0.67.0-windows_armv5.zip",
+          "size": 1890513
+        },
+        "windows-armv7": {
+          "url": "https://github.com/junegunn/fzf/releases/download/v0.67.0/fzf-0.67.0-windows_armv7.zip",
+          "size": 1873804
+        }
+      }
+    },
+    {
       "name": "bat",
       "description": "A cat(1) clone with wings.",
       "repo": "https://github.com/sharkdp/bat",
@@ -317,80 +370,6 @@
       }
     },
     {
-      "name": "hyperfine",
-      "description": "A command-line benchmarking tool",
-      "repo": "https://github.com/sharkdp/hyperfine",
-      "homepage": "",
-      "license": "Apache-2.0",
-      "platforms": {
-        "darwin-aarch64": {
-          "url": "https://github.com/sharkdp/hyperfine/releases/download/v1.20.0/hyperfine-v1.20.0-aarch64-apple-darwin.tar.gz",
-          "size": 582508
-        },
-        "linux-aarch64": {
-          "url": "https://github.com/sharkdp/hyperfine/releases/download/v1.20.0/hyperfine-v1.20.0-aarch64-unknown-linux-gnu.tar.gz",
-          "size": 607895
-        },
-        "linux-armv6": {
-          "url": "https://github.com/sharkdp/hyperfine/releases/download/v1.20.0/hyperfine-v1.20.0-arm-unknown-linux-musleabihf.tar.gz",
-          "size": 670324
-        },
-        "windows-i686": {
-          "url": "https://github.com/sharkdp/hyperfine/releases/download/v1.20.0/hyperfine-v1.20.0-i686-pc-windows-msvc.zip",
-          "size": 551328
-        },
-        "linux-i686": {
-          "url": "https://github.com/sharkdp/hyperfine/releases/download/v1.20.0/hyperfine-v1.20.0-i686-unknown-linux-musl.tar.gz",
-          "size": 715845
-        },
-        "darwin-x86_64": {
-          "url": "https://github.com/sharkdp/hyperfine/releases/download/v1.20.0/hyperfine-v1.20.0-x86_64-apple-darwin.tar.gz",
-          "size": 621721
-        },
-        "windows-x86_64": {
-          "url": "https://github.com/sharkdp/hyperfine/releases/download/v1.20.0/hyperfine-v1.20.0-x86_64-pc-windows-msvc.zip",
-          "size": 589310
-        },
-        "linux-x86_64": {
-          "url": "https://github.com/sharkdp/hyperfine/releases/download/v1.20.0/hyperfine-v1.20.0-x86_64-unknown-linux-musl.tar.gz",
-          "size": 710161
-        }
-      }
-    },
-    {
-      "name": "copilot-cli",
-      "description": "GitHub Copilot CLI brings the power of Copilot coding agent directly to your terminal. ",
-      "repo": "https://github.com/github/copilot-cli",
-      "homepage": "",
-      "license": null,
-      "platforms": {
-        "darwin-aarch64": {
-          "url": "https://github.com/github/copilot-cli/releases/download/v0.0.372/copilot-darwin-arm64.tar.gz",
-          "size": 54108811
-        },
-        "darwin-x86_64": {
-          "url": "https://github.com/github/copilot-cli/releases/download/v0.0.372/copilot-darwin-x64.tar.gz",
-          "size": 57340677
-        },
-        "linux-aarch64": {
-          "url": "https://github.com/github/copilot-cli/releases/download/v0.0.372/copilot-linux-arm64.tar.gz",
-          "size": 60255115
-        },
-        "linux-x86_64": {
-          "url": "https://github.com/github/copilot-cli/releases/download/v0.0.372/copilot-linux-x64.tar.gz",
-          "size": 58434776
-        },
-        "windows-aarch64": {
-          "url": "https://github.com/github/copilot-cli/releases/download/v0.0.372/copilot-win32-arm64.zip",
-          "size": 54404554
-        },
-        "windows-x86_64": {
-          "url": "https://github.com/github/copilot-cli/releases/download/v0.0.372/copilot-win32-x64.zip",
-          "size": 56805465
-        }
-      }
-    },
-    {
       "name": "uv",
       "description": "An extremely fast Python package and project manager, written in Rust.",
       "repo": "https://github.com/astral-sh/uv",
@@ -440,84 +419,73 @@
       }
     },
     {
-      "name": "gitui",
-      "description": "Blazing 💥 fast terminal-ui for git written in rust 🦀",
-      "repo": "https://github.com/gitui-org/gitui",
+      "name": "copilot-cli",
+      "description": "GitHub Copilot CLI brings the power of Copilot coding agent directly to your terminal. ",
+      "repo": "https://github.com/github/copilot-cli",
       "homepage": "",
-      "license": "MIT",
+      "license": null,
       "platforms": {
-        "linux-aarch64": {
-          "url": "https://github.com/gitui-org/gitui/releases/download/v0.28.0/gitui-linux-aarch64.tar.gz",
-          "size": 7012487
-        },
-        "linux-armv6": {
-          "url": "https://github.com/gitui-org/gitui/releases/download/v0.28.0/gitui-linux-arm.tar.gz",
-          "size": 6168268
-        },
-        "linux-armv7": {
-          "url": "https://github.com/gitui-org/gitui/releases/download/v0.28.0/gitui-linux-armv7.tar.gz",
-          "size": 6122014
-        },
-        "linux-x86_64": {
-          "url": "https://github.com/gitui-org/gitui/releases/download/v0.28.0/gitui-linux-x86_64.tar.gz",
-          "size": 6850974
+        "darwin-aarch64": {
+          "url": "https://github.com/github/copilot-cli/releases/download/v0.0.372/copilot-darwin-arm64.tar.gz",
+          "size": 54108811
         },
         "darwin-x86_64": {
-          "url": "https://github.com/gitui-org/gitui/releases/download/v0.28.0/gitui-mac-x86.tar.gz",
-          "size": 5836709
+          "url": "https://github.com/github/copilot-cli/releases/download/v0.0.372/copilot-darwin-x64.tar.gz",
+          "size": 57340677
         },
-        "darwin": {
-          "url": "https://github.com/gitui-org/gitui/releases/download/v0.28.0/gitui-mac.tar.gz",
-          "size": 6028244
+        "linux-aarch64": {
+          "url": "https://github.com/github/copilot-cli/releases/download/v0.0.372/copilot-linux-arm64.tar.gz",
+          "size": 60255115
+        },
+        "linux-x86_64": {
+          "url": "https://github.com/github/copilot-cli/releases/download/v0.0.372/copilot-linux-x64.tar.gz",
+          "size": 58434776
+        },
+        "windows-aarch64": {
+          "url": "https://github.com/github/copilot-cli/releases/download/v0.0.372/copilot-win32-arm64.zip",
+          "size": 54404554
         },
         "windows-x86_64": {
-          "url": "https://github.com/gitui-org/gitui/releases/download/v0.28.0/gitui-win.tar.gz",
-          "size": 4764543
+          "url": "https://github.com/github/copilot-cli/releases/download/v0.0.372/copilot-win32-x64.zip",
+          "size": 56805465
         }
       }
     },
     {
-      "name": "zoxide",
-      "description": "A smarter cd command. Supports all major shells.",
-      "repo": "https://github.com/ajeetdsouza/zoxide",
-      "homepage": "https://crates.io/crates/zoxide",
-      "license": "MIT",
+      "name": "scrcpy",
+      "description": "Display and control your Android device",
+      "repo": "https://github.com/Genymobile/scrcpy",
+      "homepage": "",
+      "license": "Apache-2.0",
       "platforms": {
+        "linux-x86_64": {
+          "url": "https://github.com/Genymobile/scrcpy/releases/download/v3.3.4/scrcpy-linux-x86_64-v3.3.4.tar.gz",
+          "size": 12854835
+        },
         "darwin-aarch64": {
-          "url": "https://github.com/ajeetdsouza/zoxide/releases/download/v0.9.8/zoxide-0.9.8-aarch64-apple-darwin.tar.gz",
-          "size": 480166
-        },
-        "linux-aarch64": {
-          "url": "https://github.com/ajeetdsouza/zoxide/releases/download/v0.9.8/zoxide-0.9.8-aarch64-unknown-linux-musl.tar.gz",
-          "size": 550032
-        },
-        "windows-aarch64": {
-          "url": "https://github.com/ajeetdsouza/zoxide/releases/download/v0.9.8/zoxide-0.9.8-aarch64-pc-windows-msvc.zip",
-          "size": 517253
-        },
-        "linux-armv6": {
-          "url": "https://github.com/ajeetdsouza/zoxide/releases/download/v0.9.8/zoxide-0.9.8-arm-unknown-linux-musleabihf.tar.gz",
-          "size": 562982
-        },
-        "linux-armv7": {
-          "url": "https://github.com/ajeetdsouza/zoxide/releases/download/v0.9.8/zoxide-0.9.8-armv7-unknown-linux-musleabihf.tar.gz",
-          "size": 549792
-        },
-        "linux-i686": {
-          "url": "https://github.com/ajeetdsouza/zoxide/releases/download/v0.9.8/zoxide-0.9.8-i686-unknown-linux-musl.tar.gz",
-          "size": 594182
+          "url": "https://github.com/Genymobile/scrcpy/releases/download/v3.3.4/scrcpy-macos-aarch64-v3.3.4.tar.gz",
+          "size": 9486795
         },
         "darwin-x86_64": {
-          "url": "https://github.com/ajeetdsouza/zoxide/releases/download/v0.9.8/zoxide-0.9.8-x86_64-apple-darwin.tar.gz",
-          "size": 506541
+          "url": "https://github.com/Genymobile/scrcpy/releases/download/v3.3.4/scrcpy-macos-x86_64-v3.3.4.tar.gz",
+          "size": 10155380
         },
         "windows-x86_64": {
-          "url": "https://github.com/ajeetdsouza/zoxide/releases/download/v0.9.8/zoxide-0.9.8-x86_64-pc-windows-msvc.zip",
-          "size": 547884
-        },
-        "linux-x86_64": {
-          "url": "https://github.com/ajeetdsouza/zoxide/releases/download/v0.9.8/zoxide-0.9.8-x86_64-unknown-linux-musl.tar.gz",
-          "size": 586553
+          "url": "https://github.com/Genymobile/scrcpy/releases/download/v3.3.4/scrcpy-win32-v3.3.4.zip",
+          "size": 6937302
+        }
+      }
+    },
+    {
+      "name": "wincdu",
+      "description": "wincdu is a portable Windows packaging of Ncdu, bundled with Cygwin and the Mintty terminal for a ready-to-use disk usage analyzer. It offers fast directory scanning, an interactive text-based interface, and built-in file cleanup.",
+      "repo": "https://github.com/itefixnet/wincdu",
+      "homepage": "https://itefix.net",
+      "license": "BSD-2-Clause",
+      "platforms": {
+        "windows-x86_64": {
+          "url": "https://github.com/itefixnet/wincdu/releases/download/v1.0.2/wincdu_1.0.2_x64_free.zip",
+          "size": 7131033
         }
       }
     },
@@ -567,68 +535,6 @@
         "freebsd-x86_64": {
           "url": "https://github.com/ClementTsang/bottom/releases/download/0.12.2/bottom_x86_64-unknown-freebsd-13.5.tar.gz",
           "size": 2066719
-        }
-      }
-    },
-    {
-      "name": "wincdu",
-      "description": "wincdu is a portable Windows packaging of Ncdu, bundled with Cygwin and the Mintty terminal for a ready-to-use disk usage analyzer. It offers fast directory scanning, an interactive text-based interface, and built-in file cleanup.",
-      "repo": "https://github.com/itefixnet/wincdu",
-      "homepage": "https://itefix.net",
-      "license": "BSD-2-Clause",
-      "platforms": {
-        "windows-x86_64": {
-          "url": "https://github.com/itefixnet/wincdu/releases/download/v1.0.2/wincdu_1.0.2_x64_free.zip",
-          "size": 7131033
-        }
-      }
-    },
-    {
-      "name": "starship",
-      "description": "☄🌌️  The minimal, blazing-fast, and infinitely customizable prompt for any shell!",
-      "repo": "https://github.com/starship/starship",
-      "homepage": "https://starship.rs",
-      "license": "ISC",
-      "platforms": {
-        "darwin-aarch64": {
-          "url": "https://github.com/starship/starship/releases/download/v1.24.1/starship-aarch64-apple-darwin.tar.gz",
-          "size": 3865881
-        },
-        "windows-aarch64": {
-          "url": "https://github.com/starship/starship/releases/download/v1.24.1/starship-aarch64-pc-windows-msvc.zip",
-          "size": 4146383
-        },
-        "linux-aarch64": {
-          "url": "https://github.com/starship/starship/releases/download/v1.24.1/starship-aarch64-unknown-linux-musl.tar.gz",
-          "size": 4608359
-        },
-        "linux-armv6": {
-          "url": "https://github.com/starship/starship/releases/download/v1.24.1/starship-arm-unknown-linux-musleabihf.tar.gz",
-          "size": 4789745
-        },
-        "windows-i686": {
-          "url": "https://github.com/starship/starship/releases/download/v1.24.1/starship-i686-pc-windows-msvc.zip",
-          "size": 4087254
-        },
-        "linux-i686": {
-          "url": "https://github.com/starship/starship/releases/download/v1.24.1/starship-i686-unknown-linux-musl.tar.gz",
-          "size": 4896551
-        },
-        "darwin-x86_64": {
-          "url": "https://github.com/starship/starship/releases/download/v1.24.1/starship-x86_64-apple-darwin.tar.gz",
-          "size": 4192161
-        },
-        "windows-x86_64": {
-          "url": "https://github.com/starship/starship/releases/download/v1.24.1/starship-x86_64-pc-windows-msvc.zip",
-          "size": 4482280
-        },
-        "freebsd-x86_64": {
-          "url": "https://github.com/starship/starship/releases/download/v1.24.1/starship-x86_64-unknown-freebsd.tar.gz",
-          "size": 4898360
-        },
-        "linux-x86_64": {
-          "url": "https://github.com/starship/starship/releases/download/v1.24.1/starship-x86_64-unknown-linux-musl.tar.gz",
-          "size": 5025658
         }
       }
     },
@@ -691,6 +597,47 @@
       }
     },
     {
+      "name": "7zip",
+      "description": "7-Zip",
+      "repo": "https://github.com/ip7z/7zip",
+      "homepage": null,
+      "license": null,
+      "platforms": {
+        "windows-armv6": {
+          "url": "https://github.com/ip7z/7zip/releases/download/25.01/7z2501-arm.exe",
+          "size": 1658315
+        },
+        "windows-aarch64": {
+          "url": "https://github.com/ip7z/7zip/releases/download/25.01/7z2501-arm64.exe",
+          "size": 1588203
+        },
+        "linux-armv6": {
+          "url": "https://github.com/ip7z/7zip/releases/download/25.01/7z2501-linux-arm.tar.xz",
+          "size": 1212764
+        },
+        "linux-aarch64": {
+          "url": "https://github.com/ip7z/7zip/releases/download/25.01/7z2501-linux-arm64.tar.xz",
+          "size": 1326736
+        },
+        "linux-x86_64": {
+          "url": "https://github.com/ip7z/7zip/releases/download/25.01/7z2501-linux-x64.tar.xz",
+          "size": 1571044
+        },
+        "linux-i686": {
+          "url": "https://github.com/ip7z/7zip/releases/download/25.01/7z2501-linux-x86.tar.xz",
+          "size": 1721924
+        },
+        "darwin": {
+          "url": "https://github.com/ip7z/7zip/releases/download/25.01/7z2501-mac.tar.xz",
+          "size": 1876264
+        },
+        "windows-x86_64": {
+          "url": "https://github.com/ip7z/7zip/releases/download/25.01/7z2501-x64.exe",
+          "size": 1643509
+        }
+      }
+    },
+    {
       "name": "fresh",
       "description": "Text editor for your terminal: easy, powerful and fast",
       "repo": "https://github.com/sinelaw/fresh",
@@ -720,7 +667,7 @@
       }
     }
   ],
-  "last_updated": "2025-12-29T00:02:23Z",
+  "last_updated": "2025-12-29T00:54:50Z",
   "scripts": [
     {
       "name": "mini-nano",
