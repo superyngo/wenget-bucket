@@ -452,6 +452,43 @@
       }
     },
     {
+      "name": "cli",
+      "description": "GitHub’s official command line tool",
+      "repo": "https://github.com/cli/cli",
+      "homepage": "https://cli.github.com",
+      "license": "MIT",
+      "platforms": {
+        "linux-x86_64": {
+          "url": "https://github.com/cli/cli/releases/download/v2.83.2/gh_2.83.2_linux_386.tar.gz",
+          "size": 16975424
+        },
+        "linux-aarch64": {
+          "url": "https://github.com/cli/cli/releases/download/v2.83.2/gh_2.83.2_linux_arm64.tar.gz",
+          "size": 16535735
+        },
+        "linux-armv6": {
+          "url": "https://github.com/cli/cli/releases/download/v2.83.2/gh_2.83.2_linux_armv6.tar.gz",
+          "size": 17091499
+        },
+        "darwin-x86_64": {
+          "url": "https://github.com/cli/cli/releases/download/v2.83.2/gh_2.83.2_macOS_amd64.zip",
+          "size": 19015005
+        },
+        "darwin-aarch64": {
+          "url": "https://github.com/cli/cli/releases/download/v2.83.2/gh_2.83.2_macOS_arm64.zip",
+          "size": 17370410
+        },
+        "windows-x86_64": {
+          "url": "https://github.com/cli/cli/releases/download/v2.83.2/gh_2.83.2_windows_386.zip",
+          "size": 17609253
+        },
+        "windows-aarch64": {
+          "url": "https://github.com/cli/cli/releases/download/v2.83.2/gh_2.83.2_windows_arm64.zip",
+          "size": 16526091
+        }
+      }
+    },
+    {
       "name": "scrcpy",
       "description": "Display and control your Android device",
       "repo": "https://github.com/Genymobile/scrcpy",
@@ -667,7 +704,7 @@
       }
     }
   ],
-  "last_updated": "2025-12-29T00:54:50Z",
+  "last_updated": "2025-12-29T01:44:40Z",
   "scripts": [
     {
       "name": "mini-nano",
