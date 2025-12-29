@@ -24,6 +24,7 @@ https://github.com/sharkdp/hexyl
 # === Development Tools ===
 https://github.com/astral-sh/uv
 https://github.com/github/copilot-cli
+https://github.com/cli/cli
 
 # === Mobile ===
 https://github.com/Genymobile/scrcpy
