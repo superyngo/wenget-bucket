@@ -489,6 +489,97 @@
       }
     },
     {
+      "name": "deno",
+      "description": "A modern runtime for JavaScript and TypeScript.",
+      "repo": "https://github.com/denoland/deno",
+      "homepage": "https://deno.com",
+      "license": "MIT",
+      "platforms": {
+        "darwin-aarch64": {
+          "url": "https://github.com/denoland/deno/releases/download/v2.6.3/deno-aarch64-apple-darwin.zip",
+          "size": 41102109
+        },
+        "linux-aarch64": {
+          "url": "https://github.com/denoland/deno/releases/download/v2.6.3/deno-aarch64-unknown-linux-gnu.zip",
+          "size": 44532261
+        },
+        "darwin-x86_64": {
+          "url": "https://github.com/denoland/deno/releases/download/v2.6.3/deno-x86_64-apple-darwin.zip",
+          "size": 43913212
+        },
+        "windows-x86_64": {
+          "url": "https://github.com/denoland/deno/releases/download/v2.6.3/deno-x86_64-pc-windows-msvc.zip",
+          "size": 45383469
+        },
+        "linux-x86_64": {
+          "url": "https://github.com/denoland/deno/releases/download/v2.6.3/deno-x86_64-unknown-linux-gnu.zip",
+          "size": 46450235
+        }
+      }
+    },
+    {
+      "name": "bun",
+      "description": "Incredibly fast JavaScript runtime, bundler, test runner, and package manager – all in one",
+      "repo": "https://github.com/oven-sh/bun",
+      "homepage": "https://bun.com",
+      "license": "NOASSERTION",
+      "platforms": {
+        "darwin-aarch64": {
+          "url": "https://github.com/oven-sh/bun/releases/download/bun-v1.3.5/bun-darwin-aarch64-profile.zip",
+          "size": 412539283
+        },
+        "darwin-x86_64": {
+          "url": "https://github.com/oven-sh/bun/releases/download/bun-v1.3.5/bun-darwin-x64-baseline-profile.zip",
+          "size": 420104038
+        },
+        "linux-aarch64": {
+          "url": "https://github.com/oven-sh/bun/releases/download/bun-v1.3.5/bun-linux-aarch64-musl-profile.zip",
+          "size": 167726948
+        },
+        "linux-x86_64": {
+          "url": "https://github.com/oven-sh/bun/releases/download/bun-v1.3.5/bun-linux-x64-musl-baseline-profile.zip",
+          "size": 175819065
+        },
+        "windows-x86_64": {
+          "url": "https://github.com/oven-sh/bun/releases/download/bun-v1.3.5/bun-windows-x64-baseline-profile.zip",
+          "size": 160214851
+        }
+      }
+    },
+    {
+      "name": "podman",
+      "description": "Podman: A tool for managing OCI containers and pods.",
+      "repo": "https://github.com/containers/podman",
+      "homepage": "https://podman.io",
+      "license": "Apache-2.0",
+      "platforms": {
+        "windows-x86_64": {
+          "url": "https://github.com/containers/podman/releases/download/v5.7.1/podman-5.7.1-setup.exe",
+          "size": 27247032
+        },
+        "windows-aarch64": {
+          "url": "https://github.com/containers/podman/releases/download/v5.7.1/podman-installer-windows-arm64.exe",
+          "size": 25332264
+        },
+        "darwin-x86_64": {
+          "url": "https://github.com/containers/podman/releases/download/v5.7.1/podman-remote-release-darwin_amd64.zip",
+          "size": 25569642
+        },
+        "darwin-aarch64": {
+          "url": "https://github.com/containers/podman/releases/download/v5.7.1/podman-remote-release-darwin_arm64.zip",
+          "size": 24152111
+        },
+        "linux-x86_64": {
+          "url": "https://github.com/containers/podman/releases/download/v5.7.1/podman-remote-static-linux_amd64.tar.gz",
+          "size": 22174236
+        },
+        "linux-aarch64": {
+          "url": "https://github.com/containers/podman/releases/download/v5.7.1/podman-remote-static-linux_arm64.tar.gz",
+          "size": 20392534
+        }
+      }
+    },
+    {
       "name": "scrcpy",
       "description": "Display and control your Android device",
       "repo": "https://github.com/Genymobile/scrcpy",
@@ -702,9 +793,30 @@
           "size": 23722850
         }
       }
+    },
+    {
+      "name": "cloudflared",
+      "description": "Cloudflare Tunnel client",
+      "repo": "https://github.com/cloudflare/cloudflared",
+      "homepage": "https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/",
+      "license": "Apache-2.0",
+      "platforms": {
+        "darwin-x86_64": {
+          "url": "https://github.com/cloudflare/cloudflared/releases/download/2025.11.1/cloudflared-darwin-amd64.tgz",
+          "size": 21085433
+        },
+        "darwin-aarch64": {
+          "url": "https://github.com/cloudflare/cloudflared/releases/download/2025.11.1/cloudflared-darwin-arm64.tgz",
+          "size": 19389806
+        },
+        "windows-x86_64": {
+          "url": "https://github.com/cloudflare/cloudflared/releases/download/2025.11.1/cloudflared-windows-386.exe",
+          "size": 37995144
+        }
+      }
     }
   ],
-  "last_updated": "2025-12-29T01:44:40Z",
+  "last_updated": "2025-12-29T02:09:29Z",
   "scripts": [
     {
       "name": "mini-nano",
