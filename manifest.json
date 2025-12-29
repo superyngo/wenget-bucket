@@ -725,47 +725,6 @@
       }
     },
     {
-      "name": "7zip",
-      "description": "7-Zip",
-      "repo": "https://github.com/ip7z/7zip",
-      "homepage": null,
-      "license": null,
-      "platforms": {
-        "windows-armv6": {
-          "url": "https://github.com/ip7z/7zip/releases/download/25.01/7z2501-arm.exe",
-          "size": 1658315
-        },
-        "windows-aarch64": {
-          "url": "https://github.com/ip7z/7zip/releases/download/25.01/7z2501-arm64.exe",
-          "size": 1588203
-        },
-        "linux-armv6": {
-          "url": "https://github.com/ip7z/7zip/releases/download/25.01/7z2501-linux-arm.tar.xz",
-          "size": 1212764
-        },
-        "linux-aarch64": {
-          "url": "https://github.com/ip7z/7zip/releases/download/25.01/7z2501-linux-arm64.tar.xz",
-          "size": 1326736
-        },
-        "linux-x86_64": {
-          "url": "https://github.com/ip7z/7zip/releases/download/25.01/7z2501-linux-x64.tar.xz",
-          "size": 1571044
-        },
-        "linux-i686": {
-          "url": "https://github.com/ip7z/7zip/releases/download/25.01/7z2501-linux-x86.tar.xz",
-          "size": 1721924
-        },
-        "darwin": {
-          "url": "https://github.com/ip7z/7zip/releases/download/25.01/7z2501-mac.tar.xz",
-          "size": 1876264
-        },
-        "windows-x86_64": {
-          "url": "https://github.com/ip7z/7zip/releases/download/25.01/7z2501-x64.exe",
-          "size": 1643509
-        }
-      }
-    },
-    {
       "name": "fresh",
       "description": "Text editor for your terminal: easy, powerful and fast",
       "repo": "https://github.com/sinelaw/fresh",
@@ -816,7 +775,7 @@
       }
     }
   ],
-  "last_updated": "2025-12-29T02:09:29Z",
+  "last_updated": "2025-12-29T05:49:01Z",
   "scripts": [
     {
       "name": "mini-nano",
