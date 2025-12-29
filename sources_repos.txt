@@ -25,6 +25,9 @@ https://github.com/sharkdp/hexyl
 https://github.com/astral-sh/uv
 https://github.com/github/copilot-cli
 https://github.com/cli/cli
+https://github.com/denoland/deno
+https://github.com/oven-sh/bun
+https://github.com/containers/podman
 
 # === Mobile ===
 https://github.com/Genymobile/scrcpy
@@ -41,6 +44,9 @@ https://github.com/ip7z/7zip
 
 # === Editor ===
 https://github.com/sinelaw/fresh
+
+# === Network ===
+https://github.com/cloudflare/cloudflared
 
 # === Archived ===
 # https://github.com/starship/starship
