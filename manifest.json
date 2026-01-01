@@ -775,7 +775,7 @@
       }
     }
   ],
-  "last_updated": "2026-01-01T15:34:32Z",
+  "last_updated": "2026-01-01T23:40:34Z",
   "scripts": [
     {
       "name": "mini-nano",
@@ -783,6 +783,27 @@
       "url": "https://gist.githubusercontent.com/superyngo/c77bbbf67759cc4213aac12ebe980225/raw/7f15ba60b10727621e57d9d9f31aece8b8d74b0f/mini-nano.ps1",
       "script_type": "powershell",
       "repo": "https://gist.github.com/superyngo/c77bbbf67759cc4213aac12ebe980225"
+    },
+    {
+      "name": "wrtman",
+      "description": "Manage logrotate configurations",
+      "url": "https://gist.githubusercontent.com/superyngo/7ff78b1ccc213ff6a6cb3b1b2dbd77d0/raw/66a6bf805a12e83dd1104c8b360691ff7ad902a3/wrtman.sh",
+      "script_type": "bash",
+      "repo": "https://gist.github.com/superyngo/7ff78b1ccc213ff6a6cb3b1b2dbd77d0"
+    },
+    {
+      "name": "wappman",
+      "description": "Application process manager with monitoring capabilities",
+      "url": "https://gist.githubusercontent.com/superyngo/a9543b560d59ceeb2d5fcb9eab87c560/raw/c9cf3b7233b5dc776d43b88c5e37c374f65325eb/wappman.sh",
+      "script_type": "bash",
+      "repo": "https://gist.github.com/superyngo/a9543b560d59ceeb2d5fcb9eab87c560"
+    },
+    {
+      "name": "rclonemm",
+      "description": "Rclone mount manager using ssh config.",
+      "url": "https://gist.githubusercontent.com/superyngo/18f1e26a244d76bf33ed5f3a46b6eb09/raw/ab757a2edd519ec73f696db5ed8154619e257e41/rclonemm.sh",
+      "script_type": "bash",
+      "repo": "https://gist.github.com/superyngo/18f1e26a244d76bf33ed5f3a46b6eb09"
     },
     {
       "name": "better-rm",
