@@ -775,7 +775,7 @@
       }
     }
   ],
-  "last_updated": "2026-01-01T23:40:34Z",
+  "last_updated": "2026-01-02T02:11:56Z",
   "scripts": [
     {
       "name": "mini-nano",
@@ -800,10 +800,10 @@
     },
     {
       "name": "rclonemm",
-      "description": "Rclone mount manager using ssh config.",
-      "url": "https://gist.githubusercontent.com/superyngo/18f1e26a244d76bf33ed5f3a46b6eb09/raw/ab757a2edd519ec73f696db5ed8154619e257e41/rclonemm.sh",
+      "description": "Manage rclone mount through ssh config.",
+      "url": "https://gist.githubusercontent.com/superyngo/f74f4749882df654dfdf286b7f718a9e/raw/ab757a2edd519ec73f696db5ed8154619e257e41/rclonemm.sh",
       "script_type": "bash",
-      "repo": "https://gist.github.com/superyngo/18f1e26a244d76bf33ed5f3a46b6eb09"
+      "repo": "https://gist.github.com/superyngo/f74f4749882df654dfdf286b7f718a9e"
     },
     {
       "name": "better-rm",
