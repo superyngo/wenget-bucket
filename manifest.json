@@ -775,7 +775,7 @@
       }
     }
   ],
-  "last_updated": "2026-01-02T05:48:01Z",
+  "last_updated": "2026-01-02T06:29:28Z",
   "scripts": [
     {
       "name": "mini-nano",
@@ -801,7 +801,7 @@
     {
       "name": "rclonemm",
       "description": "Manage rclone mount through ssh config.",
-      "url": "https://gist.githubusercontent.com/superyngo/f74f4749882df654dfdf286b7f718a9e/raw/618a01dbcc9a418c5049777004af972352d3d823/rclonemm.ps1",
+      "url": "https://gist.githubusercontent.com/superyngo/f74f4749882df654dfdf286b7f718a9e/raw/027c12a11d1b37a80d90b2246ce0b2b7ba716568/rclonemm.ps1",
       "script_type": "powershell",
       "repo": "https://gist.github.com/superyngo/f74f4749882df654dfdf286b7f718a9e"
     },
