@@ -1,232 +1,46 @@
 {
   "packages": [
     {
-      "name": "cate",
-      "description": "A lightweight CLI tool to display file contents with encoding support - like cat with better encoding handling.",
-      "repo": "https://github.com/superyngo/cate",
-      "homepage": "",
-      "license": "MIT",
-      "platforms": {
-        "linux-aarch64": {
-          "url": "https://github.com/superyngo/cate/releases/download/v0.4.2/cate-linux-aarch64-musl.tar.gz",
-          "size": 1482998
-        },
-        "linux-armv7": {
-          "url": "https://github.com/superyngo/cate/releases/download/v0.4.2/cate-linux-armv7-musl.tar.gz",
-          "size": 1458535
-        },
-        "linux-i686": {
-          "url": "https://github.com/superyngo/cate/releases/download/v0.4.2/cate-linux-i686-musl.tar.gz",
-          "size": 1517851
-        },
-        "linux-x86_64": {
-          "url": "https://github.com/superyngo/cate/releases/download/v0.4.2/cate-linux-x86_64-musl.tar.gz",
-          "size": 1510482
-        },
-        "darwin-aarch64": {
-          "url": "https://github.com/superyngo/cate/releases/download/v0.4.2/cate-macos-aarch64.tar.gz",
-          "size": 1434018
-        },
-        "darwin-x86_64": {
-          "url": "https://github.com/superyngo/cate/releases/download/v0.4.2/cate-macos-x86_64.tar.gz",
-          "size": 1441790
-        },
-        "windows-i686": {
-          "url": "https://github.com/superyngo/cate/releases/download/v0.4.2/cate-windows-i686.exe",
-          "size": 2258944
-        },
-        "windows-x86_64": {
-          "url": "https://github.com/superyngo/cate/releases/download/v0.4.2/cate-windows-x86_64.exe",
-          "size": 2419712
-        }
-      }
-    },
-    {
-      "name": "wedi",
-      "description": "A terminal text editor written in Rust",
-      "repo": "https://github.com/superyngo/wedi",
-      "homepage": null,
-      "license": "MIT",
-      "platforms": {
-        "linux-aarch64": {
-          "url": "https://github.com/superyngo/wedi/releases/download/v0.5.2/wedi-linux-aarch64-musl.tar.gz",
-          "size": 1613071
-        },
-        "linux-armv7": {
-          "url": "https://github.com/superyngo/wedi/releases/download/v0.5.2/wedi-linux-armv7-musl.tar.gz",
-          "size": 1586024
-        },
-        "linux-i686": {
-          "url": "https://github.com/superyngo/wedi/releases/download/v0.5.2/wedi-linux-i686-musl.tar.gz",
-          "size": 1651105
-        },
-        "linux-x86_64": {
-          "url": "https://github.com/superyngo/wedi/releases/download/v0.5.2/wedi-linux-x86_64-musl.tar.gz",
-          "size": 1644495
-        },
-        "darwin-aarch64": {
-          "url": "https://github.com/superyngo/wedi/releases/download/v0.5.2/wedi-macos-aarch64.tar.gz",
-          "size": 1548011
-        },
-        "darwin-x86_64": {
-          "url": "https://github.com/superyngo/wedi/releases/download/v0.5.2/wedi-macos-x86_64.tar.gz",
-          "size": 1559319
-        },
-        "windows-i686": {
-          "url": "https://github.com/superyngo/wedi/releases/download/v0.5.2/wedi-windows-i686.exe",
-          "size": 2624000
-        },
-        "windows-x86_64": {
-          "url": "https://github.com/superyngo/wedi/releases/download/v0.5.2/wedi-windows-x86_64.exe",
-          "size": 2833920
-        }
-      }
-    },
-    {
-      "name": "weni",
-      "description": "Cross-platform system hardware and battery information CLI.",
-      "repo": "https://github.com/superyngo/weni",
-      "homepage": null,
-      "license": "MIT",
-      "platforms": {
-        "linux-aarch64": {
-          "url": "https://github.com/superyngo/weni/releases/download/v0.2.0/weni-linux-aarch64-musl.tar.gz",
-          "size": 644152
-        },
-        "linux-armv7": {
-          "url": "https://github.com/superyngo/weni/releases/download/v0.2.0/weni-linux-armv7-musl.tar.gz",
-          "size": 636624
-        },
-        "linux-i686": {
-          "url": "https://github.com/superyngo/weni/releases/download/v0.2.0/weni-linux-i686-musl.tar.gz",
-          "size": 601940
-        },
-        "linux-x86_64": {
-          "url": "https://github.com/superyngo/weni/releases/download/v0.2.0/weni-linux-x86_64-musl.tar.gz",
-          "size": 574831
-        },
-        "darwin-aarch64": {
-          "url": "https://github.com/superyngo/weni/releases/download/v0.2.0/weni-macos-aarch64.tar.gz",
-          "size": 476718
-        },
-        "darwin-x86_64": {
-          "url": "https://github.com/superyngo/weni/releases/download/v0.2.0/weni-macos-x86_64.tar.gz",
-          "size": 490535
-        },
-        "windows-i686": {
-          "url": "https://github.com/superyngo/weni/releases/download/v0.2.0/weni-windows-i686.exe",
-          "size": 792576
-        },
-        "windows-x86_64": {
-          "url": "https://github.com/superyngo/weni/releases/download/v0.2.0/weni-windows-x86_64.exe",
-          "size": 949760
-        }
-      }
-    },
-    {
-      "name": "wemux",
-      "description": "Play sound through every HDMI screen at once—simple, seamless multi-output audio on Windows.",
-      "repo": "https://github.com/superyngo/wemux",
-      "homepage": null,
-      "license": "MIT",
-      "platforms": {
-        "windows-i686": {
-          "url": "https://github.com/superyngo/wemux/releases/download/v0.2.1/wemux-service-windows-i686.exe",
-          "size": 1577984
-        },
-        "windows-x86_64": {
-          "url": "https://github.com/superyngo/wemux/releases/download/v0.2.1/wemux-service-windows-x86_64.exe",
-          "size": 1907712
-        }
-      }
-    },
-    {
       "name": "ripgrep",
       "description": "ripgrep recursively searches directories for a regex pattern while respecting your gitignore",
       "repo": "https://github.com/BurntSushi/ripgrep",
-      "homepage": "",
       "license": "Unlicense",
       "platforms": {
-        "darwin-aarch64": {
+        "linux-x86_64-musl": {
+          "url": "https://github.com/BurntSushi/ripgrep/releases/download/15.1.0/ripgrep-15.1.0-x86_64-unknown-linux-musl.tar.gz",
+          "size": 2263077
+        },
+        "macos-aarch64": {
           "url": "https://github.com/BurntSushi/ripgrep/releases/download/15.1.0/ripgrep-15.1.0-aarch64-apple-darwin.tar.gz",
           "size": 1777930
         },
-        "windows-aarch64": {
-          "url": "https://github.com/BurntSushi/ripgrep/releases/download/15.1.0/ripgrep-15.1.0-aarch64-pc-windows-msvc.zip",
-          "size": 1675460
-        },
-        "linux-aarch64": {
-          "url": "https://github.com/BurntSushi/ripgrep/releases/download/15.1.0/ripgrep-15.1.0-aarch64-unknown-linux-gnu.tar.gz",
-          "size": 1869959
-        },
-        "linux-armv7": {
-          "url": "https://github.com/BurntSushi/ripgrep/releases/download/15.1.0/ripgrep-15.1.0-armv7-unknown-linux-musleabi.tar.gz",
-          "size": 1831202
-        },
-        "windows-i686": {
+        "windows-i686-msvc": {
           "url": "https://github.com/BurntSushi/ripgrep/releases/download/15.1.0/ripgrep-15.1.0-i686-pc-windows-msvc.zip",
           "size": 1665725
         },
-        "linux-i686": {
-          "url": "https://github.com/BurntSushi/ripgrep/releases/download/15.1.0/ripgrep-15.1.0-i686-unknown-linux-gnu.tar.gz",
-          "size": 1950407
+        "windows-aarch64-msvc": {
+          "url": "https://github.com/BurntSushi/ripgrep/releases/download/15.1.0/ripgrep-15.1.0-aarch64-pc-windows-msvc.zip",
+          "size": 1675460
         },
-        "darwin-x86_64": {
-          "url": "https://github.com/BurntSushi/ripgrep/releases/download/15.1.0/ripgrep-15.1.0-x86_64-apple-darwin.tar.gz",
-          "size": 1894127
+        "linux-aarch64-gnu": {
+          "url": "https://github.com/BurntSushi/ripgrep/releases/download/15.1.0/ripgrep-15.1.0-aarch64-unknown-linux-gnu.tar.gz",
+          "size": 1869959
         },
-        "windows-x86_64": {
+        "linux-armv7-musl": {
+          "url": "https://github.com/BurntSushi/ripgrep/releases/download/15.1.0/ripgrep-15.1.0-armv7-unknown-linux-musleabi.tar.gz",
+          "size": 1831202
+        },
+        "windows-x86_64-msvc": {
           "url": "https://github.com/BurntSushi/ripgrep/releases/download/15.1.0/ripgrep-15.1.0-x86_64-pc-windows-msvc.zip",
           "size": 1810687
         },
-        "linux-x86_64": {
-          "url": "https://github.com/BurntSushi/ripgrep/releases/download/15.1.0/ripgrep-15.1.0-x86_64-unknown-linux-musl.tar.gz",
-          "size": 2263077
-        }
-      }
-    },
-    {
-      "name": "fd",
-      "description": "A simple, fast and user-friendly alternative to 'find'",
-      "repo": "https://github.com/sharkdp/fd",
-      "homepage": "",
-      "license": "Apache-2.0",
-      "platforms": {
-        "darwin-aarch64": {
-          "url": "https://github.com/sharkdp/fd/releases/download/v10.3.0/fd-v10.3.0-aarch64-apple-darwin.tar.gz",
-          "size": 1337349
+        "linux-i686-gnu": {
+          "url": "https://github.com/BurntSushi/ripgrep/releases/download/15.1.0/ripgrep-15.1.0-i686-unknown-linux-gnu.tar.gz",
+          "size": 1950407
         },
-        "windows-aarch64": {
-          "url": "https://github.com/sharkdp/fd/releases/download/v10.3.0/fd-v10.3.0-aarch64-pc-windows-msvc.zip",
-          "size": 1416342
-        },
-        "linux-aarch64": {
-          "url": "https://github.com/sharkdp/fd/releases/download/v10.3.0/fd-v10.3.0-aarch64-unknown-linux-musl.tar.gz",
-          "size": 1608477
-        },
-        "linux-armv6": {
-          "url": "https://github.com/sharkdp/fd/releases/download/v10.3.0/fd-v10.3.0-arm-unknown-linux-musleabihf.tar.gz",
-          "size": 1466796
-        },
-        "windows-i686": {
-          "url": "https://github.com/sharkdp/fd/releases/download/v10.3.0/fd-v10.3.0-i686-pc-windows-msvc.zip",
-          "size": 1381022
-        },
-        "linux-i686": {
-          "url": "https://github.com/sharkdp/fd/releases/download/v10.3.0/fd-v10.3.0-i686-unknown-linux-musl.tar.gz",
-          "size": 1524821
-        },
-        "darwin-x86_64": {
-          "url": "https://github.com/sharkdp/fd/releases/download/v10.3.0/fd-v10.3.0-x86_64-apple-darwin.tar.gz",
-          "size": 1430203
-        },
-        "windows-x86_64": {
-          "url": "https://github.com/sharkdp/fd/releases/download/v10.3.0/fd-v10.3.0-x86_64-pc-windows-msvc.zip",
-          "size": 1490905
-        },
-        "linux-x86_64": {
-          "url": "https://github.com/sharkdp/fd/releases/download/v10.3.0/fd-v10.3.0-x86_64-unknown-linux-musl.tar.gz",
-          "size": 1759301
+        "macos-x86_64": {
+          "url": "https://github.com/BurntSushi/ripgrep/releases/download/15.1.0/ripgrep-15.1.0-x86_64-apple-darwin.tar.gz",
+          "size": 1894127
         }
       }
     },
@@ -237,217 +51,45 @@
       "homepage": "https://junegunn.github.io/fzf/",
       "license": "MIT",
       "platforms": {
-        "darwin-x86_64": {
-          "url": "https://github.com/junegunn/fzf/releases/download/v0.67.0/fzf-0.67.0-darwin_amd64.tar.gz",
-          "size": 1868514
-        },
-        "darwin-aarch64": {
-          "url": "https://github.com/junegunn/fzf/releases/download/v0.67.0/fzf-0.67.0-darwin_arm64.tar.gz",
-          "size": 1750013
-        },
-        "freebsd-x86_64": {
-          "url": "https://github.com/junegunn/fzf/releases/download/v0.67.0/fzf-0.67.0-freebsd_amd64.tar.gz",
-          "size": 1787036
-        },
-        "linux-x86_64": {
-          "url": "https://github.com/junegunn/fzf/releases/download/v0.67.0/fzf-0.67.0-linux_amd64.tar.gz",
-          "size": 1801722
+        "windows-i686": {
+          "url": "https://github.com/junegunn/fzf/releases/download/v0.67.0/fzf-0.67.0-windows_armv5.zip",
+          "size": 1890513
         },
         "linux-aarch64": {
           "url": "https://github.com/junegunn/fzf/releases/download/v0.67.0/fzf-0.67.0-linux_arm64.tar.gz",
           "size": 1682134
         },
-        "linux-armv6": {
-          "url": "https://github.com/junegunn/fzf/releases/download/v0.67.0/fzf-0.67.0-linux_armv5.tar.gz",
-          "size": 1718572
-        },
-        "linux-armv7": {
-          "url": "https://github.com/junegunn/fzf/releases/download/v0.67.0/fzf-0.67.0-linux_armv7.tar.gz",
-          "size": 1705072
-        },
-        "windows-x86_64": {
-          "url": "https://github.com/junegunn/fzf/releases/download/v0.67.0/fzf-0.67.0-windows_amd64.zip",
-          "size": 1981150
+        "freebsd-x86_64": {
+          "url": "https://github.com/junegunn/fzf/releases/download/v0.67.0/fzf-0.67.0-freebsd_amd64.tar.gz",
+          "size": 1787036
         },
         "windows-aarch64": {
           "url": "https://github.com/junegunn/fzf/releases/download/v0.67.0/fzf-0.67.0-windows_arm64.zip",
           "size": 1831994
         },
-        "windows-armv6": {
-          "url": "https://github.com/junegunn/fzf/releases/download/v0.67.0/fzf-0.67.0-windows_armv5.zip",
-          "size": 1890513
-        },
-        "windows-armv7": {
-          "url": "https://github.com/junegunn/fzf/releases/download/v0.67.0/fzf-0.67.0-windows_armv7.zip",
-          "size": 1873804
-        }
-      }
-    },
-    {
-      "name": "bat",
-      "description": "A cat(1) clone with wings.",
-      "repo": "https://github.com/sharkdp/bat",
-      "homepage": "",
-      "license": "Apache-2.0",
-      "platforms": {
-        "darwin-aarch64": {
-          "url": "https://github.com/sharkdp/bat/releases/download/v0.26.1/bat-v0.26.1-aarch64-apple-darwin.tar.gz",
-          "size": 3216703
-        },
-        "windows-aarch64": {
-          "url": "https://github.com/sharkdp/bat/releases/download/v0.26.1/bat-v0.26.1-aarch64-pc-windows-msvc.zip",
-          "size": 3434291
-        },
-        "linux-aarch64": {
-          "url": "https://github.com/sharkdp/bat/releases/download/v0.26.1/bat-v0.26.1-aarch64-unknown-linux-musl.tar.gz",
-          "size": 3383478
-        },
-        "linux-armv6": {
-          "url": "https://github.com/sharkdp/bat/releases/download/v0.26.1/bat-v0.26.1-arm-unknown-linux-musleabihf.tar.gz",
-          "size": 3407734
-        },
-        "windows-i686": {
-          "url": "https://github.com/sharkdp/bat/releases/download/v0.26.1/bat-v0.26.1-i686-pc-windows-msvc.zip",
-          "size": 3367862
-        },
-        "linux-i686": {
-          "url": "https://github.com/sharkdp/bat/releases/download/v0.26.1/bat-v0.26.1-i686-unknown-linux-musl.tar.gz",
-          "size": 3545941
-        },
-        "darwin-x86_64": {
-          "url": "https://github.com/sharkdp/bat/releases/download/v0.26.1/bat-v0.26.1-x86_64-apple-darwin.tar.gz",
-          "size": 3367309
-        },
-        "windows-x86_64": {
-          "url": "https://github.com/sharkdp/bat/releases/download/v0.26.1/bat-v0.26.1-x86_64-pc-windows-msvc.zip",
-          "size": 3613318
-        },
-        "linux-x86_64": {
-          "url": "https://github.com/sharkdp/bat/releases/download/v0.26.1/bat-v0.26.1-x86_64-unknown-linux-musl.tar.gz",
-          "size": 3584928
-        }
-      }
-    },
-    {
-      "name": "hexyl",
-      "description": "A command-line hex viewer",
-      "repo": "https://github.com/sharkdp/hexyl",
-      "homepage": "",
-      "license": "Apache-2.0",
-      "platforms": {
-        "darwin-aarch64": {
-          "url": "https://github.com/sharkdp/hexyl/releases/download/v0.16.0/hexyl-v0.16.0-aarch64-apple-darwin.tar.gz",
-          "size": 434542
-        },
-        "linux-aarch64": {
-          "url": "https://github.com/sharkdp/hexyl/releases/download/v0.16.0/hexyl-v0.16.0-aarch64-unknown-linux-gnu.tar.gz",
-          "size": 464761
-        },
-        "linux-armv6": {
-          "url": "https://github.com/sharkdp/hexyl/releases/download/v0.16.0/hexyl-v0.16.0-arm-unknown-linux-musleabihf.tar.gz",
-          "size": 529508
-        },
-        "windows-i686": {
-          "url": "https://github.com/sharkdp/hexyl/releases/download/v0.16.0/hexyl-v0.16.0-i686-pc-windows-msvc.zip",
-          "size": 338637
-        },
-        "linux-i686": {
-          "url": "https://github.com/sharkdp/hexyl/releases/download/v0.16.0/hexyl-v0.16.0-i686-unknown-linux-musl.tar.gz",
-          "size": 544104
-        },
-        "darwin-x86_64": {
-          "url": "https://github.com/sharkdp/hexyl/releases/download/v0.16.0/hexyl-v0.16.0-x86_64-apple-darwin.tar.gz",
-          "size": 456236
-        },
-        "windows-x86_64": {
-          "url": "https://github.com/sharkdp/hexyl/releases/download/v0.16.0/hexyl-v0.16.0-x86_64-pc-windows-msvc.zip",
-          "size": 361368
-        },
-        "linux-x86_64": {
-          "url": "https://github.com/sharkdp/hexyl/releases/download/v0.16.0/hexyl-v0.16.0-x86_64-unknown-linux-musl.tar.gz",
-          "size": 533131
-        }
-      }
-    },
-    {
-      "name": "uv",
-      "description": "An extremely fast Python package and project manager, written in Rust.",
-      "repo": "https://github.com/astral-sh/uv",
-      "homepage": "https://docs.astral.sh/uv",
-      "license": "Apache-2.0",
-      "platforms": {
-        "darwin-aarch64": {
-          "url": "https://github.com/astral-sh/uv/releases/download/0.9.21/uv-aarch64-apple-darwin.tar.gz",
-          "size": 19018245
-        },
-        "windows-aarch64": {
-          "url": "https://github.com/astral-sh/uv/releases/download/0.9.21/uv-aarch64-pc-windows-msvc.zip",
-          "size": 20107090
-        },
-        "linux-aarch64": {
-          "url": "https://github.com/astral-sh/uv/releases/download/0.9.21/uv-aarch64-unknown-linux-musl.tar.gz",
-          "size": 20869019
-        },
-        "linux-armv6": {
-          "url": "https://github.com/astral-sh/uv/releases/download/0.9.21/uv-arm-unknown-linux-musleabihf.tar.gz",
-          "size": 21293684
-        },
         "linux-armv7": {
-          "url": "https://github.com/astral-sh/uv/releases/download/0.9.21/uv-armv7-unknown-linux-musleabihf.tar.gz",
-          "size": 20883484
-        },
-        "windows-i686": {
-          "url": "https://github.com/astral-sh/uv/releases/download/0.9.21/uv-i686-pc-windows-msvc.zip",
-          "size": 19424688
+          "url": "https://github.com/junegunn/fzf/releases/download/v0.67.0/fzf-0.67.0-linux_armv7.tar.gz",
+          "size": 1705072
         },
         "linux-i686": {
-          "url": "https://github.com/astral-sh/uv/releases/download/0.9.21/uv-i686-unknown-linux-musl.tar.gz",
-          "size": 21442500
+          "url": "https://github.com/junegunn/fzf/releases/download/v0.67.0/fzf-0.67.0-linux_armv5.tar.gz",
+          "size": 1718572
         },
-        "linux-x86_64": {
-          "url": "https://github.com/astral-sh/uv/releases/download/0.9.21/uv-x86_64-unknown-linux-musl.tar.gz",
-          "size": 22489510
-        },
-        "darwin-x86_64": {
-          "url": "https://github.com/astral-sh/uv/releases/download/0.9.21/uv-x86_64-apple-darwin.tar.gz",
-          "size": 20492550
+        "macos-aarch64": {
+          "url": "https://github.com/junegunn/fzf/releases/download/v0.67.0/fzf-0.67.0-darwin_arm64.tar.gz",
+          "size": 1750013
         },
         "windows-x86_64": {
-          "url": "https://github.com/astral-sh/uv/releases/download/0.9.21/uv-x86_64-pc-windows-msvc.zip",
-          "size": 21540977
-        }
-      }
-    },
-    {
-      "name": "copilot-cli",
-      "description": "GitHub Copilot CLI brings the power of Copilot coding agent directly to your terminal. ",
-      "repo": "https://github.com/github/copilot-cli",
-      "homepage": "",
-      "license": null,
-      "platforms": {
-        "darwin-aarch64": {
-          "url": "https://github.com/github/copilot-cli/releases/download/v0.0.373/copilot-darwin-arm64.tar.gz",
-          "size": 54108429
+          "url": "https://github.com/junegunn/fzf/releases/download/v0.67.0/fzf-0.67.0-windows_amd64.zip",
+          "size": 1981150
         },
-        "darwin-x86_64": {
-          "url": "https://github.com/github/copilot-cli/releases/download/v0.0.373/copilot-darwin-x64.tar.gz",
-          "size": 57347760
-        },
-        "linux-aarch64": {
-          "url": "https://github.com/github/copilot-cli/releases/download/v0.0.373/copilot-linux-arm64.tar.gz",
-          "size": 60261724
+        "macos-x86_64": {
+          "url": "https://github.com/junegunn/fzf/releases/download/v0.67.0/fzf-0.67.0-darwin_amd64.tar.gz",
+          "size": 1868514
         },
         "linux-x86_64": {
-          "url": "https://github.com/github/copilot-cli/releases/download/v0.0.373/copilot-linux-x64.tar.gz",
-          "size": 58434666
-        },
-        "windows-aarch64": {
-          "url": "https://github.com/github/copilot-cli/releases/download/v0.0.373/copilot-win32-arm64.zip",
-          "size": 54404555
-        },
-        "windows-x86_64": {
-          "url": "https://github.com/github/copilot-cli/releases/download/v0.0.373/copilot-win32-x64.zip",
-          "size": 56815649
+          "url": "https://github.com/junegunn/fzf/releases/download/v0.67.0/fzf-0.67.0-linux_amd64.tar.gz",
+          "size": 1801722
         }
       }
     },
@@ -458,149 +100,41 @@
       "homepage": "https://cli.github.com",
       "license": "MIT",
       "platforms": {
-        "linux-x86_64": {
-          "url": "https://github.com/cli/cli/releases/download/v2.83.2/gh_2.83.2_linux_386.tar.gz",
-          "size": 16975424
-        },
         "linux-aarch64": {
           "url": "https://github.com/cli/cli/releases/download/v2.83.2/gh_2.83.2_linux_arm64.tar.gz",
           "size": 16535735
         },
-        "linux-armv6": {
-          "url": "https://github.com/cli/cli/releases/download/v2.83.2/gh_2.83.2_linux_armv6.tar.gz",
-          "size": 17091499
+        "linux-x86_64": {
+          "url": "https://github.com/cli/cli/releases/download/v2.83.2/gh_2.83.2_linux_amd64.tar.gz",
+          "size": 18151686
         },
-        "darwin-x86_64": {
-          "url": "https://github.com/cli/cli/releases/download/v2.83.2/gh_2.83.2_macOS_amd64.zip",
-          "size": 19015005
-        },
-        "darwin-aarch64": {
-          "url": "https://github.com/cli/cli/releases/download/v2.83.2/gh_2.83.2_macOS_arm64.zip",
-          "size": 17370410
+        "linux-i686": {
+          "url": "https://github.com/cli/cli/releases/download/v2.83.2/gh_2.83.2_linux_386.tar.gz",
+          "size": 16975424
         },
         "windows-x86_64": {
+          "url": "https://github.com/cli/cli/releases/download/v2.83.2/gh_2.83.2_windows_amd64.zip",
+          "size": 18461058
+        },
+        "windows-i686": {
           "url": "https://github.com/cli/cli/releases/download/v2.83.2/gh_2.83.2_windows_386.zip",
           "size": 17609253
+        },
+        "linux-armv7": {
+          "url": "https://github.com/cli/cli/releases/download/v2.83.2/gh_2.83.2_linux_386.tar.gz",
+          "size": 16975424
+        },
+        "macos-aarch64": {
+          "url": "https://github.com/cli/cli/releases/download/v2.83.2/gh_2.83.2_macOS_arm64.zip",
+          "size": 17370410
         },
         "windows-aarch64": {
           "url": "https://github.com/cli/cli/releases/download/v2.83.2/gh_2.83.2_windows_arm64.zip",
           "size": 16526091
-        }
-      }
-    },
-    {
-      "name": "deno",
-      "description": "A modern runtime for JavaScript and TypeScript.",
-      "repo": "https://github.com/denoland/deno",
-      "homepage": "https://deno.com",
-      "license": "MIT",
-      "platforms": {
-        "darwin-aarch64": {
-          "url": "https://github.com/denoland/deno/releases/download/v2.6.3/deno-aarch64-apple-darwin.zip",
-          "size": 41102109
         },
-        "linux-aarch64": {
-          "url": "https://github.com/denoland/deno/releases/download/v2.6.3/deno-aarch64-unknown-linux-gnu.zip",
-          "size": 44532261
-        },
-        "darwin-x86_64": {
-          "url": "https://github.com/denoland/deno/releases/download/v2.6.3/deno-x86_64-apple-darwin.zip",
-          "size": 43913212
-        },
-        "windows-x86_64": {
-          "url": "https://github.com/denoland/deno/releases/download/v2.6.3/deno-x86_64-pc-windows-msvc.zip",
-          "size": 45383469
-        },
-        "linux-x86_64": {
-          "url": "https://github.com/denoland/deno/releases/download/v2.6.3/deno-x86_64-unknown-linux-gnu.zip",
-          "size": 46450235
-        }
-      }
-    },
-    {
-      "name": "bun",
-      "description": "Incredibly fast JavaScript runtime, bundler, test runner, and package manager – all in one",
-      "repo": "https://github.com/oven-sh/bun",
-      "homepage": "https://bun.com",
-      "license": "NOASSERTION",
-      "platforms": {
-        "darwin-aarch64": {
-          "url": "https://github.com/oven-sh/bun/releases/download/bun-v1.3.5/bun-darwin-aarch64-profile.zip",
-          "size": 412539283
-        },
-        "darwin-x86_64": {
-          "url": "https://github.com/oven-sh/bun/releases/download/bun-v1.3.5/bun-darwin-x64-baseline-profile.zip",
-          "size": 420104038
-        },
-        "linux-aarch64": {
-          "url": "https://github.com/oven-sh/bun/releases/download/bun-v1.3.5/bun-linux-aarch64-musl-profile.zip",
-          "size": 167726948
-        },
-        "linux-x86_64": {
-          "url": "https://github.com/oven-sh/bun/releases/download/bun-v1.3.5/bun-linux-x64-musl-baseline-profile.zip",
-          "size": 175819065
-        },
-        "windows-x86_64": {
-          "url": "https://github.com/oven-sh/bun/releases/download/bun-v1.3.5/bun-windows-x64-baseline-profile.zip",
-          "size": 160214851
-        }
-      }
-    },
-    {
-      "name": "podman",
-      "description": "Podman: A tool for managing OCI containers and pods.",
-      "repo": "https://github.com/containers/podman",
-      "homepage": "https://podman.io",
-      "license": "Apache-2.0",
-      "platforms": {
-        "windows-x86_64": {
-          "url": "https://github.com/containers/podman/releases/download/v5.7.1/podman-5.7.1-setup.exe",
-          "size": 27247032
-        },
-        "windows-aarch64": {
-          "url": "https://github.com/containers/podman/releases/download/v5.7.1/podman-installer-windows-arm64.exe",
-          "size": 25332264
-        },
-        "darwin-x86_64": {
-          "url": "https://github.com/containers/podman/releases/download/v5.7.1/podman-remote-release-darwin_amd64.zip",
-          "size": 25569642
-        },
-        "darwin-aarch64": {
-          "url": "https://github.com/containers/podman/releases/download/v5.7.1/podman-remote-release-darwin_arm64.zip",
-          "size": 24152111
-        },
-        "linux-x86_64": {
-          "url": "https://github.com/containers/podman/releases/download/v5.7.1/podman-remote-static-linux_amd64.tar.gz",
-          "size": 22174236
-        },
-        "linux-aarch64": {
-          "url": "https://github.com/containers/podman/releases/download/v5.7.1/podman-remote-static-linux_arm64.tar.gz",
-          "size": 20392534
-        }
-      }
-    },
-    {
-      "name": "scrcpy",
-      "description": "Display and control your Android device",
-      "repo": "https://github.com/Genymobile/scrcpy",
-      "homepage": "",
-      "license": "Apache-2.0",
-      "platforms": {
-        "linux-x86_64": {
-          "url": "https://github.com/Genymobile/scrcpy/releases/download/v3.3.4/scrcpy-linux-x86_64-v3.3.4.tar.gz",
-          "size": 12854835
-        },
-        "darwin-aarch64": {
-          "url": "https://github.com/Genymobile/scrcpy/releases/download/v3.3.4/scrcpy-macos-aarch64-v3.3.4.tar.gz",
-          "size": 9486795
-        },
-        "darwin-x86_64": {
-          "url": "https://github.com/Genymobile/scrcpy/releases/download/v3.3.4/scrcpy-macos-x86_64-v3.3.4.tar.gz",
-          "size": 10155380
-        },
-        "windows-x86_64": {
-          "url": "https://github.com/Genymobile/scrcpy/releases/download/v3.3.4/scrcpy-win32-v3.3.4.zip",
-          "size": 6937302
+        "macos-x86_64": {
+          "url": "https://github.com/cli/cli/releases/download/v2.83.2/gh_2.83.2_macOS_amd64.zip",
+          "size": 19015005
         }
       }
     },
@@ -618,51 +152,212 @@
       }
     },
     {
-      "name": "bottom",
-      "description": "Yet another cross-platform graphical process/system monitor.",
-      "repo": "https://github.com/ClementTsang/bottom",
-      "homepage": "https://bottom.pages.dev",
-      "license": "MIT",
+      "name": "bat",
+      "description": "A cat(1) clone with wings.",
+      "repo": "https://github.com/sharkdp/bat",
+      "license": "Apache-2.0",
       "platforms": {
-        "darwin-aarch64": {
-          "url": "https://github.com/ClementTsang/bottom/releases/download/0.12.3/bottom_aarch64-apple-darwin.tar.gz",
-          "size": 1693979
+        "linux-aarch64-musl": {
+          "url": "https://github.com/sharkdp/bat/releases/download/v0.26.1/bat-v0.26.1-aarch64-unknown-linux-musl.tar.gz",
+          "size": 3383478
         },
-        "linux-aarch64": {
-          "url": "https://github.com/ClementTsang/bottom/releases/download/0.12.3/bottom_aarch64-unknown-linux-musl.tar.gz",
-          "size": 1843889
+        "windows-aarch64-msvc": {
+          "url": "https://github.com/sharkdp/bat/releases/download/v0.26.1/bat-v0.26.1-aarch64-pc-windows-msvc.zip",
+          "size": 3434291
+        },
+        "macos-aarch64": {
+          "url": "https://github.com/sharkdp/bat/releases/download/v0.26.1/bat-v0.26.1-aarch64-apple-darwin.tar.gz",
+          "size": 3216703
+        },
+        "linux-i686-musl": {
+          "url": "https://github.com/sharkdp/bat/releases/download/v0.26.1/bat-v0.26.1-i686-unknown-linux-musl.tar.gz",
+          "size": 3545941
+        },
+        "linux-armv7-musl": {
+          "url": "https://github.com/sharkdp/bat/releases/download/v0.26.1/bat-v0.26.1-arm-unknown-linux-musleabihf.tar.gz",
+          "size": 3407734
+        },
+        "macos-x86_64": {
+          "url": "https://github.com/sharkdp/bat/releases/download/v0.26.1/bat-v0.26.1-x86_64-apple-darwin.tar.gz",
+          "size": 3367309
+        },
+        "windows-x86_64-msvc": {
+          "url": "https://github.com/sharkdp/bat/releases/download/v0.26.1/bat-v0.26.1-x86_64-pc-windows-msvc.zip",
+          "size": 3613318
+        },
+        "windows-i686-msvc": {
+          "url": "https://github.com/sharkdp/bat/releases/download/v0.26.1/bat-v0.26.1-i686-pc-windows-msvc.zip",
+          "size": 3367862
+        },
+        "linux-x86_64-musl": {
+          "url": "https://github.com/sharkdp/bat/releases/download/v0.26.1/bat-v0.26.1-x86_64-unknown-linux-musl.tar.gz",
+          "size": 3584928
+        }
+      }
+    },
+    {
+      "name": "uv",
+      "description": "An extremely fast Python package and project manager, written in Rust.",
+      "repo": "https://github.com/astral-sh/uv",
+      "homepage": "https://docs.astral.sh/uv",
+      "license": "Apache-2.0",
+      "platforms": {
+        "linux-x86_64-musl": {
+          "url": "https://github.com/astral-sh/uv/releases/download/0.9.21/uv-x86_64-unknown-linux-musl.tar.gz",
+          "size": 22489510
+        },
+        "windows-aarch64-msvc": {
+          "url": "https://github.com/astral-sh/uv/releases/download/0.9.21/uv-aarch64-pc-windows-msvc.zip",
+          "size": 20107090
+        },
+        "linux-aarch64-musl": {
+          "url": "https://github.com/astral-sh/uv/releases/download/0.9.21/uv-aarch64-unknown-linux-musl.tar.gz",
+          "size": 20869019
+        },
+        "macos-aarch64": {
+          "url": "https://github.com/astral-sh/uv/releases/download/0.9.21/uv-aarch64-apple-darwin.tar.gz",
+          "size": 19018245
+        },
+        "windows-x86_64-msvc": {
+          "url": "https://github.com/astral-sh/uv/releases/download/0.9.21/uv-x86_64-pc-windows-msvc.zip",
+          "size": 21540977
+        },
+        "linux-armv7-musl": {
+          "url": "https://github.com/astral-sh/uv/releases/download/0.9.21/uv-armv7-unknown-linux-musleabihf.tar.gz",
+          "size": 20883484
+        },
+        "linux-i686-musl": {
+          "url": "https://github.com/astral-sh/uv/releases/download/0.9.21/uv-i686-unknown-linux-musl.tar.gz",
+          "size": 21442500
+        },
+        "windows-i686-msvc": {
+          "url": "https://github.com/astral-sh/uv/releases/download/0.9.21/uv-i686-pc-windows-msvc.zip",
+          "size": 19424688
+        },
+        "macos-x86_64": {
+          "url": "https://github.com/astral-sh/uv/releases/download/0.9.21/uv-x86_64-apple-darwin.tar.gz",
+          "size": 20492550
+        }
+      }
+    },
+    {
+      "name": "podman",
+      "description": "Podman: A tool for managing OCI containers and pods.",
+      "repo": "https://github.com/containers/podman",
+      "homepage": "https://podman.io",
+      "license": "Apache-2.0",
+      "platforms": {
+        "macos-aarch64": {
+          "url": "https://github.com/containers/podman/releases/download/v5.7.1/podman-remote-release-darwin_arm64.zip",
+          "size": 24152111
+        },
+        "macos-x86_64": {
+          "url": "https://github.com/containers/podman/releases/download/v5.7.1/podman-remote-release-darwin_amd64.zip",
+          "size": 25569642
         },
         "windows-aarch64": {
-          "url": "https://github.com/ClementTsang/bottom/releases/download/0.12.3/bottom_aarch64-pc-windows-msvc.tar.gz",
-          "size": 1695803
-        },
-        "linux-armv7": {
-          "url": "https://github.com/ClementTsang/bottom/releases/download/0.12.3/bottom_armv7-unknown-linux-musleabihf.tar.gz",
-          "size": 1897461
-        },
-        "windows-i686": {
-          "url": "https://github.com/ClementTsang/bottom/releases/download/0.12.3/bottom_i686-pc-windows-msvc.zip",
-          "size": 1694579
-        },
-        "linux-i686": {
-          "url": "https://github.com/ClementTsang/bottom/releases/download/0.12.3/bottom_i686-unknown-linux-musl.tar.gz",
-          "size": 1984999
-        },
-        "linux-x86_64": {
-          "url": "https://github.com/ClementTsang/bottom/releases/download/0.12.3/bottom_x86_64-unknown-linux-musl.tar.gz",
-          "size": 2056975
-        },
-        "darwin-x86_64": {
-          "url": "https://github.com/ClementTsang/bottom/releases/download/0.12.3/bottom_x86_64-apple-darwin.tar.gz",
-          "size": 1838700
+          "url": "https://github.com/containers/podman/releases/download/v5.7.1/podman-remote-release-windows_arm64.zip",
+          "size": 27330617
         },
         "windows-x86_64": {
-          "url": "https://github.com/ClementTsang/bottom/releases/download/0.12.3/bottom_x86_64-pc-windows-msvc.zip",
-          "size": 1842730
+          "url": "https://github.com/containers/podman/releases/download/v5.7.1/podman-remote-release-windows_amd64.zip",
+          "size": 29771937
         },
-        "freebsd-x86_64": {
-          "url": "https://github.com/ClementTsang/bottom/releases/download/0.12.3/bottom_x86_64-unknown-freebsd-13.5.tar.gz",
-          "size": 1954499
+        "linux-aarch64": {
+          "url": "https://github.com/containers/podman/releases/download/v5.7.1/podman-remote-static-linux_arm64.tar.gz",
+          "size": 20392534
+        },
+        "windows-i686": {
+          "url": "https://github.com/containers/podman/releases/download/v5.7.1/podman-5.7.1-setup.exe",
+          "size": 27247032
+        },
+        "linux-x86_64": {
+          "url": "https://github.com/containers/podman/releases/download/v5.7.1/podman-remote-static-linux_amd64.tar.gz",
+          "size": 22174236
+        }
+      }
+    },
+    {
+      "name": "weni",
+      "description": "Cross-platform system hardware and battery information CLI.",
+      "repo": "https://github.com/superyngo/weni",
+      "license": "MIT",
+      "platforms": {
+        "linux-i686-musl": {
+          "url": "https://github.com/superyngo/weni/releases/download/v0.2.0/weni-linux-i686-musl.tar.gz",
+          "size": 601940
+        },
+        "linux-aarch64-musl": {
+          "url": "https://github.com/superyngo/weni/releases/download/v0.2.0/weni-linux-aarch64-musl.tar.gz",
+          "size": 644152
+        },
+        "windows-x86_64": {
+          "url": "https://github.com/superyngo/weni/releases/download/v0.2.0/weni-windows-x86_64.exe",
+          "size": 949760
+        },
+        "macos-x86_64": {
+          "url": "https://github.com/superyngo/weni/releases/download/v0.2.0/weni-macos-x86_64.tar.gz",
+          "size": 490535
+        },
+        "macos-aarch64": {
+          "url": "https://github.com/superyngo/weni/releases/download/v0.2.0/weni-macos-aarch64.tar.gz",
+          "size": 476718
+        },
+        "linux-armv7-musl": {
+          "url": "https://github.com/superyngo/weni/releases/download/v0.2.0/weni-linux-armv7-musl.tar.gz",
+          "size": 636624
+        },
+        "linux-x86_64-musl": {
+          "url": "https://github.com/superyngo/weni/releases/download/v0.2.0/weni-linux-x86_64-musl.tar.gz",
+          "size": 574831
+        },
+        "windows-i686": {
+          "url": "https://github.com/superyngo/weni/releases/download/v0.2.0/weni-windows-i686.exe",
+          "size": 792576
+        }
+      }
+    },
+    {
+      "name": "fd",
+      "description": "A simple, fast and user-friendly alternative to 'find'",
+      "repo": "https://github.com/sharkdp/fd",
+      "license": "Apache-2.0",
+      "platforms": {
+        "linux-x86_64-musl": {
+          "url": "https://github.com/sharkdp/fd/releases/download/v10.3.0/fd-v10.3.0-x86_64-unknown-linux-musl.tar.gz",
+          "size": 1759301
+        },
+        "linux-armv7-musl": {
+          "url": "https://github.com/sharkdp/fd/releases/download/v10.3.0/fd-v10.3.0-arm-unknown-linux-musleabihf.tar.gz",
+          "size": 1466796
+        },
+        "windows-aarch64-msvc": {
+          "url": "https://github.com/sharkdp/fd/releases/download/v10.3.0/fd-v10.3.0-aarch64-pc-windows-msvc.zip",
+          "size": 1416342
+        },
+        "macos-aarch64": {
+          "url": "https://github.com/sharkdp/fd/releases/download/v10.3.0/fd-v10.3.0-aarch64-apple-darwin.tar.gz",
+          "size": 1337349
+        },
+        "macos-x86_64": {
+          "url": "https://github.com/sharkdp/fd/releases/download/v10.3.0/fd-v10.3.0-x86_64-apple-darwin.tar.gz",
+          "size": 1430203
+        },
+        "linux-aarch64-musl": {
+          "url": "https://github.com/sharkdp/fd/releases/download/v10.3.0/fd-v10.3.0-aarch64-unknown-linux-musl.tar.gz",
+          "size": 1608477
+        },
+        "linux-i686-musl": {
+          "url": "https://github.com/sharkdp/fd/releases/download/v10.3.0/fd-v10.3.0-i686-unknown-linux-musl.tar.gz",
+          "size": 1524821
+        },
+        "windows-x86_64-msvc": {
+          "url": "https://github.com/sharkdp/fd/releases/download/v10.3.0/fd-v10.3.0-x86_64-pc-windows-msvc.zip",
+          "size": 1490905
+        },
+        "windows-i686-msvc": {
+          "url": "https://github.com/sharkdp/fd/releases/download/v10.3.0/fd-v10.3.0-i686-pc-windows-msvc.zip",
+          "size": 1381022
         }
       }
     },
@@ -670,57 +365,146 @@
       "name": "rsync-win",
       "description": "Rsync for Windows.",
       "repo": "https://github.com/rn7s2/rsync-win",
-      "homepage": "",
-      "license": null,
       "platforms": {
+        "windows-aarch64": {
+          "url": "https://github.com/rn7s2/rsync-win/releases/download/v0.1.3/rsync-win.zip",
+          "size": 6332788
+        },
         "windows-x86_64": {
+          "url": "https://github.com/rn7s2/rsync-win/releases/download/v0.1.3/rsync-win.zip",
+          "size": 6332788
+        },
+        "windows-i686": {
           "url": "https://github.com/rn7s2/rsync-win/releases/download/v0.1.3/rsync-win.zip",
           "size": 6332788
         }
       }
     },
     {
-      "name": "rclone",
-      "description": "\"rsync for cloud storage\" - Google Drive, S3, Dropbox, Backblaze B2, One Drive, Swift, Hubic, Wasabi, Google Cloud Storage, Azure Blob, Azure Files, Yandex Files",
-      "repo": "https://github.com/rclone/rclone",
-      "homepage": "https://rclone.org",
-      "license": "MIT",
+      "name": "copilot-cli",
+      "description": "GitHub Copilot CLI brings the power of Copilot coding agent directly to your terminal. ",
+      "repo": "https://github.com/github/copilot-cli",
       "platforms": {
-        "freebsd-x86_64": {
-          "url": "https://github.com/rclone/rclone/releases/download/v1.72.1/rclone-v1.72.1-freebsd-386.zip",
-          "size": 25129731
-        },
-        "freebsd-armv6": {
-          "url": "https://github.com/rclone/rclone/releases/download/v1.72.1/rclone-v1.72.1-freebsd-arm-v6.zip",
-          "size": 24966921
-        },
-        "linux-x86_64": {
-          "url": "https://github.com/rclone/rclone/releases/download/v1.72.1/rclone-v1.72.1-linux-386.zip",
-          "size": 25502043
-        },
-        "linux-armv6": {
-          "url": "https://github.com/rclone/rclone/releases/download/v1.72.1/rclone-v1.72.1-linux-arm-v6.zip",
-          "size": 25299658
-        },
         "linux-aarch64": {
-          "url": "https://github.com/rclone/rclone/releases/download/v1.72.1/rclone-v1.72.1-linux-arm64.zip",
-          "size": 24622949
+          "url": "https://github.com/github/copilot-cli/releases/download/v0.0.374/copilot-linux-arm64.tar.gz",
+          "size": 60267169
         },
-        "darwin-x86_64": {
-          "url": "https://github.com/rclone/rclone/releases/download/v1.72.1/rclone-v1.72.1-osx-amd64.zip",
-          "size": 30253309
-        },
-        "darwin-aarch64": {
-          "url": "https://github.com/rclone/rclone/releases/download/v1.72.1/rclone-v1.72.1-osx-arm64.zip",
-          "size": 28143461
-        },
-        "windows-x86_64": {
-          "url": "https://github.com/rclone/rclone/releases/download/v1.72.1/rclone-v1.72.1-windows-386.zip",
-          "size": 25144797
+        "macos-x86_64": {
+          "url": "https://github.com/github/copilot-cli/releases/download/v0.0.374/copilot-darwin-x64.tar.gz",
+          "size": 57366440
         },
         "windows-aarch64": {
-          "url": "https://github.com/rclone/rclone/releases/download/v1.72.1/rclone-v1.72.1-windows-arm64.zip",
-          "size": 24394002
+          "url": "https://github.com/github/copilot-cli/releases/download/v0.0.374/copilot-win32-arm64.zip",
+          "size": 54423940
+        },
+        "windows-x86_64": {
+          "url": "https://github.com/github/copilot-cli/releases/download/v0.0.374/copilot-win32-x64.zip",
+          "size": 56828151
+        },
+        "macos-aarch64": {
+          "url": "https://github.com/github/copilot-cli/releases/download/v0.0.374/copilot-darwin-arm64.tar.gz",
+          "size": 54119308
+        },
+        "linux-x86_64": {
+          "url": "https://github.com/github/copilot-cli/releases/download/v0.0.374/copilot-linux-x64.tar.gz",
+          "size": 58450423
+        }
+      }
+    },
+    {
+      "name": "scrcpy",
+      "description": "Display and control your Android device",
+      "repo": "https://github.com/Genymobile/scrcpy",
+      "license": "Apache-2.0",
+      "platforms": {
+        "linux-x86_64": {
+          "url": "https://github.com/Genymobile/scrcpy/releases/download/v3.3.4/scrcpy-linux-x86_64-v3.3.4.tar.gz",
+          "size": 12854835
+        },
+        "macos-aarch64": {
+          "url": "https://github.com/Genymobile/scrcpy/releases/download/v3.3.4/scrcpy-macos-aarch64-v3.3.4.tar.gz",
+          "size": 9486795
+        },
+        "windows-aarch64": {
+          "url": "https://github.com/Genymobile/scrcpy/releases/download/v3.3.4/scrcpy-win64-v3.3.4.zip",
+          "size": 7287033
+        },
+        "windows-i686": {
+          "url": "https://github.com/Genymobile/scrcpy/releases/download/v3.3.4/scrcpy-win32-v3.3.4.zip",
+          "size": 6937302
+        },
+        "macos-x86_64": {
+          "url": "https://github.com/Genymobile/scrcpy/releases/download/v3.3.4/scrcpy-macos-x86_64-v3.3.4.tar.gz",
+          "size": 10155380
+        },
+        "windows-x86_64": {
+          "url": "https://github.com/Genymobile/scrcpy/releases/download/v3.3.4/scrcpy-win64-v3.3.4.zip",
+          "size": 7287033
+        }
+      }
+    },
+    {
+      "name": "bottom",
+      "description": "Yet another cross-platform graphical process/system monitor.",
+      "repo": "https://github.com/ClementTsang/bottom",
+      "homepage": "https://bottom.pages.dev",
+      "license": "MIT",
+      "platforms": {
+        "windows-x86_64-msvc": {
+          "url": "https://github.com/ClementTsang/bottom/releases/download/0.12.3/bottom_x86_64-pc-windows-msvc.zip",
+          "size": 1842730
+        },
+        "linux-aarch64-musl": {
+          "url": "https://github.com/ClementTsang/bottom/releases/download/0.12.3/bottom_aarch64-unknown-linux-musl.tar.gz",
+          "size": 1843889
+        },
+        "linux-armv7-musl": {
+          "url": "https://github.com/ClementTsang/bottom/releases/download/0.12.3/bottom_armv7-unknown-linux-musleabihf.tar.gz",
+          "size": 1897461
+        },
+        "windows-aarch64-msvc": {
+          "url": "https://github.com/ClementTsang/bottom/releases/download/0.12.3/bottom_aarch64-pc-windows-msvc.tar.gz",
+          "size": 1695803
+        },
+        "macos-aarch64": {
+          "url": "https://github.com/ClementTsang/bottom/releases/download/0.12.3/bottom_aarch64-apple-darwin.tar.gz",
+          "size": 1693979
+        },
+        "freebsd-x86_64": {
+          "url": "https://github.com/ClementTsang/bottom/releases/download/0.12.3/bottom_x86_64-unknown-freebsd-13.5.tar.gz",
+          "size": 1954499
+        },
+        "linux-i686-musl": {
+          "url": "https://github.com/ClementTsang/bottom/releases/download/0.12.3/bottom_i686-unknown-linux-musl.tar.gz",
+          "size": 1984999
+        },
+        "macos-x86_64": {
+          "url": "https://github.com/ClementTsang/bottom/releases/download/0.12.3/bottom_x86_64-apple-darwin.tar.gz",
+          "size": 1838700
+        },
+        "windows-i686-msvc": {
+          "url": "https://github.com/ClementTsang/bottom/releases/download/0.12.3/bottom_i686-pc-windows-msvc.zip",
+          "size": 1694579
+        },
+        "linux-x86_64-musl": {
+          "url": "https://github.com/ClementTsang/bottom/releases/download/0.12.3/bottom_x86_64-unknown-linux-musl.tar.gz",
+          "size": 2056975
+        }
+      }
+    },
+    {
+      "name": "wemux",
+      "description": "Play sound through every HDMI screen at once—simple, seamless multi-output audio on Windows.",
+      "repo": "https://github.com/superyngo/wemux",
+      "license": "MIT",
+      "platforms": {
+        "windows-i686": {
+          "url": "https://github.com/superyngo/wemux/releases/download/v0.2.1/wemux-service-windows-i686.exe",
+          "size": 1577984
+        },
+        "windows-x86_64": {
+          "url": "https://github.com/superyngo/wemux/releases/download/v0.2.1/wemux-service-windows-x86_64.exe",
+          "size": 1907712
         }
       }
     },
@@ -731,25 +515,25 @@
       "homepage": "https://sinelaw.github.io/fresh/",
       "license": "GPL-2.0",
       "platforms": {
-        "darwin-aarch64": {
-          "url": "https://github.com/sinelaw/fresh/releases/download/v0.1.67/fresh-editor-aarch64-apple-darwin.tar.xz",
-          "size": 16279668
+        "linux-x86_64-musl": {
+          "url": "https://github.com/sinelaw/fresh/releases/download/v0.1.69/fresh-editor-no-plugins-x86_64-unknown-linux-musl.tar.gz",
+          "size": 20424501
         },
-        "linux-aarch64": {
-          "url": "https://github.com/sinelaw/fresh/releases/download/v0.1.67/fresh-editor-no-plugins-aarch64-unknown-linux-musl.tar.gz",
-          "size": 18094002
+        "macos-x86_64": {
+          "url": "https://github.com/sinelaw/fresh/releases/download/v0.1.69/fresh-editor-x86_64-apple-darwin.tar.xz",
+          "size": 18785552
         },
-        "linux-x86_64": {
-          "url": "https://github.com/sinelaw/fresh/releases/download/v0.1.67/fresh-editor-no-plugins-x86_64-unknown-linux-musl.tar.gz",
-          "size": 18562351
+        "linux-aarch64-musl": {
+          "url": "https://github.com/sinelaw/fresh/releases/download/v0.1.69/fresh-editor-no-plugins-aarch64-unknown-linux-musl.tar.gz",
+          "size": 20474135
         },
-        "darwin-x86_64": {
-          "url": "https://github.com/sinelaw/fresh/releases/download/v0.1.67/fresh-editor-x86_64-apple-darwin.tar.xz",
-          "size": 17905660
+        "macos-aarch64": {
+          "url": "https://github.com/sinelaw/fresh/releases/download/v0.1.69/fresh-editor-aarch64-apple-darwin.tar.xz",
+          "size": 16936156
         },
-        "windows-x86_64": {
-          "url": "https://github.com/sinelaw/fresh/releases/download/v0.1.67/fresh-editor-x86_64-pc-windows-msvc.zip",
-          "size": 23850174
+        "windows-x86_64-msvc": {
+          "url": "https://github.com/sinelaw/fresh/releases/download/v0.1.69/fresh-editor-x86_64-pc-windows-msvc.zip",
+          "size": 25036021
         }
       }
     },
@@ -760,64 +544,310 @@
       "homepage": "https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/",
       "license": "Apache-2.0",
       "platforms": {
-        "darwin-x86_64": {
-          "url": "https://github.com/cloudflare/cloudflared/releases/download/2025.11.1/cloudflared-darwin-amd64.tgz",
-          "size": 21085433
-        },
-        "darwin-aarch64": {
+        "macos-aarch64": {
           "url": "https://github.com/cloudflare/cloudflared/releases/download/2025.11.1/cloudflared-darwin-arm64.tgz",
           "size": 19389806
         },
         "windows-x86_64": {
+          "url": "https://github.com/cloudflare/cloudflared/releases/download/2025.11.1/cloudflared-windows-amd64.exe",
+          "size": 68619648
+        },
+        "windows-i686": {
           "url": "https://github.com/cloudflare/cloudflared/releases/download/2025.11.1/cloudflared-windows-386.exe",
           "size": 37995144
+        },
+        "windows-aarch64": {
+          "url": "https://github.com/cloudflare/cloudflared/releases/download/2025.11.1/cloudflared-windows-386.exe",
+          "size": 37995144
+        },
+        "macos-x86_64": {
+          "url": "https://github.com/cloudflare/cloudflared/releases/download/2025.11.1/cloudflared-darwin-amd64.tgz",
+          "size": 21085433
+        }
+      }
+    },
+    {
+      "name": "hexyl",
+      "description": "A command-line hex viewer",
+      "repo": "https://github.com/sharkdp/hexyl",
+      "license": "Apache-2.0",
+      "platforms": {
+        "linux-armv7-musl": {
+          "url": "https://github.com/sharkdp/hexyl/releases/download/v0.16.0/hexyl-v0.16.0-arm-unknown-linux-musleabihf.tar.gz",
+          "size": 529508
+        },
+        "linux-aarch64-gnu": {
+          "url": "https://github.com/sharkdp/hexyl/releases/download/v0.16.0/hexyl-v0.16.0-aarch64-unknown-linux-gnu.tar.gz",
+          "size": 464761
+        },
+        "windows-x86_64-msvc": {
+          "url": "https://github.com/sharkdp/hexyl/releases/download/v0.16.0/hexyl-v0.16.0-x86_64-pc-windows-msvc.zip",
+          "size": 361368
+        },
+        "windows-i686-msvc": {
+          "url": "https://github.com/sharkdp/hexyl/releases/download/v0.16.0/hexyl-v0.16.0-i686-pc-windows-msvc.zip",
+          "size": 338637
+        },
+        "macos-aarch64": {
+          "url": "https://github.com/sharkdp/hexyl/releases/download/v0.16.0/hexyl-v0.16.0-aarch64-apple-darwin.tar.gz",
+          "size": 434542
+        },
+        "macos-x86_64": {
+          "url": "https://github.com/sharkdp/hexyl/releases/download/v0.16.0/hexyl-v0.16.0-x86_64-apple-darwin.tar.gz",
+          "size": 456236
+        },
+        "linux-x86_64-musl": {
+          "url": "https://github.com/sharkdp/hexyl/releases/download/v0.16.0/hexyl-v0.16.0-x86_64-unknown-linux-musl.tar.gz",
+          "size": 533131
+        },
+        "linux-i686-musl": {
+          "url": "https://github.com/sharkdp/hexyl/releases/download/v0.16.0/hexyl-v0.16.0-i686-unknown-linux-musl.tar.gz",
+          "size": 544104
+        }
+      }
+    },
+    {
+      "name": "cate",
+      "description": "A lightweight CLI tool to display file contents with encoding support - like cat with better encoding handling.",
+      "repo": "https://github.com/superyngo/cate",
+      "license": "MIT",
+      "platforms": {
+        "macos-aarch64": {
+          "url": "https://github.com/superyngo/cate/releases/download/v0.4.2/cate-macos-aarch64.tar.gz",
+          "size": 1434018
+        },
+        "linux-aarch64-musl": {
+          "url": "https://github.com/superyngo/cate/releases/download/v0.4.2/cate-linux-aarch64-musl.tar.gz",
+          "size": 1482998
+        },
+        "macos-x86_64": {
+          "url": "https://github.com/superyngo/cate/releases/download/v0.4.2/cate-macos-x86_64.tar.gz",
+          "size": 1441790
+        },
+        "linux-x86_64-musl": {
+          "url": "https://github.com/superyngo/cate/releases/download/v0.4.2/cate-linux-x86_64-musl.tar.gz",
+          "size": 1510482
+        },
+        "windows-i686": {
+          "url": "https://github.com/superyngo/cate/releases/download/v0.4.2/cate-windows-i686.exe",
+          "size": 2258944
+        },
+        "linux-armv7-musl": {
+          "url": "https://github.com/superyngo/cate/releases/download/v0.4.2/cate-linux-armv7-musl.tar.gz",
+          "size": 1458535
+        },
+        "linux-i686-musl": {
+          "url": "https://github.com/superyngo/cate/releases/download/v0.4.2/cate-linux-i686-musl.tar.gz",
+          "size": 1517851
+        },
+        "windows-x86_64": {
+          "url": "https://github.com/superyngo/cate/releases/download/v0.4.2/cate-windows-x86_64.exe",
+          "size": 2419712
+        }
+      }
+    },
+    {
+      "name": "rclone",
+      "description": "\"rsync for cloud storage\" - Google Drive, S3, Dropbox, Backblaze B2, One Drive, Swift, Hubic, Wasabi, Google Cloud Storage, Azure Blob, Azure Files, Yandex Files",
+      "repo": "https://github.com/rclone/rclone",
+      "homepage": "https://rclone.org",
+      "license": "MIT",
+      "platforms": {
+        "macos-aarch64": {
+          "url": "https://github.com/rclone/rclone/releases/download/v1.72.1/rclone-v1.72.1-osx-arm64.zip",
+          "size": 28143461
+        },
+        "linux-x86_64": {
+          "url": "https://github.com/rclone/rclone/releases/download/v1.72.1/rclone-v1.72.1-linux-amd64.zip",
+          "size": 27040798
+        },
+        "linux-i686": {
+          "url": "https://github.com/rclone/rclone/releases/download/v1.72.1/rclone-v1.72.1-linux-386.zip",
+          "size": 25502043
+        },
+        "macos-x86_64": {
+          "url": "https://github.com/rclone/rclone/releases/download/v1.72.1/rclone-v1.72.1-osx-amd64.zip",
+          "size": 30253309
+        },
+        "windows-i686": {
+          "url": "https://github.com/rclone/rclone/releases/download/v1.72.1/rclone-v1.72.1-windows-386.zip",
+          "size": 25144797
+        },
+        "freebsd-x86_64": {
+          "url": "https://github.com/rclone/rclone/releases/download/v1.72.1/rclone-v1.72.1-freebsd-amd64.zip",
+          "size": 26672305
+        },
+        "windows-x86_64": {
+          "url": "https://github.com/rclone/rclone/releases/download/v1.72.1/rclone-v1.72.1-windows-amd64.zip",
+          "size": 27013218
+        },
+        "linux-armv7": {
+          "url": "https://github.com/rclone/rclone/releases/download/v1.72.1/rclone-v1.72.1-linux-386.zip",
+          "size": 25502043
+        },
+        "windows-aarch64": {
+          "url": "https://github.com/rclone/rclone/releases/download/v1.72.1/rclone-v1.72.1-windows-arm64.zip",
+          "size": 24394002
+        },
+        "linux-aarch64": {
+          "url": "https://github.com/rclone/rclone/releases/download/v1.72.1/rclone-v1.72.1-linux-arm64.zip",
+          "size": 24622949
+        }
+      }
+    },
+    {
+      "name": "bun",
+      "description": "Incredibly fast JavaScript runtime, bundler, test runner, and package manager – all in one",
+      "repo": "https://github.com/oven-sh/bun",
+      "homepage": "https://bun.com",
+      "license": "NOASSERTION",
+      "platforms": {
+        "windows-x86_64": {
+          "url": "https://github.com/oven-sh/bun/releases/download/bun-v1.3.5/bun-windows-x64-baseline-profile.zip",
+          "size": 160214851
+        },
+        "linux-aarch64-musl": {
+          "url": "https://github.com/oven-sh/bun/releases/download/bun-v1.3.5/bun-linux-aarch64-musl-profile.zip",
+          "size": 167726948
+        },
+        "linux-x86_64-musl": {
+          "url": "https://github.com/oven-sh/bun/releases/download/bun-v1.3.5/bun-linux-x64-musl-baseline-profile.zip",
+          "size": 175819065
+        },
+        "macos-x86_64": {
+          "url": "https://github.com/oven-sh/bun/releases/download/bun-v1.3.5/bun-darwin-x64-baseline-profile.zip",
+          "size": 420104038
+        },
+        "macos-aarch64": {
+          "url": "https://github.com/oven-sh/bun/releases/download/bun-v1.3.5/bun-darwin-aarch64-profile.zip",
+          "size": 412539283
+        }
+      }
+    },
+    {
+      "name": "wedi",
+      "description": "A terminal text editor written in Rust",
+      "repo": "https://github.com/superyngo/wedi",
+      "license": "MIT",
+      "platforms": {
+        "linux-x86_64-musl": {
+          "url": "https://github.com/superyngo/wedi/releases/download/v0.5.2/wedi-linux-x86_64-musl.tar.gz",
+          "size": 1644495
+        },
+        "windows-i686": {
+          "url": "https://github.com/superyngo/wedi/releases/download/v0.5.2/wedi-windows-i686.exe",
+          "size": 2624000
+        },
+        "macos-aarch64": {
+          "url": "https://github.com/superyngo/wedi/releases/download/v0.5.2/wedi-macos-aarch64.tar.gz",
+          "size": 1548011
+        },
+        "windows-x86_64": {
+          "url": "https://github.com/superyngo/wedi/releases/download/v0.5.2/wedi-windows-x86_64.exe",
+          "size": 2833920
+        },
+        "linux-armv7-musl": {
+          "url": "https://github.com/superyngo/wedi/releases/download/v0.5.2/wedi-linux-armv7-musl.tar.gz",
+          "size": 1586024
+        },
+        "linux-aarch64-musl": {
+          "url": "https://github.com/superyngo/wedi/releases/download/v0.5.2/wedi-linux-aarch64-musl.tar.gz",
+          "size": 1613071
+        },
+        "macos-x86_64": {
+          "url": "https://github.com/superyngo/wedi/releases/download/v0.5.2/wedi-macos-x86_64.tar.gz",
+          "size": 1559319
+        },
+        "linux-i686-musl": {
+          "url": "https://github.com/superyngo/wedi/releases/download/v0.5.2/wedi-linux-i686-musl.tar.gz",
+          "size": 1651105
+        }
+      }
+    },
+    {
+      "name": "deno",
+      "description": "A modern runtime for JavaScript and TypeScript.",
+      "repo": "https://github.com/denoland/deno",
+      "homepage": "https://deno.com",
+      "license": "MIT",
+      "platforms": {
+        "macos-aarch64": {
+          "url": "https://github.com/denoland/deno/releases/download/v2.6.3/deno-aarch64-apple-darwin.zip",
+          "size": 41102109
+        },
+        "windows-x86_64-msvc": {
+          "url": "https://github.com/denoland/deno/releases/download/v2.6.3/deno-x86_64-pc-windows-msvc.zip",
+          "size": 45383469
+        },
+        "linux-x86_64-gnu": {
+          "url": "https://github.com/denoland/deno/releases/download/v2.6.3/deno-x86_64-unknown-linux-gnu.zip",
+          "size": 46450235
+        },
+        "linux-aarch64-gnu": {
+          "url": "https://github.com/denoland/deno/releases/download/v2.6.3/deno-aarch64-unknown-linux-gnu.zip",
+          "size": 44532261
+        },
+        "macos-x86_64": {
+          "url": "https://github.com/denoland/deno/releases/download/v2.6.3/deno-x86_64-apple-darwin.zip",
+          "size": 43913212
         }
       }
     }
   ],
-  "last_updated": "2026-01-02T06:29:28Z",
   "scripts": [
-    {
-      "name": "mini-nano",
-      "description": "Shell and PowerShell utility scripts",
-      "url": "https://gist.githubusercontent.com/superyngo/c77bbbf67759cc4213aac12ebe980225/raw/7f15ba60b10727621e57d9d9f31aece8b8d74b0f/mini-nano.ps1",
-      "script_type": "powershell",
-      "repo": "https://gist.github.com/superyngo/c77bbbf67759cc4213aac12ebe980225"
-    },
     {
       "name": "wrtman",
       "description": "Manage logrotate configurations",
-      "url": "https://gist.githubusercontent.com/superyngo/7ff78b1ccc213ff6a6cb3b1b2dbd77d0/raw/66a6bf805a12e83dd1104c8b360691ff7ad902a3/wrtman.sh",
-      "script_type": "bash",
-      "repo": "https://gist.github.com/superyngo/7ff78b1ccc213ff6a6cb3b1b2dbd77d0"
+      "repo": "https://gist.github.com/superyngo/7ff78b1ccc213ff6a6cb3b1b2dbd77d0",
+      "platforms": {
+        "bash": {
+          "url": "https://gist.githubusercontent.com/superyngo/7ff78b1ccc213ff6a6cb3b1b2dbd77d0/raw/66a6bf805a12e83dd1104c8b360691ff7ad902a3/wrtman.sh"
+        }
+      }
     },
     {
       "name": "wappman",
       "description": "Application process manager with monitoring capabilities",
-      "url": "https://gist.githubusercontent.com/superyngo/a9543b560d59ceeb2d5fcb9eab87c560/raw/c9cf3b7233b5dc776d43b88c5e37c374f65325eb/wappman.sh",
-      "script_type": "bash",
-      "repo": "https://gist.github.com/superyngo/a9543b560d59ceeb2d5fcb9eab87c560"
+      "repo": "https://gist.github.com/superyngo/a9543b560d59ceeb2d5fcb9eab87c560",
+      "platforms": {
+        "bash": {
+          "url": "https://gist.githubusercontent.com/superyngo/a9543b560d59ceeb2d5fcb9eab87c560/raw/c9cf3b7233b5dc776d43b88c5e37c374f65325eb/wappman.sh"
+        }
+      }
     },
     {
-      "name": "rclonemm",
-      "description": "Manage rclone mount through ssh config.",
-      "url": "https://gist.githubusercontent.com/superyngo/f74f4749882df654dfdf286b7f718a9e/raw/027c12a11d1b37a80d90b2246ce0b2b7ba716568/rclonemm.ps1",
-      "script_type": "powershell",
-      "repo": "https://gist.github.com/superyngo/f74f4749882df654dfdf286b7f718a9e"
-    },
-    {
-      "name": "rclonemm",
-      "description": "Manage rclone mount through ssh config.",
-      "url": "https://gist.githubusercontent.com/superyngo/f74f4749882df654dfdf286b7f718a9e/raw/ab757a2edd519ec73f696db5ed8154619e257e41/rclonemm.sh",
-      "script_type": "bash",
-      "repo": "https://gist.github.com/superyngo/f74f4749882df654dfdf286b7f718a9e"
+      "name": "mini-nano",
+      "description": "Shell and PowerShell utility scripts",
+      "repo": "https://gist.github.com/superyngo/c77bbbf67759cc4213aac12ebe980225",
+      "platforms": {
+        "powershell": {
+          "url": "https://gist.githubusercontent.com/superyngo/c77bbbf67759cc4213aac12ebe980225/raw/7f15ba60b10727621e57d9d9f31aece8b8d74b0f/mini-nano.ps1"
+        }
+      }
     },
     {
       "name": "better-rm",
-      "description": "better-rm from https://github.com/doggy8088/better-rm",
-      "url": "https://raw.githubusercontent.com/doggy8088/better-rm/refs/heads/main/better-rm",
-      "script_type": "bash",
-      "repo": "https://github.com/doggy8088/better-rm"
+      "description": "Bash script",
+      "repo": "https://github.com/doggy8088",
+      "platforms": {
+        "bash": {
+          "url": "https://raw.githubusercontent.com/doggy8088/better-rm/refs/heads/main/better-rm"
+        }
+      }
+    },
+    {
+      "name": "rclonemm",
+      "description": "Manage rclone mount through ssh config.",
+      "repo": "https://gist.github.com/superyngo/f74f4749882df654dfdf286b7f718a9e",
+      "platforms": {
+        "powershell": {
+          "url": "https://gist.githubusercontent.com/superyngo/f74f4749882df654dfdf286b7f718a9e/raw/027c12a11d1b37a80d90b2246ce0b2b7ba716568/rclonemm.ps1"
+        },
+        "bash": {
+          "url": "https://gist.githubusercontent.com/superyngo/f74f4749882df654dfdf286b7f718a9e/raw/ab757a2edd519ec73f696db5ed8154619e257e41/rclonemm.sh"
+        }
+      }
     }
-  ]
+  ],
+  "last_updated": "2026-01-03T00:50:24Z"
 }
