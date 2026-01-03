@@ -10,17 +10,16 @@ This is a Wenget bucket - a curated collection of CLI tools and scripts for the 
 
 ### Generate manifest
 ```bash
-python scripts/generate_manifest.py sources_repos.txt -s sources_scripts.txt -o manifest.json
+# Using wenget binary (preferred)
+./wenget bucket create -r sources_repos.txt -s sources_scripts.txt -o manifest.json
+
+# With direct URLs
+./wenget bucket create -d https://github.com/user/repo,https://gist.github.com/user/id
 ```
 
 ### Validate manifest
 ```bash
-python scripts/validate_manifest.py manifest.json
-```
-
-### Run test suite
-```bash
-bash scripts/test_scripts.sh
+python3 -c "import json; d=json.load(open('manifest.json')); print(f'✓ {len(d[\"packages\"])} packages, {len(d.get(\"scripts\",[]))} scripts')"
 ```
 
 ## Architecture
@@ -29,21 +28,20 @@ bash scripts/test_scripts.sh
 - `sources_repos.txt` - GitHub repository URLs for binary packages (one per line, `#` for comments)
 - `sources_scripts.txt` - Script source URLs (supports both Gist URLs and raw script URLs)
   - Gist URLs: Auto-extracts all scripts from each gist
-  - Raw URLs: Direct links to script files (e.g., `https://raw.githubusercontent.com/user/repo/main/script`)
+  - Raw URLs: Direct links to script files
 
 ### Generated Output
 - `manifest.json` - Contains `packages` array (binary releases from GitHub repos) and `scripts` array (from Gists), plus `last_updated` timestamp
 
-### Scripts
-- `scripts/generate_manifest.py` - Fetches GitHub API to build manifest from source files. Uses `GITHUB_TOKEN` env var for API rate limits. Detects platforms using 4-component keyword matching (extension, platform, architecture, compiler). For scripts without extensions, detects type by checking shebang line. See [Platform Detection Logic](docs/platform-detection.md) for details.
-- `scripts/validate_manifest.py` - Validates manifest structure and required fields
-- `scripts/test_scripts.sh` - Test suite for the generation scripts
+### Wenget Binary
+- `wenget` - Pre-compiled Wenget binary (Linux x86_64 musl) used for manifest generation
+- Update manually from [Wenget Releases](https://github.com/superyngo/Wenget/releases)
 
-### Documentation
-- `docs/platform-detection.md` - Platform detection algorithm and keyword mappings reference
+### Archived (Legacy)
+- `archive/scripts/` - Old Python-based generation scripts (no longer used)
 
 ### CI/CD
-- `.github/workflows/update-manifest.yml` - Runs daily, on manual trigger, or when source files change. Regenerates and commits manifest.json automatically.
+- `.github/workflows/update-manifest.yml` - Runs weekly (Monday), on manual trigger, or when source files change. Uses wenget binary to regenerate manifest.
 
 ## Adding Content
 
@@ -52,3 +50,10 @@ bash scripts/test_scripts.sh
 **Script**: Add URL to `sources_scripts.txt`
 - Gist URL: `https://gist.github.com/username/gist_id` (auto-extracts all .ps1, .sh, .bat, .cmd, .py scripts)
 - Raw script URL: `https://raw.githubusercontent.com/user/repo/branch/path/script` (detects type from extension or shebang)
+
+## Updating Wenget Binary
+
+When a new version of Wenget is released:
+1. Download the latest `wenget-linux-x86_64-musl.tar.gz` from releases
+2. Extract and replace `./wenget` in repo root
+3. Commit and push

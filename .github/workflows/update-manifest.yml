@@ -1,7 +1,7 @@
 name: Update Bucket Manifest
 
 on:
-  # Run daily at midnight UTC
+  # Run weekly on Monday at midnight UTC
   schedule:
     - cron: '0 0 * * 1'
 
@@ -13,7 +13,6 @@ on:
     paths:
       - 'sources_repos.txt'
       - 'sources_scripts.txt'
-      - 'scripts/**'
 
 jobs:
   update-manifest:
@@ -25,20 +24,29 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.11'
-
-      - name: Generate manifest
+      - name: Generate manifest with wenget
         run: |
-          python scripts/generate_manifest.py sources_repos.txt -s sources_scripts.txt -o manifest.json
+          # Use pre-uploaded wenget binary
+          chmod +x ./wenget
+          ./wenget bucket create -r sources_repos.txt -s sources_scripts.txt -o manifest.json
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Validate manifest
         run: |
-          python scripts/validate_manifest.py manifest.json
+          # Simple JSON validation and count
+          python3 -c "
+          import json
+          import sys
+          try:
+              data = json.load(open('manifest.json'))
+              pkgs = len(data.get('packages', []))
+              scripts = len(data.get('scripts', []))
+              print(f'✓ Valid manifest: {pkgs} packages, {scripts} scripts')
+          except Exception as e:
+              print(f'✗ Invalid manifest: {e}')
+              sys.exit(1)
+          "
 
       - name: Check for changes
         id: changes
@@ -61,14 +69,14 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
           # Count packages and scripts
-          COUNTS=$(python -c "import json; data=json.load(open('manifest.json')); print(f\"{len(data.get('packages', []))} packages, {len(data.get('scripts', []))} scripts\")")
+          COUNTS=$(python3 -c "import json; data=json.load(open('manifest.json')); print(f\"{len(data.get('packages', []))} packages, {len(data.get('scripts', []))} scripts\")")
 
           git add manifest.json
           git commit -m "chore: Update manifest - $(date -u +%Y-%m-%d)
 
           - Total: $COUNTS
           - Trigger: ${{ github.event_name }}
-          - Updated by: GitHub Actions
+          - Updated by: wenget + GitHub Actions
 
           🤖 Automated update"
           git push
@@ -76,8 +84,8 @@ jobs:
       - name: Create summary
         if: always()
         run: |
-          PACKAGE_COUNT=$(python -c "import json; data=json.load(open('manifest.json')); print(len(data.get('packages', [])))" 2>/dev/null || echo "N/A")
-          SCRIPT_COUNT=$(python -c "import json; data=json.load(open('manifest.json')); print(len(data.get('scripts', [])))" 2>/dev/null || echo "N/A")
+          PACKAGE_COUNT=$(python3 -c "import json; data=json.load(open('manifest.json')); print(len(data.get('packages', [])))" 2>/dev/null || echo "N/A")
+          SCRIPT_COUNT=$(python3 -c "import json; data=json.load(open('manifest.json')); print(len(data.get('scripts', [])))" 2>/dev/null || echo "N/A")
 
           echo "## 📦 Manifest Update Summary" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
